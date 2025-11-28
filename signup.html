@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CloudVista – Your personal AI scout</title>
+  <title>CloudVista – Set up your personal AI scout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="signup-page">
   <header class="site-header">
     <div class="page-container header-inner">
       <a href="index.html" class="logo">
@@ -19,111 +19,217 @@
         </div>
       </a>
       <nav class="nav">
-        <a href="index.html" class="nav-active">Home</a>
-        <a href="#features">Features</a>
-        <a href="signup.html">Set up your AI scout</a>
+        <a href="index.html">Home</a>
+        <a href="index.html#features">Features</a>
+        <a href="signup.html" class="nav-active">Set up your AI scout</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <!-- HERO -->
-    <section class="hero hero-light">
-      <div class="page-container hero-inner">
-        <div class="hero-copy">
-          <p class="tagline">Personal AI scout · Signal, not noise</p>
-          <h1>CloudVista: your world, minus the noise.</h1>
-          <p class="hero-sub">
-            CloudVista learns the markets, people and signals that matter to you –
-            then comes back with a short list of moves worth acting on, every week.
-          </p>
-          <div class="hero-actions">
-            <a href="signup.html" class="button primary">Set up your personal AI scout</a>
-            <a href="#features" class="button ghost">See where it helps</a>
-          </div>
-          <p class="hero-note">
-            No dashboards to babysit. No feed to doom-scroll. Just a personal AI scout
-            that quietly learns your pattern and tells you what matters.
-          </p>
-        </div>
+  <main class="signup-main">
+    <div class="signup-card">
+      <h1>Set up your personal AI scout</h1>
+      <p class="signup-lead">
+        A lightweight profile so CloudVista understands who you are, how you work
+        and what commercial signals are worth your attention.
+      </p>
 
-        <div class="hero-panel">
-          <div class="hero-card">
-            <h2>Each week, your AI scout brings you…</h2>
-            <ul class="hero-list">
-              <li>5–10 concrete moves where your insight or relationships actually matter.</li>
-              <li>A shortlist of accounts, contacts or contracts to nudge – not 200 “potential leads”.</li>
-              <li>A simple narrative of why these surfaced, based on how you’ve acted before.</li>
-            </ul>
-            <p class="hero-card-note">
-              You stay close to conversations and decisions. Your personal AI scout
-              handles the monitoring and pattern-spotting in the background.
-            </p>
-          </div>
+      <!-- 1. Who you are -->
+      <h2>1. Who are you?</h2>
+      <input
+        type="text"
+        id="role"
+        placeholder="Your role (e.g. Executive Search Partner, Investment Analyst, Bid Lead)"
+      />
+      <input
+        type="text"
+        id="orgType"
+        placeholder="Organisation (e.g. Search firm, PE fund, Consultancy, Supplier)"
+        class="mt-8"
+      />
+      <input
+        type="text"
+        id="geo"
+        placeholder="Where you mainly operate (e.g. UK & Europe, US, Global)"
+        class="mt-8"
+      />
+
+      <!-- 2. What you want your AI scout to do -->
+      <h2>2. What do you want your AI scout to help with?</h2>
+      <textarea
+        id="goals"
+        rows="3"
+        placeholder="In your own words – e.g. ‘Spot retained search opportunities in oncology biotech before they go public’, ‘Track portfolio companies for leadership changes’, ‘See public sector work early enough to shape it’, etc."
+      ></textarea>
+      <div class="chips" id="useCaseChips">
+        <div class="chip">Executive search</div>
+        <div class="chip">Contingent recruitment</div>
+        <div class="chip">Investment research</div>
+        <div class="chip">Portfolio monitoring</div>
+        <div class="chip">Government / public sector</div>
+        <div class="chip">Competitive / market intelligence</div>
+        <div class="chip">Job seeking / career moves</div>
+      </div>
+
+      <!-- 3. Sectors / markets -->
+      <h2>3. What sectors should your AI scout focus on?</h2>
+      <input
+        type="text"
+        id="sectors"
+        placeholder="e.g. Life sciences, Higher Education, Climate & Infrastructure, Financial services, Government & public sector"
+      />
+      <div class="chips" id="sectorChips">
+        <div class="chip">Life sciences & biotech</div>
+        <div class="chip">Higher education & research</div>
+        <div class="chip">Finance & investment</div>
+        <div class="chip">Climate, infra & energy</div>
+        <div class="chip">Government & public sector</div>
+        <div class="chip">Non-profits & impact</div>
+      </div>
+
+      <!-- 4. Signals & news sources -->
+      <h2>4. What signals and sources should it watch?</h2>
+      <div class="chips" id="signalChips">
+        <div class="chip">Funding rounds</div>
+        <div class="chip">Hiring spikes & freezes</div>
+        <div class="chip">Leadership moves</div>
+        <div class="chip">M&amp;A & partnerships</div>
+        <div class="chip">Org restructures</div>
+        <div class="chip">Programmes / project launches</div>
+        <div class="chip">Regulatory changes</div>
+        <div class="chip">Research & publications</div>
+      </div>
+
+      <textarea
+        id="newsSources"
+        rows="3"
+        class="mt-8"
+        placeholder="Any specific outlets, newsletters, blogs, regulators or journals you want your AI scout to keep an eye on."
+      ></textarea>
+      <div class="chips" id="newsChips">
+        <div class="chip">Trade & industry press</div>
+        <div class="chip">Government press releases</div>
+        <div class="chip">Company blogs & newsrooms</div>
+        <div class="chip">Regulators & filings</div>
+        <div class="chip">Academic journals</div>
+        <div class="chip">Analyst / research notes</div>
+      </div>
+
+      <!-- 5. Reporting cadence -->
+      <h2>5. How often should your AI scout report back?</h2>
+      <div class="chips" id="deliveryChips">
+        <div class="chip">Daily intelligence</div>
+        <div class="chip">Weekly briefing</div>
+      </div>
+
+      <div id="weeklyContainer" class="weekly-container" style="display:none;">
+        <h2>Preferred days for your weekly briefing</h2>
+        <div class="weekdays" id="weekdaySelector">
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+          <div class="day">Sun</div>
         </div>
       </div>
-    </section>
 
-    <!-- WHAT CLOUDVISTA DOES FOR YOU -->
-    <section class="section section-simple">
-      <div class="page-container">
-        <h2>What CloudVista does for you</h2>
-        <div class="pill-row">
-          <div class="pill-card">
-            <h3>Understands your world</h3>
-            <p>
-              You give it the markets, organisations and network you actually care about.
-              Your personal AI scout ignores everything outside that universe.
-            </p>
-          </div>
-          <div class="pill-card">
-            <h3>Learns your network</h3>
-            <p>
-              You upload the accounts and contacts you work with. Over time, CloudVista
-              learns where your relationships are strongest and where they unlock access.
-            </p>
-          </div>
-          <div class="pill-card">
-            <h3>Focuses you on what matters</h3>
-            <p>
-              Instead of an alert firehose, you get a ranked shortlist of opportunities
-              that look like the ones you actually convert.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      <h2>Preferred time of day</h2>
+      <input
+        type="time"
+        id="deliveryTime"
+        value="09:00"
+      />
+      <p class="small-hint">
+        Your AI scout will aim to send fresh commercial intelligence around this time.
+      </p>
 
-    <!-- FEATURES / SECTORS SECTION -->
-    <section id="features" class="section">
-      <div class="page-container">
-        <h2>Where a personal AI scout earns its keep</h2>
-        <p class="section-lead">
-          CloudVista is built for people who live off public signals, weak ties and timing –
-          and need a clearer view of where to move next.
-        </p>
+      <!-- 6. Where to send it -->
+      <h2>6. Where should your AI scout send its briefings?</h2>
+      <input
+        type="email"
+        id="email"
+        placeholder="Work email (you@company.com)"
+      />
+      <input
+        type="password"
+        id="password"
+        placeholder="Create a password"
+        class="mt-8"
+      />
 
-        <div class="feature-grid feature-grid-tight">
-          <article class="feature-card feature-card-compact">
-            <h3>Executive search &amp; talent intelligence</h3>
-            <p>Spot leadership moves, new units and exits before “we need a search” hits your inbox.</p>
-          </article>
+      <button type="button" class="signup-button" onclick="submitForm()">
+        Save my CloudVista profile
+      </button>
+      <p class="signup-footnote">
+        This doesn’t start sending anything yet – it captures your preferences so we
+        can tune your personal AI scout and preview what your weekly briefings could look like.
+      </p>
+    </div>
+  </main>
 
-          <article class="feature-card feature-card-compact">
-            <h3>Recruitment &amp; specialist agencies</h3>
-            <p>See which clients are about to grow, restructure or quietly replace teams.</p>
-          </article>
+  <footer class="site-footer">
+    <div class="page-container footer-inner">
+      <p>© 2025 CloudVista.</p>
+      <a href="index.html">Back to home</a>
+    </div>
+  </footer>
 
-          <article class="feature-card feature-card-compact">
-            <h3>Private equity &amp; venture capital</h3>
-            <p>Track portfolio and pipeline companies for inflection points worth a call or memo.</p>
-          </article>
+  <script>
+    // Generic chip selection (multi-select, with single-select for cadence)
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const parent = chip.parentElement;
 
-          <article class="feature-card feature-card-compact">
-            <h3>Public markets &amp; asset management</h3>
-            <p>Use leadership, hiring and product shifts to sharpen theses and idea generation.</p>
-          </article>
+        // Reporting cadence is single-select
+        if (parent.id === 'deliveryChips') {
+          parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+        }
 
-          <article class="feature-card feature-card-compact">
-            <h3>Government &amp; public-sector suppliers</h3>
-            <p>Watch departments, trials an
+        chip.classList.toggle('selected');
+
+        // Show/hide weekly day picker
+        if (parent.id === 'deliveryChips') {
+          const selection = chip.innerText.trim();
+          const weeklyBox = document.getElementById('weeklyContainer');
+          weeklyBox.style.display = selection === 'Weekly briefing' ? 'block' : 'none';
+        }
+      });
+    });
+
+    // Weekly days toggle
+    document.querySelectorAll('.day').forEach(day => {
+      day.addEventListener('click', () => {
+        day.classList.toggle('selected');
+      });
+    });
+
+    function submitForm() {
+      const getSelectedTexts = (selector) =>
+        Array.from(document.querySelectorAll(selector + ' .selected')).map(el => el.innerText.trim());
+
+      const profile = {
+        role: document.getElementById('role').value,
+        org_type: document.getElementById('orgType').value,
+        geography: document.getElementById('geo').value,
+        goals_text: document.getElementById('goals').value,
+        goals_tags: getSelectedTexts('#useCaseChips'),
+        sectors_text: document.getElementById('sectors').value,
+        sectors_tags: getSelectedTexts('#sectorChips'),
+        signals_tags: getSelectedTexts('#signalChips'),
+        news_sources_text: document.getElementById('newsSources').value,
+        news_sources_tags: getSelectedTexts('#newsChips'),
+        delivery_cadence: getSelectedTexts('#deliveryChips')[0] || null,
+        delivery_days: getSelectedTexts('#weekdaySelector'),
+        delivery_time: document.getElementById('deliveryTime').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+      };
+
+      console.log('CloudVista profile:', profile);
+      alert('Preferences captured. Open the browser console to see your CloudVista profile JSON.');
+    }
+  </script>
+</body>
+</html>
