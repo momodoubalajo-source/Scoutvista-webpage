@@ -4,15 +4,386 @@
   <meta charset="UTF-8" />
   <title>CloudVista – Your personal AI scout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+
+<style>
+/* ===========================
+   Base, layout & typography
+   =========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  background: linear-gradient(160deg, #eef2f7, #dce3ee);
+  color: #111827;
+}
+
+/* Simple utilities */
+
+.page-container {
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 2.3rem 0;
+  scroll-margin-top: 90px; /* anchors won't hide behind header */
+}
+
+.narrow {
+  max-width: 640px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* ==========
+   Header
+   ========== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 0;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-icon {
+  padding: 2px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #dbeafe, #3b82f6);
+}
+
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.logo-text-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  color: #6b7280;
+}
+
+/* Nav */
+
+.nav {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #6b7280;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+
+.nav a:hover {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.nav-active {
+  background: #2563eb;
+  color: #ffffff !important;
+}
+
+/* ==========
+   Hero
+   ========== */
+
+.hero {
+  padding: 2.8rem 0 3rem;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #6b7280;
+}
+
+.hero-copy h1 {
+  font-size: 2.1rem;
+  line-height: 1.2;
+  margin: 0.6rem 0 0.8rem;
+}
+
+.hero-sub {
+  margin: 0 0 1.5rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.hero-note {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.hero-panel {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-card {
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 1.4rem 1.3rem;
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
+}
+
+.hero-card h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+.hero-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0 0 0.9rem;
+  color: #4b5563;
+}
+
+.hero-card-note {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+/* ==========
+   How It Works
+   ========== */
+
+.section-simple {
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-lead {
+  margin: 0 0 0.3rem;
+  color: #4b5563;
+  font-size: 0.95rem;
+}
+
+.pill-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.pill-card {
+  background: #f9fafb;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  padding: 1.1rem 1rem;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.pill-card h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.pill-card p {
+  margin: 0;
+  color: #4b5563;
+}
+
+/* ==========
+   Industries scroll wheel
+   ========== */
+
+.industry-scroll {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 1.4rem 0 0.6rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.industry-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.industry-card {
+  min-width: 280px;
+  max-width: 320px;
+  flex: 0 0 auto;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  scroll-snap-align: start;
+}
+
+.industry-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.02rem;
+}
+
+.industry-card p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.88rem;
+}
+
+/* ==========
+   Buttons
+   ========== */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  white-space: nowrap;
+}
+
+.button.primary {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.button.primary:hover {
+  background: #1d4ed8;
+}
+
+.button.ghost {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+/* ==========
+   Footer
+   ========== */
+
+.site-footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 1.3rem 0 1.7rem;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.footer-inner a {
+  text-decoration: none;
+  color: #2563eb;
+}
+
+.footer-inner a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .pill-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
 </head>
+
+
 <body>
   <header class="site-header">
     <div class="page-container header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-icon">
-          <span class="logo-mark">CV</span>
-        </div>
+        <div class="logo-icon"><span class="logo-mark">CV</span></div>
         <div class="logo-text-block">
           <span class="logo-text">CloudVista</span>
           <span class="logo-sub">Your personal AI scout</span>
@@ -27,6 +398,7 @@
   </header>
 
   <main>
+
     <!-- HERO -->
     <section class="hero hero-light">
       <div class="page-container hero-inner">
@@ -69,128 +441,87 @@
       <div class="page-container">
         <h2>How your personal AI scout actually works</h2>
         <p class="section-lead">
-          CloudVista learns your world, your network and your pattern – then filters the
-          outside noise down to a small set of moves that fit how you win.
+          CloudVista learns your world, your network and your pattern – then filters the outside noise down 
+          to a small set of moves that fit how you win.
         </p>
         <div class="pill-row">
           <div class="pill-card">
             <h3>Understands your world</h3>
-            <p>
-              You give it the markets, organisations and network you actually care about.
-              Your personal AI scout ignores everything outside that universe.
-            </p>
+            <p>You give it the markets, organisations and network you actually care about. It ignores the rest.</p>
           </div>
           <div class="pill-card">
             <h3>Learns your network</h3>
-            <p>
-              You upload the accounts and contacts you work with. Over time, CloudVista
-              learns where your relationships are strongest and where they unlock access.
-            </p>
+            <p>You upload the accounts and contacts you work with. It learns where your influence opens doors.</p>
           </div>
           <div class="pill-card">
             <h3>Focuses you on what matters</h3>
-            <p>
-              Instead of an alert firehose, you get a ranked shortlist of opportunities
-              that look like the ones you actually convert.
-            </p>
+            <p>You get a ranked shortlist of opportunities that resemble the ones you actually convert.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- INDUSTRIES WE SERVE -->
+    <!-- INDUSTRIES -->
     <section id="industries" class="section">
       <div class="page-container">
         <h2>Industries we serve</h2>
         <p class="section-lead">
-          CloudVista is built for people who live off public signals, timing, networks
-          and insight — and need a clearer view of where to move next.
+          CloudVista is built for people who live off public signals, timing, networks and insight — 
+          and need a clearer view of where to move next.
         </p>
 
         <div class="industry-scroll">
+
           <article class="industry-card">
-            <h3>Executive search &amp; specialist recruitment</h3>
-            <p>
-              People who live off leadership moves, restructures, funding and subtle
-              organisational shifts — the sparks that create retained and senior hiring
-              work before roles go public.
-            </p>
+            <h3>Executive search & specialist recruitment</h3>
+            <p>For people who live off leadership moves, restructures, funding and subtle organisational shifts.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Private equity, venture &amp; public markets</h3>
-            <p>
-              PE, VC, hedge funds and asset managers tracking portfolio, pipeline and
-              listed companies for inflection points worth capital, exits or intervention.
-            </p>
+            <h3>Private equity, venture & public markets</h3>
+            <p>Track portfolio, pipeline and listed companies for strategic inflection points.</p>
           </article>
 
           <article class="industry-card">
             <h3>Suppliers to public sector contracts</h3>
-            <p>
-              Firms selling into government and public bodies who need to watch departments,
-              pilots and consultations that quietly become procurements, framework renewals
-              and long-running delivery work.
-            </p>
+            <p>Spot early departmental signals that become procurements, renewals and long-running delivery work.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Management consulting &amp; advisory</h3>
-            <p>
-              Strategy, change and advisory teams looking for early signs of stress,
-              transformation or “something broke” — before an RFP appears.
-            </p>
+            <h3>Management consulting & advisory</h3>
+            <p>Identify early signs of stress, transformation or “something broke” before an RFP appears.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Higher education &amp; research</h3>
-            <p>
-              Universities, business schools and research institutes spotting new
-              programmes, centres, partnerships and leadership changes that drive hiring,
-              funding and collaboration opportunities.
-            </p>
+            <h3>Higher education & research</h3>
+            <p>Surface programme launches, partnerships and leadership changes that create demand or opportunity.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Pharma, biotech &amp; health innovation</h3>
-            <p>
-              Companies and advisors following trials, spin-outs, alliances and regulatory
-              shifts to see where clinical, commercial and leadership needs will emerge next.
-            </p>
+            <h3>Pharma, biotech & health innovation</h3>
+            <p>Follow trials, alliances and regulatory shifts to anticipate clinical, commercial or leadership needs.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Infrastructure, climate &amp; energy</h3>
-            <p>
-              Developers, advisors and financiers tracking projects, consultations,
-              funding and policy signals that precede large, multi-year programmes and deals.
-            </p>
+            <h3>Infrastructure, climate & energy</h3>
+            <p>Track projects, funding and policy signals that precede multi-year programmes and deals.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Corporate strategy &amp; corporate development</h3>
-            <p>
-              In-house teams scanning markets for leadership, product and deal-flow signals
-              to decide where to build, partner or buy — before competitors see the same pattern.
-            </p>
+            <h3>Corporate strategy & corporate development</h3>
+            <p>Scan markets for product, leadership or deal-flow signals worth building, buying or partnering on.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Professional services &amp; law firms</h3>
-            <p>
-              Legal, tax, audit and specialist firms using public signals to anticipate
-              disputes, restructures, transactions and regulatory events that convert into
-              billable work.
-            </p>
+            <h3>Professional services & law firms</h3>
+            <p>Anticipate disputes, restructures, audits and regulatory events before they become mandates.</p>
           </article>
 
           <article class="industry-card">
-            <h3>Non-profits, foundations &amp; impact organisations</h3>
-            <p>
-              Organisations following policy, funding, leadership and current-affairs shifts
-              to time campaigns, programmes and partnerships.
-            </p>
+            <h3>Non-profits & impact organisations</h3>
+            <p>Follow policy, funding, leadership and current-affairs shifts that shape programmes and campaigns.</p>
           </article>
+
         </div>
       </div>
     </section>
@@ -200,14 +531,13 @@
       <div class="page-container narrow center">
         <h2>Give your work a personal AI scout</h2>
         <p class="section-lead">
-          Start with the markets and relationships you already know. Let CloudVista quietly
+          Start with the markets and relationships you already know. Let CloudVista quietly 
           learn your pattern — then show you the handful of moves that actually deserve your time.
         </p>
-        <div class="hero-actions" style="justify-content:center; margin-top:1.4rem;">
-          <a href="signup.html" class="button primary">Set up your AI scout</a>
-        </div>
+        <a href="signup.html" class="button primary" style="margin-top:1.4rem;">Set up your AI scout</a>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
