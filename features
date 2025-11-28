@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CloudVista – Features by industry</title>
+  <title>CloudVista – Industries we work well in</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="page-container header-inner">
       <a href="index.html" class="logo">
         <div class="logo-icon">
           <span class="logo-mark">CV</span>
@@ -20,81 +20,93 @@
       </a>
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="features.html" class="nav-active">Features</a>
+        <a href="features.html" class="nav-active">Industries</a>
+        <a href="signup.html">Set up your AI</a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="section section-hero-sub">
-      <div class="container narrow">
-        <h1>Where CloudVista helps first</h1>
+      <div class="page-container narrow">
+        <h1>Where CloudVista is useful on day one</h1>
         <p class="section-lead">
-          Same engine. Different markets.
-          You choose the world you work in.
-          CloudVista learns the signals that matter.
+          Same engine, different worlds. You set the universe – CloudVista learns the
+          patterns that matter in your corner of it.
         </p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container feature-grid">
+      <div class="page-container feature-grid">
 
-        <!-- Recruitment / Executive Search -->
+        <!-- Recruitment / Executive search -->
         <article class="feature-card">
           <h2>Recruitment &amp; Executive Search</h2>
-          <p class="card-sub">Be early. Be relevant. Be trusted.</p>
+          <p class="card-sub">
+            For people who need to be early, relevant and not annoying.
+          </p>
           <ul class="card-list">
-            <li>Tracks leadership moves and team changes across target accounts.</li>
-            <li>Detects “headcount shock” moments: exits, restructures, new units.</li>
-            <li>Learns which patterns match searches you actually win.</li>
+            <li>Watches leadership moves, new units and sudden exits in your target accounts.</li>
+            <li>Highlights moments when teams are likely to grow or reset, not just when jobs go live.</li>
+            <li>Learns which combinations of signals have actually led to retained work for you.</li>
           </ul>
-          <p class="card-footer">Output: a shortlist of clients who need a partner this month.</p>
+          <p class="card-footer">
+            Output: a short list of organisations that quietly need a search partner this month.
+          </p>
         </article>
 
-        <!-- Finance / Investment -->
+        <!-- Finance & Investment -->
         <article class="feature-card">
           <h2>Finance &amp; Investment</h2>
-          <p class="card-sub">Quiet edges for analysts & investors.</p>
+          <p class="card-sub">
+            For investors and analysts who care about inflection points, not noise.
+          </p>
           <ul class="card-list">
-            <li>Watches leadership changes, product moves and hiring spikes.</li>
-            <li>Spots inflection points: pre-raise activity, post-deal hiring, pivots.</li>
-            <li>Learns what aligns with your thesis and past deals.</li>
+            <li>Follows leadership, product and hiring shifts across your watchlist, not the whole market.</li>
+            <li>Surfaces patterns that often precede funding, exits or down-round pain.</li>
+            <li>Learns which signals matched the deals and theses you actually acted on.</li>
           </ul>
-          <p class="card-footer">Output: moves worth researching, calling or briefing.</p>
+          <p class="card-footer">
+            Output: a handful of companies and moves worth a deeper look this week.
+          </p>
         </article>
 
-        <!-- Government Bids -->
+        <!-- Government & Public sector bids -->
         <article class="feature-card">
           <h2>Government &amp; Public Sector Bids</h2>
-          <p class="card-sub">See the signal before the tender drops.</p>
+          <p class="card-sub">
+            For teams who need to see the work before it hits the tender portal.
+          </p>
           <ul class="card-list">
-            <li>Monitors the departments and agencies you care about.</li>
-            <li>Spots leadership changes, policy shifts and programme launches.</li>
-            <li>Learns which signals correlate with tenders you’ve won or chased.</li>
+            <li>Monitors departments, agencies and authorities that matter to you.</li>
+            <li>Spots leadership changes, policy shifts and trials that often lead to formal contracts.</li>
+            <li>Learns which signals lined up with the bids you actually chased, won or lost.</li>
           </ul>
-          <p class="card-footer">Output: early entry points before the ITT lands.</p>
+          <p class="card-footer">
+            Output: early context and warm entry points before the contract goes public.
+          </p>
         </article>
 
       </div>
     </section>
 
     <section class="section section-simple">
-      <div class="container narrow center">
-        <h2>One AI, tuned to you</h2>
+      <div class="page-container narrow center">
+        <h2>Start narrow. Let your AI grow with you.</h2>
         <p class="section-lead">
-          You don’t manage CloudVista.
-          You give it a universe to watch and it adapts itself to you.
+          Begin with one or two priority markets.  
+          As CloudVista learns your pattern, you can layer in more sectors without adding more noise.
         </p>
-        <a href="index.html" class="button primary">Back to home</a>
+        <a href="signup.html" class="button primary">Tell it what to watch</a>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="page-container footer-inner">
       <p>© 2025 CloudVista.</p>
-      <a href="index.html">Home</a>
+      <a href="index.html">Back to home</a>
     </div>
   </footer>
 </body>
