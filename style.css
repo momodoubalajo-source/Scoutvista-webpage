@@ -1,6 +1,6 @@
-/* ==============
-   Base & Layout
-   ============== */
+/* ===========================
+   Base, layout & typography
+   =========================== */
 
 *,
 *::before,
@@ -20,13 +20,7 @@ body {
   color: #111827;
 }
 
-/* Simple utility */
-
-.mt-8 {
-  margin-top: 8px;
-}
-
-/* Page container */
+/* Simple utilities */
 
 .page-container {
   width: 100%;
@@ -39,8 +33,16 @@ body {
   max-width: 640px;
 }
 
+.center {
+  text-align: center;
+}
+
 main {
   padding-bottom: 2.5rem;
+}
+
+.mt-8 {
+  margin-top: 8px;
 }
 
 /* ==========
@@ -136,7 +138,7 @@ main {
 }
 
 /* ==========
-   Hero (Home)
+   Hero
    ========== */
 
 .hero {
@@ -244,16 +246,12 @@ main {
 }
 
 .section-lead {
-  margin: 0;
+  margin: 0 0 0.3rem;
   color: #4b5563;
   font-size: 0.95rem;
 }
 
-.section-simple h2 {
-  margin-top: 0;
-}
-
-/* Pill row (What CloudVista does for you) */
+/* Pill row (How it works) */
 
 .pill-row {
   display: grid;
@@ -282,37 +280,46 @@ main {
 }
 
 /* ==========
-   Features grid (industries)
+   Industries scroll wheel
    ========== */
 
-.feature-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.industry-scroll {
+  display: flex;
   gap: 1.2rem;
+  overflow-x: auto;
+  padding: 1.4rem 0 0.6rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
 }
 
-.feature-grid-tight {
-  margin-top: 1.6rem;
+.industry-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
-.feature-card {
+.industry-card {
+  min-width: 280px;
+  max-width: 320px;
+  flex: 0 0 auto;
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #e5e7eb;
-  padding: 1.3rem 1.2rem;
-  font-size: 0.9rem;
+  padding: 1.2rem 1rem;
   box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+  scroll-snap-align: start;
 }
 
-.feature-card-compact h3 {
-  margin: 0 0 0.35rem;
-  font-size: 0.98rem;
+.industry-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1.02rem;
 }
 
-.feature-card-compact p {
+.industry-card p {
   margin: 0;
   color: #4b5563;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
 }
 
 /* ==========
@@ -468,6 +475,7 @@ main {
   border: 1px solid #cbd5e1;
   margin-top: 8px;
   font-size: 0.88rem;
+  font-family: inherit;
 }
 
 .signup-card textarea {
@@ -583,7 +591,6 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .feature-grid,
   .pill-row {
     grid-template-columns: 1fr;
   }
@@ -598,6 +605,10 @@ main {
 
   .hero {
     padding-top: 2rem;
+  }
+
+  .hero-copy h1 {
+    font-size: 1.7rem;
   }
 
   .signup-card {
