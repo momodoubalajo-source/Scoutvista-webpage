@@ -1,28 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Landing Page</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>CloudVista – Smart market intel for recruiters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="signup.html">Sign up</a>
-    </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">CV</span>
+        <span class="logo-text">CloudVista</span>
+      </div>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="#features">Features</a>
+        <a href="#who">Who it's for</a>
+        <a href="signup.html" class="nav-cta">Sign up</a>
+      </nav>
+    </div>
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
-      <h1>Welcome to the Landing Page</h1>
-      <p>This is your clean starter template.</p>
-      <a class="button" href="signup.html">Get Started</a>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Spot new business before your competitors even know it exists.</h1>
+          <p>
+            CloudVista watches the market for you – funding rounds, hiring spikes,
+            leadership changes and account movements – then turns them into
+            warm, qualified BD opportunities for recruiters and sales teams.
+          </p>
+          <div class="hero-actions">
+            <a href="signup.html" class="button primary">Get early access</a>
+            <a href="#how-it-works" class="button ghost">See how it works</a>
+          </div>
+          <p class="hero-note">
+            Early access is limited. No spam, no noise – just high-signal intel.
+          </p>
+        </div>
+        <div class="hero-panel">
+          <div class="panel-card">
+            <h2>Today’s signals</h2>
+            <ul class="signal-list">
+              <li>
+                <span class="pill">New funding</span>
+                Oncology diagnostics start-up raised Series B – 12 key hires planned.
+              </li>
+              <li>
+                <span class="pill">Talent exodus</span>
+                4 senior scientists just left a top-10 pharma – prime headhunting window.
+              </li>
+              <li>
+                <span class="pill">Leadership move</span>
+                New VP R&amp;D hired from competitor – likely to rebuild their team.
+              </li>
+            </ul>
+            <a href="signup.html" class="panel-link">Get signals like this in your inbox →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section">
+      <div class="container">
+        <h2>What CloudVista actually does for you</h2>
+        <p class="section-intro">
+          No more doom-scrolling LinkedIn and scraping job boards at 11pm.
+          CloudVista gives you a simple feed of real, bookable opportunities.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Signals, not noise</h3>
+            <p>
+              We track funding, hiring, org changes and people moves – then surface only
+              the patterns that suggest real buying intent.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Your clients, your CRM</h3>
+            <p>
+              Upload the accounts and contacts you care about. CloudVista focuses its
+              monitoring around your universe, not the entire internet.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Inbox-ready, human-readable</h3>
+            <p>
+              You get short, plain-English briefs you can act on immediately –
+              with suggested angles for outreach.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for -->
+    <section id="who" class="section section-alt">
+      <div class="container">
+        <h2>Built for people who live or die by pipeline.</h2>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Executive search</h3>
+            <p>
+              See when your target accounts reorganise, receive fresh capital or quietly
+              lose key leaders – then step in before anyone else.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Agency &amp; in-house recruiters</h3>
+            <p>
+              Know which teams are about to grow, which are under strain and
+              where your shortlists will actually land.
+            </p>
+          </div>
+          <div class="card">
+            <h3>BD &amp; partnerships</h3>
+            <p>
+              Identify accounts that are under new pressure to hit targets,
+              launch products or expand into new markets.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how-it-works" class="section">
+      <div class="container">
+        <h2>How CloudVista fits into your week</h2>
+        <ol class="steps">
+          <li><strong>Tell us who you care about.</strong> Upload clients, prospects and key contacts.</li>
+          <li><strong>We monitor the market.</strong> People moves, news, hiring, funding – all tracked for you.</li>
+          <li><strong>You get a short weekly brief.</strong> 5–10 high-leverage opportunities, not 200 alerts.</li>
+          <li><strong>You focus on conversations.</strong> Less “research”, more calls and meetings.</li>
+        </ol>
+        <div class="center">
+          <a href="signup.html" class="button primary">Join the early access list</a>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 My Product</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 CloudVista. Early access preview – not investment advice.</p>
+      <a href="signup.html">Sign up</a>
+    </div>
   </footer>
 </body>
 </html>
