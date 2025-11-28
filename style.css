@@ -1,617 +1,220 @@
-/* ===========================
-   Base, layout & typography
-   =========================== */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-  background: linear-gradient(160deg, #eef2f7, #dce3ee);
-  color: #111827;
-}
-
-/* Simple utilities */
-
-.page-container {
-  width: 100%;
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-.narrow {
-  max-width: 640px;
-}
-
-.center {
-  text-align: center;
-}
-
-main {
-  padding-bottom: 2.5rem;
-}
-
-.mt-8 {
-  margin-top: 8px;
-}
-
-/* ==========
-   Header
-   ========== */
-
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.94);
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.7rem 0;
-}
-
-/* Logo */
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  color: inherit;
-}
-
-.logo-icon {
-  padding: 2px;
-  border-radius: 999px;
-  background: radial-gradient(circle at 30% 20%, #dbeafe, #3b82f6);
-}
-
-.logo-mark {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background: #0f172a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #e5e7eb;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-}
-
-.logo-text-block {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-
-.logo-text {
-  font-size: 0.95rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-
-.logo-sub {
-  font-size: 0.7rem;
-  color: #6b7280;
-}
-
-/* Nav */
-
-.nav {
-  display: flex;
-  gap: 0.8rem;
-  font-size: 0.85rem;
-}
-
-.nav a {
-  text-decoration: none;
-  color: #6b7280;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
-}
-
-.nav a:hover {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.nav-active {
-  background: #2563eb;
-  color: #ffffff !important;
-}
-
-/* ==========
-   Hero
-   ========== */
-
-.hero {
-  padding: 2.8rem 0 3rem;
-}
-
-.hero-light {
-  background: transparent;
-}
-
-.hero-inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 2.2rem;
-  align-items: center;
-}
-
-.tagline {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #6b7280;
-}
-
-.hero-copy h1 {
-  font-size: 2.1rem;
-  line-height: 1.2;
-  margin: 0.6rem 0 0.8rem;
-}
-
-.hero-sub {
-  margin: 0 0 1.5rem;
-  color: #4b5563;
-  font-size: 0.95rem;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-bottom: 0.8rem;
-}
-
-.hero-note {
-  font-size: 0.8rem;
-  color: #6b7280;
-  margin: 0;
-}
-
-.hero-panel {
-  display: flex;
-  justify-content: flex-end;
-}
-
-/* Hero card */
-
-.hero-card {
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  padding: 1.4rem 1.3rem;
-  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-  font-size: 0.9rem;
-}
-
-.hero-card h2 {
-  margin: 0 0 0.6rem;
-  font-size: 1rem;
-}
-
-.hero-list {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: 0 0 0.9rem;
-  color: #4b5563;
-}
-
-.hero-card-note {
-  margin: 0;
-  font-size: 0.82rem;
-  color: #6b7280;
-}
-
-/* ==========
-   Sections
-   ========== */
-
-.section {
-  padding: 2.3rem 0;
-}
-
-.section-simple {
-  background: rgba(255, 255, 255, 0.9);
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.section-hero-sub {
-  padding-top: 2.5rem;
-}
-
-.section-hero-sub h1 {
-  margin: 0 0 0.6rem;
-  font-size: 1.7rem;
-}
-
-.section-lead {
-  margin: 0 0 0.3rem;
-  color: #4b5563;
-  font-size: 0.95rem;
-}
-
-/* Pill row (How it works) */
-
-.pill-row {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.1rem;
-  margin-top: 1.5rem;
-}
-
-.pill-card {
-  background: #f9fafb;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  padding: 1.1rem 1rem;
-  font-size: 0.9rem;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
-}
-
-.pill-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1rem;
-}
-
-.pill-card p {
-  margin: 0;
-  color: #4b5563;
-}
-
-/* ==========
-   Industries scroll wheel
-   ========== */
-
-.industry-scroll {
-  display: flex;
-  gap: 1.2rem;
-  overflow-x: auto;
-  padding: 1.4rem 0 0.6rem;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-}
-
-.industry-scroll::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
-}
-
-.industry-card {
-  min-width: 280px;
-  max-width: 320px;
-  flex: 0 0 auto;
-  background: #ffffff;
-  border-radius: 18px;
-  border: 1px solid #e5e7eb;
-  padding: 1.2rem 1rem;
-  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
-  scroll-snap-align: start;
-}
-
-.industry-card h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  font-size: 1.02rem;
-}
-
-.industry-card p {
-  margin: 0;
-  color: #4b5563;
-  font-size: 0.88rem;
-  line-height: 1.45;
-}
-
-/* ==========
-   Buttons
-   ========== */
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.7rem 1.5rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-size: 0.9rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.15s ease-out;
-  white-space: nowrap;
-}
-
-.button.primary {
-  background: #2563eb;
-  color: #ffffff;
-  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
-}
-
-.button.primary:hover {
-  background: #1d4ed8;
-  transform: translateY(-1px);
-}
-
-.button.ghost {
-  background: #e5e7eb;
-  color: #111827;
-}
-
-.button.ghost:hover {
-  background: #d1d5db;
-}
-
-/* ==========
-   Footer
-   ========== */
-
-.site-footer {
-  border-top: 1px solid #e5e7eb;
-  padding: 1.3rem 0 1.7rem;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-.footer-inner a {
-  text-decoration: none;
-  color: #2563eb;
-}
-
-.footer-inner a:hover {
-  text-decoration: underline;
-}
-
-/* ==================
-   Signup page layout
-   ================== */
-
-.signup-page {
-  background: linear-gradient(160deg, #eef2f7, #dce3ee);
-}
-
-.signup-main {
-  padding: 2.5rem 1.5rem 3rem;
-}
-
-.signup-card {
-  max-width: 780px;
-  margin: 0 auto;
-  background: #ffffff;
-  padding: 32px 28px 28px;
-  border-radius: 22px;
-  box-shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
-}
-
-.signup-card h1 {
-  margin-top: 0;
-  font-size: 1.85rem;
-  font-weight: 700;
-}
-
-.signup-lead {
-  margin: 0.3rem 0 1.6rem;
-  color: #4b5563;
-  font-size: 0.94rem;
-}
-
-/* Signup sections */
-
-.signup-section {
-  margin-top: 1.6rem;
-  padding: 1.1rem 1rem 1.2rem;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  background: #f9fafb;
-}
-
-.step-label {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.15rem 0.6rem;
-  border-radius: 999px;
-  background: #e5edff;
-  color: #1d4ed8;
-  margin-bottom: 0.3rem;
-}
-
-.signup-section h2 {
-  margin: 0 0 0.25rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.subheading {
-  margin: 0.7rem 0 0.2rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.section-hint {
-  margin: 0 0 0.55rem;
-  font-size: 0.82rem;
-  color: #6b7280;
-}
-
-/* Form controls */
-
-.signup-card textarea,
-.signup-card input[type="text"],
-.signup-card input[type="time"],
-.signup-card input[type="email"],
-.signup-card input[type="password"] {
-  width: 100%;
-  padding: 10px 11px;
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  margin-top: 8px;
-  font-size: 0.88rem;
-  font-family: inherit;
-}
-
-.signup-card textarea {
-  resize: vertical;
-  min-height: 60px;
-}
-
-.small-hint {
-  margin: 5px 0 0;
-  font-size: 0.78rem;
-  color: #6b7280;
-}
-
-/* Chips with icons */
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 6px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 12px;
-  background: #eef2f7;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  border: 1px solid transparent;
-  transition: 0.18s;
-}
-
-.chip-icon {
-  font-size: 0.95rem;
-}
-
-.chip:hover {
-  background: #e0e7f0;
-}
-
-.chip.selected {
-  background: #2563eb;
-  color: #ffffff;
-  border-color: #1d4ed8;
-}
-
-/* Weekly days */
-
-.weekly-container {
-  margin-top: 0.7rem;
-}
-
-.weekdays {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-  gap: 6px;
-}
-
-.day {
-  padding: 7px 0;
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
-  flex: 1;
-  text-align: center;
-  cursor: pointer;
-  background: #f3f4f6;
-  font-size: 0.8rem;
-  transition: 0.18s;
-}
-
-.day.selected {
-  background: #2563eb;
-  color: #ffffff;
-  border-color: #1d4ed8;
-}
-
-/* Signup button */
-
-.signup-button {
-  background: #2563eb;
-  color: white;
-  width: 100%;
-  padding: 14px;
-  margin-top: 26px;
-  font-size: 0.95rem;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.signup-button:hover {
-  background: #1d4ed8;
-}
-
-.signup-footnote {
-  margin-top: 0.8rem;
-  font-size: 0.78rem;
-  color: #6b7280;
-}
-
-/* ==========
-   Responsive
-   ========== */
-
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .pill-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-
-  .hero {
-    padding-top: 2rem;
-  }
-
-  .hero-copy h1 {
-    font-size: 1.7rem;
-  }
-
-  .signup-card {
-    padding: 26px 20px 22px;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CloudVista – Your personal AI scout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="page-container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <span class="logo-mark">CV</span>
+        </div>
+        <div class="logo-text-block">
+          <span class="logo-text">CloudVista</span>
+          <span class="logo-sub">Your personal AI scout</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-active">Home</a>
+        <a href="#industries">Industries</a>
+        <a href="signup.html">Set up your AI scout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero hero-light">
+      <div class="page-container hero-inner">
+        <div class="hero-copy">
+          <p class="tagline">Personal AI scout · Signal, not noise</p>
+          <h1>CloudVista: your world, minus the noise.</h1>
+          <p class="hero-sub">
+            CloudVista learns the markets, people and signals that matter to you –
+            then comes back with a short list of moves worth acting on, on your schedule.
+          </p>
+          <div class="hero-actions">
+            <a href="signup.html" class="button primary">Set up your personal AI scout</a>
+            <a href="#industries" class="button ghost">See where it helps</a>
+          </div>
+          <p class="hero-note">
+            No dashboards to babysit. No feed to doom-scroll. Just a personal AI scout
+            that quietly learns your pattern and tells you what matters.
+          </p>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-card">
+            <h2>On your schedule, your AI scout brings you…</h2>
+            <ul class="hero-list">
+              <li>5–10 concrete moves where your insight or relationships actually matter.</li>
+              <li>A shortlist of accounts, contacts or contracts to nudge – not 200 “potential leads”.</li>
+              <li>A simple narrative of why these surfaced, based on how you’ve acted before.</li>
+            </ul>
+            <p class="hero-card-note">
+              You stay close to conversations and decisions. Your personal AI scout
+              handles the monitoring and pattern-spotting in the background.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="section section-simple">
+      <div class="page-container">
+        <h2>How your personal AI scout actually works</h2>
+        <p class="section-lead">
+          CloudVista learns your world, your network and your pattern – then filters the
+          outside noise down to a small set of moves that fit how you win.
+        </p>
+        <div class="pill-row">
+          <div class="pill-card">
+            <h3>Understands your world</h3>
+            <p>
+              You give it the markets, organisations and network you actually care about.
+              Your personal AI scout ignores everything outside that universe.
+            </p>
+          </div>
+          <div class="pill-card">
+            <h3>Learns your network</h3>
+            <p>
+              You upload the accounts and contacts you work with. Over time, CloudVista
+              learns where your relationships are strongest and where they unlock access.
+            </p>
+          </div>
+          <div class="pill-card">
+            <h3>Focuses you on what matters</h3>
+            <p>
+              Instead of an alert firehose, you get a ranked shortlist of opportunities
+              that look like the ones you actually convert.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES WE SERVE -->
+    <section id="industries" class="section">
+      <div class="page-container">
+        <h2>Industries we serve</h2>
+        <p class="section-lead">
+          CloudVista is built for people who live off public signals, timing, networks
+          and insight — and need a clearer view of where to move next.
+        </p>
+
+        <div class="industry-scroll">
+          <article class="industry-card">
+            <h3>Executive search &amp; specialist recruitment</h3>
+            <p>
+              People who live off leadership moves, restructures, funding and subtle
+              organisational shifts — the sparks that create retained and senior hiring
+              work before roles go public.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Private equity, venture &amp; public markets</h3>
+            <p>
+              PE, VC, hedge funds and asset managers tracking portfolio, pipeline and
+              listed companies for inflection points worth capital, exits or intervention.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Suppliers to public sector contracts</h3>
+            <p>
+              Firms selling into government and public bodies who need to watch departments,
+              pilots and consultations that quietly become procurements, framework renewals
+              and long-running delivery work.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Management consulting &amp; advisory</h3>
+            <p>
+              Strategy, change and advisory teams looking for early signs of stress,
+              transformation or “something broke” — before an RFP appears.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Higher education &amp; research</h3>
+            <p>
+              Universities, business schools and research institutes spotting new
+              programmes, centres, partnerships and leadership changes that drive hiring,
+              funding and collaboration opportunities.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Pharma, biotech &amp; health innovation</h3>
+            <p>
+              Companies and advisors following trials, spin-outs, alliances and regulatory
+              shifts to see where clinical, commercial and leadership needs will emerge next.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Infrastructure, climate &amp; energy</h3>
+            <p>
+              Developers, advisors and financiers tracking projects, consultations,
+              funding and policy signals that precede large, multi-year programmes and deals.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Corporate strategy &amp; corporate development</h3>
+            <p>
+              In-house teams scanning markets for leadership, product and deal-flow signals
+              to decide where to build, partner or buy — before competitors see the same pattern.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Professional services &amp; law firms</h3>
+            <p>
+              Legal, tax, audit and specialist firms using public signals to anticipate
+              disputes, restructures, transactions and regulatory events that convert into
+              billable work.
+            </p>
+          </article>
+
+          <article class="industry-card">
+            <h3>Non-profits, foundations &amp; impact organisations</h3>
+            <p>
+              Organisations following policy, funding, leadership and current-affairs shifts
+              to time campaigns, programmes and partnerships.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-simple">
+      <div class="page-container narrow center">
+        <h2>Give your work a personal AI scout</h2>
+        <p class="section-lead">
+          Start with the markets and relationships you already know. Let CloudVista quietly
+          learn your pattern — then show you the handful of moves that actually deserve your time.
+        </p>
+        <div class="hero-actions" style="justify-content:center; margin-top:1.4rem;">
+          <a href="signup.html" class="button primary">Set up your AI scout</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-container footer-inner">
+      <p>© 2025 CloudVista.</p>
+      <a href="signup.html">Set up your personal AI scout</a>
+    </div>
+  </footer>
+</body>
+</html>
