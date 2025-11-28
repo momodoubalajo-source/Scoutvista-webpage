@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CloudVista – Set up your personal AI feed</title>
+  <title>CloudVista – Set up your personal AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -20,7 +20,7 @@
       </a>
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="features.html">Industries</a>
+        <a href="index.html#features">Features</a>
         <a href="signup.html" class="nav-active">Set up your AI</a>
       </nav>
     </div>
@@ -28,92 +28,99 @@
 
   <main class="signup-main">
     <div class="signup-card">
-      <h1>Create your personalised CloudVista feed</h1>
+      <h1>Set up your personal CloudVista feed</h1>
       <p class="signup-lead">
-        Tell us how you work and what you care about. Your personal AI will use this
-        to decide what is actually worth surfacing.
+        A few quick questions so your AI knows who you are, what you care about
+        and which signals are actually worth surfacing.
       </p>
 
-      <!-- PURPOSE -->
-      <h2>What are you using CloudVista for?</h2>
-      <textarea id="purpose" rows="3" placeholder="Describe your goals..."></textarea>
-      <div class="chips" id="purposeChips">
-        <div class="chip">Executive search</div>
-        <div class="chip">Recruitment intelligence</div>
-        <div class="chip">Investment research</div>
-        <div class="chip">Portfolio monitoring</div>
-        <div class="chip">Government bids</div>
-        <div class="chip">Academic / research tracking</div>
-        <div class="chip">Job seeking</div>
-        <div class="chip">Competitive / market analysis</div>
-      </div>
-
-      <!-- ROLE -->
-      <h2>Your role</h2>
-      <input type="text" id="role" placeholder="Type your specific role..." />
-      <div class="chips" id="roleChips">
-        <div class="chip">Executive search</div>
-        <div class="chip">Recruiter</div>
-        <div class="chip">Researcher</div>
-        <div class="chip">Consultant</div>
-        <div class="chip">Investor / LP</div>
-        <div class="chip">Analyst</div>
-        <div class="chip">Bid / tender lead</div>
-        <div class="chip">Founder</div>
-        <div class="chip">Other</div>
-      </div>
-
-      <!-- INDUSTRY -->
-      <h2>Industry focus</h2>
+      <!-- SECTION 1: Who you are -->
+      <h2>1. Tell us who you are</h2>
       <input
         type="text"
-        id="industry"
-        placeholder="e.g. Genomics, Higher Education, Infrastructure, Climate, Finance"
+        id="role"
+        placeholder="Your role (e.g. Executive Search Partner, Investment Analyst, Bid Lead)"
       />
-
-      <!-- GEOGRAPHY -->
-      <h2>Where do you operate or track activity?</h2>
+      <input
+        type="text"
+        id="orgType"
+        placeholder="Type of organisation (e.g. Search firm, PE fund, Consultancy, Supplier)"
+        style="margin-top:10px;"
+      />
       <input
         type="text"
         id="geo"
-        placeholder="e.g. UK & Europe, US & Canada, Global, specific regions"
+        placeholder="Where you mainly operate (e.g. UK & Europe, US, Global)"
+        style="margin-top:10px;"
       />
 
-      <!-- SIGNALS -->
-      <h2>What signals matter most to you?</h2>
-      <div class="chips" id="signalChips">
-        <div class="chip">Funding rounds</div>
-        <div class="chip">Hiring activity</div>
-        <div class="chip">Leadership changes</div>
-        <div class="chip">M&A / partnerships</div>
-        <div class="chip">Org restructures</div>
-        <div class="chip">Programme launches</div>
-        <div class="chip">Research output</div>
-        <div class="chip">Regulatory changes</div>
+      <!-- SECTION 2: What you want CloudVista to help with -->
+      <h2>2. What do you want CloudVista to help with?</h2>
+      <textarea
+        id="goals"
+        rows="3"
+        placeholder="In your own words – e.g. ‘Spot retained search opportunities in oncology biotech before they go public’, ‘Track portfolio companies for leadership changes’, ‘See public sector contracts early enough to shape them’, etc."
+      ></textarea>
+      <div class="chips" id="useCaseChips">
+        <div class="chip">Executive search</div>
+        <div class="chip">Contingent recruitment</div>
+        <div class="chip">Investment research</div>
+        <div class="chip">Portfolio monitoring</div>
+        <div class="chip">Government / public sector bids</div>
+        <div class="chip">Competitive / market intelligence</div>
+        <div class="chip">Job seeking / career moves</div>
       </div>
 
-      <!-- CONTRACTS & BIDS -->
-      <h2>Contracts and bids your AI should watch</h2>
+      <!-- SECTION 3: Sectors you care about -->
+      <h2>3. What sectors should your AI focus on?</h2>
+      <input
+        type="text"
+        id="sectors"
+        placeholder="e.g. Life sciences, Higher Education, Climate & Infrastructure, Financial services, Government & public sector"
+      />
+      <div class="chips" id="sectorChips">
+        <div class="chip">Life sciences & biotech</div>
+        <div class="chip">Higher education & research</div>
+        <div class="chip">Finance & investment</div>
+        <div class="chip">Climate, infra & energy</div>
+        <div class="chip">Government & public sector</div>
+        <div class="chip">Non-profits & impact</div>
+      </div>
+
+      <!-- SECTION 4: Contracts & bids -->
+      <h2>4. Contracts and bids your AI should watch</h2>
       <textarea
         id="contracts"
         rows="3"
-        placeholder="e.g. NHS frameworks, local authority social care, higher ed online learning, central government digital, defence, transport, etc."
+        placeholder="e.g. NHS & health frameworks, local authority services, central gov digital & data, infrastructure projects, education & skills, defence & security, etc."
       ></textarea>
       <div class="chips" id="contractsChips">
         <div class="chip">NHS & health frameworks</div>
-        <div class="chip">Local authority services</div>
+        <div class="chip">Local authority contracts</div>
         <div class="chip">Central gov digital / data</div>
         <div class="chip">Infrastructure & transport</div>
         <div class="chip">Education & skills</div>
         <div class="chip">Defence & security</div>
       </div>
 
-      <!-- NEWS / SOURCES -->
-      <h2>What news and sources should your AI track?</h2>
+      <!-- SECTION 5: Signals & news sources -->
+      <h2>5. What signals and news should your AI track?</h2>
+      <div class="chips" id="signalChips">
+        <div class="chip">Funding rounds</div>
+        <div class="chip">Hiring spikes & freezes</div>
+        <div class="chip">Leadership moves</div>
+        <div class="chip">M&amp;A & partnerships</div>
+        <div class="chip">Org restructures</div>
+        <div class="chip">Programme / project launches</div>
+        <div class="chip">Regulatory changes</div>
+        <div class="chip">Academic / research output</div>
+      </div>
+
       <textarea
         id="newsSources"
         rows="3"
-        placeholder="Specific outlets, newsletters, blogs, regulators, journals, etc."
+        style="margin-top:10px;"
+        placeholder="Specific news channels, outlets, newsletters, blogs, regulators or journals you want CloudVista to keep an eye on."
       ></textarea>
       <div class="chips" id="newsChips">
         <div class="chip">Trade & industry press</div>
@@ -124,8 +131,8 @@
         <div class="chip">Analyst / research notes</div>
       </div>
 
-      <!-- DELIVERY -->
-      <h2>How often should we email your insights?</h2>
+      <!-- SECTION 6: Delivery preferences -->
+      <h2>6. How often should we send your shortlist?</h2>
       <div class="chips" id="deliveryChips">
         <div class="chip">Daily</div>
         <div class="chip">Weekly</div>
@@ -144,21 +151,25 @@
         </div>
       </div>
 
-      <!-- TIME PICKER -->
-      <h2>Preferred time (24h)</h2>
+      <h2>Time of day (24h)</h2>
       <input type="time" id="deliveryTime" value="09:00" />
 
-      <!-- ACCOUNT -->
-      <h2>Start your CloudVista trial</h2>
-      <input type="email" id="email" placeholder="you@company.com" />
-      <input type="password" id="password" placeholder="Create a password" />
+      <!-- SECTION 7: Account details -->
+      <h2>7. Where should we send your CloudVista feed?</h2>
+      <input type="email" id="email" placeholder="Work email (you@company.com)" />
+      <input
+        type="password"
+        id="password"
+        placeholder="Create a password"
+        style="margin-top:10px;"
+      />
 
       <button type="button" class="signup-button" onclick="submitForm()">
-        Save my preferences
+        Save my CloudVista profile
       </button>
       <p class="signup-footnote">
-        We’ll use this to tune your personal AI and share a short preview feed.
-        No spam, no sharing your details without consent.
+        This doesn’t send anything yet – it captures your preferences so we can
+        tune your personal AI and preview what your weekly shortlist would look like.
       </p>
     </div>
   </main>
@@ -171,19 +182,19 @@
   </footer>
 
   <script>
-    // Generic chip toggle (multi-select)
+    // Generic chip selection (multi-select)
     document.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', () => {
         const parent = chip.parentElement;
 
-        // For delivery frequency, single-select
+        // Frequency (daily/weekly) is single-select
         if (parent.id === 'deliveryChips') {
           parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
         }
 
         chip.classList.toggle('selected');
 
-        // Show/hide weekly days
+        // Show/hide weekly day picker
         if (parent.id === 'deliveryChips') {
           const selection = chip.innerText.trim();
           document.getElementById('weeklyContainer').style.display =
@@ -192,36 +203,39 @@
       });
     });
 
-    // Weekly day toggle
+    // Weekly days toggle
     document.querySelectorAll('.day').forEach(day => {
-      day.addEventListener('click', () => day.classList.toggle('selected'));
+      day.addEventListener('click', () => {
+        day.classList.toggle('selected');
+      });
     });
 
     function submitForm() {
-      const getSelected = (selector) =>
-        [...document.querySelectorAll(selector + ' .selected')].map(el => el.innerText.trim());
+      const getSelectedTexts = (selector) =>
+        Array.from(document.querySelectorAll(selector + ' .selected')).map(el => el.innerText.trim());
 
-      const data = {
-        purpose_text: document.getElementById('purpose').value,
-        purpose_tags: getSelected('#purposeChips'),
-        role_text: document.getElementById('role').value,
-        role_tags: getSelected('#roleChips'),
-        industry: document.getElementById('industry').value,
+      const profile = {
+        role: document.getElementById('role').value,
+        org_type: document.getElementById('orgType').value,
         geography: document.getElementById('geo').value,
-        signals: getSelected('#signalChips'),
+        goals_text: document.getElementById('goals').value,
+        goals_tags: getSelectedTexts('#useCaseChips'),
+        sectors_text: document.getElementById('sectors').value,
+        sectors_tags: getSelectedTexts('#sectorChips'),
         contracts_text: document.getElementById('contracts').value,
-        contracts_tags: getSelected('#contractsChips'),
+        contracts_tags: getSelectedTexts('#contractsChips'),
+        signals_tags: getSelectedTexts('#signalChips'),
         news_sources_text: document.getElementById('newsSources').value,
-        news_sources_tags: getSelected('#newsChips'),
-        delivery_frequency: getSelected('#deliveryChips')[0] || null,
-        delivery_days: getSelected('#weekdaySelector'),
+        news_sources_tags: getSelectedTexts('#newsChips'),
+        delivery_frequency: getSelectedTexts('#deliveryChips')[0] || null,
+        delivery_days: getSelectedTexts('#weekdaySelector'),
         delivery_time: document.getElementById('deliveryTime').value,
         email: document.getElementById('email').value,
-        password: document.getElementById('password').value,
+        password: document.getElementById('password').value
       };
 
-      console.log('CloudVista user profile:', data);
-      alert('Preferences captured – check console for full JSON profile.');
+      console.log('CloudVista profile:', profile);
+      alert('Preferences captured. Open the browser console to see your CloudVista profile JSON.');
     }
   </script>
 </body>
