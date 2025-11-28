@@ -30,89 +30,52 @@
       <div class="container narrow">
         <h1>Where CloudVista helps first</h1>
         <p class="section-lead">
-          Same engine. Different markets.  
-          You choose the world you work in, CloudVista learns the signals that matter.
+          Same engine. Different markets.
+          You choose the world you work in.
+          CloudVista learns the signals that matter.
         </p>
       </div>
     </section>
 
     <section class="section">
       <div class="container feature-grid">
-        <!-- Recruitment / Executive search -->
+
+        <!-- Recruitment / Executive Search -->
         <article class="feature-card">
-          <h2>Recruitment &amp; executive search</h2>
-          <p class="card-sub">
-            For when your job is to be early, relevant and trusted.
-          </p>
+          <h2>Recruitment &amp; Executive Search</h2>
+          <p class="card-sub">Be early. Be relevant. Be trusted.</p>
           <ul class="card-list">
-            <li>
-              Tracks leadership moves, funding and team restructures across
-              your target accounts.
-            </li>
-            <li>
-              Highlights “headcount shock” moments: sudden exits, new units,
-              fresh mandates.
-            </li>
-            <li>
-              Learns which roles, geographies and levels convert into real
-              retained work for you.
-            </li>
+            <li>Tracks leadership moves and team changes across target accounts.</li>
+            <li>Detects “headcount shock” moments: exits, restructures, new units.</li>
+            <li>Learns which patterns match searches you actually win.</li>
           </ul>
-          <p class="card-footer">
-            Output: a short list of accounts that actually need a search
-            partner this month.
-          </p>
+          <p class="card-footer">Output: a shortlist of clients who need a partner this month.</p>
         </article>
 
-        <!-- Finance & investment -->
+        <!-- Finance / Investment -->
         <article class="feature-card">
-          <h2>Finance &amp; investment</h2>
-          <p class="card-sub">
-            For investors, analysts and portfolio teams looking for quiet edges.
-          </p>
+          <h2>Finance &amp; Investment</h2>
+          <p class="card-sub">Quiet edges for analysts & investors.</p>
           <ul class="card-list">
-            <li>
-              Watches leadership changes, product launches and hiring spikes
-              across your universe of companies.
-            </li>
-            <li>
-              Surfaces inflection points: pre-raise noise, post-deal hiring,
-              strategy pivots.
-            </li>
-            <li>
-              Learns which patterns match the deals and theses you actually
-              act on.
-            </li>
+            <li>Watches leadership changes, product moves and hiring spikes.</li>
+            <li>Spots inflection points: pre-raise activity, post-deal hiring, pivots.</li>
+            <li>Learns what aligns with your thesis and past deals.</li>
           </ul>
-          <p class="card-footer">
-            Output: a shortlist of moves to research, call on or brief your IC with.
-          </p>
+          <p class="card-footer">Output: moves worth researching, calling or briefing.</p>
         </article>
 
-        <!-- Government contract bidding -->
+        <!-- Government Bids -->
         <article class="feature-card">
-          <h2>Government &amp; public sector bids</h2>
-          <p class="card-sub">
-            For teams trying to spot and shape opportunities before they hit the portal.
-          </p>
+          <h2>Government &amp; Public Sector Bids</h2>
+          <p class="card-sub">See the signal before the tender drops.</p>
           <ul class="card-list">
-            <li>
-              Monitors departments, agencies and authorities you care about,
-              not the whole state.
-            </li>
-            <li>
-              Flags leadership changes, policy shifts and programme launches
-              that often precede tenders.
-            </li>
-            <li>
-              Learns which signals lined up with tenders you actually chased,
-              won or lost.
-            </li>
+            <li>Monitors the departments and agencies you care about.</li>
+            <li>Spots leadership changes, policy shifts and programme launches.</li>
+            <li>Learns which signals correlate with tenders you’ve won or chased.</li>
           </ul>
-          <p class="card-footer">
-            Output: early context and warm entry points before the invitation to tender lands.
-          </p>
+          <p class="card-footer">Output: early entry points before the ITT lands.</p>
         </article>
+
       </div>
     </section>
 
@@ -120,12 +83,8 @@
       <div class="container narrow center">
         <h2>One AI, tuned to you</h2>
         <p class="section-lead">
-          You don’t manage CloudVista.  
-          You give it a universe to watch, react to the signals that feel right,
-          and let it learn your pattern.
-        </p>
-        <p class="section-note">
-          Start with one market. Add others as your work evolves.
+          You don’t manage CloudVista.
+          You give it a universe to watch and it adapts itself to you.
         </p>
         <a href="index.html" class="button primary">Back to home</a>
       </div>
@@ -140,4 +99,3 @@
   </footer>
 </body>
 </html>
-
