@@ -4,15 +4,412 @@
   <meta charset="UTF-8" />
   <title>CloudVista – Set up your personal AI scout</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
+
+  <style>
+  /* ===========================
+     Base, layout & typography
+     (identical to index.html)
+     =========================== */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+    background: linear-gradient(160deg, #eef2f7, #dce3ee);
+    color: #111827;
+  }
+
+  .page-container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  .section {
+    padding: 2.3rem 0;
+    scroll-margin-top: 90px;
+  }
+
+  .narrow {
+    max-width: 640px;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  /* ==========
+     Header (same as index)
+     ========== */
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    backdrop-filter: blur(14px);
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.7rem 0;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .logo-icon {
+    padding: 2px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 20%, #dbeafe, #3b82f6);
+  }
+
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: #0f172a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e5e7eb;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+  }
+
+  .logo-text-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+
+  .logo-sub {
+    font-size: 0.7rem;
+    color: #6b7280;
+  }
+
+  .nav {
+    display: flex;
+    gap: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .nav a {
+    text-decoration: none;
+    color: #6b7280;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+  }
+
+  .nav a:hover {
+    background: #e5e7eb;
+    color: #111827;
+  }
+
+  .nav-active {
+    background: #2563eb;
+    color: #ffffff !important;
+  }
+
+  /* ==========
+     Buttons (same as index)
+     ========== */
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease-out;
+    white-space: nowrap;
+  }
+
+  .button.primary {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  .button.primary:hover {
+    background: #1d4ed8;
+  }
+
+  .button.ghost {
+    background: #e5e7eb;
+    color: #111827;
+  }
+
+  /* ==========
+     Footer (same as index)
+     ========== */
+
+  .site-footer {
+    border-top: 1px solid #e5e7eb;
+    padding: 1.3rem 0 1.7rem;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #6b7280;
+  }
+
+  .footer-inner a {
+    text-decoration: none;
+    color: #2563eb;
+  }
+
+  .footer-inner a:hover {
+    text-decoration: underline;
+  }
+
+  /* ==================
+     Signup page layout
+     ================== */
+
+  body.signup-page {
+    background: linear-gradient(160deg, #eef2f7, #dce3ee);
+  }
+
+  .signup-main {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+
+  .signup-card {
+    max-width: 780px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 32px 28px 28px;
+    border-radius: 22px;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
+  }
+
+  .signup-card h1 {
+    margin-top: 0;
+    font-size: 1.85rem;
+    font-weight: 700;
+  }
+
+  .signup-lead {
+    margin: 0.3rem 0 1.6rem;
+    color: #4b5563;
+    font-size: 0.94rem;
+  }
+
+  .signup-section {
+    margin-top: 1.6rem;
+    padding: 1.1rem 1rem 1.2rem;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+  }
+
+  .step-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    background: #e5edff;
+    color: #1d4ed8;
+    margin-bottom: 0.3rem;
+  }
+
+  .signup-section h2 {
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .subheading {
+    margin: 0.7rem 0 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .section-hint {
+    margin: 0 0 0.55rem;
+    font-size: 0.82rem;
+    color: #6b7280;
+  }
+
+  .signup-card textarea,
+  .signup-card input[type="text"],
+  .signup-card input[type="time"],
+  .signup-card input[type="email"],
+  .signup-card input[type="password"] {
+    width: 100%;
+    padding: 10px 11px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    margin-top: 8px;
+    font-size: 0.88rem;
+    font-family: inherit;
+  }
+
+  .signup-card textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+
+  .small-hint {
+    margin: 5px 0 0;
+    font-size: 0.78rem;
+    color: #6b7280;
+  }
+
+  /* Chips & icons – same visual language as site */
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    background: #eef2f7;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border: 1px solid transparent;
+    transition: 0.18s;
+  }
+
+  .chip-icon {
+    font-size: 0.95rem;
+  }
+
+  .chip:hover {
+    background: #e0e7f0;
+  }
+
+  .chip.selected {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #1d4ed8;
+  }
+
+  /* Weekly days */
+
+  .weekly-container {
+    margin-top: 0.7rem;
+  }
+
+  .weekdays {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    gap: 6px;
+  }
+
+  .day {
+    padding: 7px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+    background: #f3f4f6;
+    font-size: 0.8rem;
+    transition: 0.18s;
+  }
+
+  .day.selected {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #1d4ed8;
+  }
+
+  /* Signup main button */
+
+  .signup-button {
+    background: #2563eb;
+    color: white;
+    width: 100%;
+    padding: 14px;
+    margin-top: 26px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+
+  .signup-button:hover {
+    background: #1d4ed8;
+  }
+
+  .signup-footnote {
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    color: #6b7280;
+  }
+
+  @media (max-width: 640px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .signup-main {
+      padding: 2rem 1.1rem 2.6rem;
+    }
+
+    .signup-card {
+      padding: 26px 20px 22px;
+    }
+  }
+  </style>
 </head>
+
 <body class="signup-page">
   <header class="site-header">
     <div class="page-container header-inner">
       <a href="index.html" class="logo">
-        <div class="logo-icon">
-          <span class="logo-mark">CV</span>
-        </div>
+        <div class="logo-icon"><span class="logo-mark">CV</span></div>
         <div class="logo-text-block">
           <span class="logo-text">CloudVista</span>
           <span class="logo-sub">Your personal AI scout</span>
@@ -34,7 +431,7 @@
         and what commercial signals are worth your attention.
       </p>
 
-      <!-- SECTION 1: Role -->
+      <!-- Step 1: Role -->
       <section class="signup-section">
         <div class="step-label">Step 1</div>
         <h2>What’s your role?</h2>
@@ -43,41 +440,20 @@
         </p>
 
         <div class="chips" id="roleChips">
-          <div class="chip">
-            <span class="chip-icon">🔎</span><span>Executive search / specialist recruiter</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🧭</span><span>Talent or market intelligence</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📊</span><span>Investor / PE / VC / public markets</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏛️</span><span>Public-sector supplier / bids lead</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🧠</span><span>Consultant / advisor</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏢</span><span>Corporate strategy / corp dev</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">⚖️</span><span>Professional services / law</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🚪</span><span>Senior candidate / job seeker</span>
-          </div>
+          <div class="chip"><span class="chip-icon">🔎</span><span>Executive search / specialist recruiter</span></div>
+          <div class="chip"><span class="chip-icon">🧭</span><span>Talent or market intelligence</span></div>
+          <div class="chip"><span class="chip-icon">📊</span><span>Investor / PE / VC / public markets</span></div>
+          <div class="chip"><span class="chip-icon">🏛️</span><span>Public-sector supplier / bids lead</span></div>
+          <div class="chip"><span class="chip-icon">🧠</span><span>Consultant / advisor</span></div>
+          <div class="chip"><span class="chip-icon">🏢</span><span>Corporate strategy / corp dev</span></div>
+          <div class="chip"><span class="chip-icon">⚖️</span><span>Professional services / law</span></div>
+          <div class="chip"><span class="chip-icon">🚪</span><span>Senior candidate / job seeker</span></div>
         </div>
 
-        <textarea
-          id="roleText"
-          rows="2"
-          class="mt-8"
-          placeholder="Describe your role, seniority and the work you actually do day to day."
-        ></textarea>
+        <textarea id="roleText" rows="2" placeholder="Describe your role, seniority and the work you actually do day to day."></textarea>
       </section>
 
-      <!-- SECTION 2: What you want your AI scout to help with -->
+      <!-- Step 2: Goals -->
       <section class="signup-section">
         <div class="step-label">Step 2</div>
         <h2>What should your AI scout help you achieve?</h2>
@@ -86,35 +462,18 @@
         </p>
 
         <div class="chips" id="useCaseChips">
-          <div class="chip">
-            <span class="chip-icon">🤝</span><span>Win more retained or senior mandates</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📈</span><span>Spot investable inflection points earlier</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📑</span><span>See public-sector work early enough to shape it</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🛰️</span><span>Keep a constant pulse on my market</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏗️</span><span>Find change / transformation work</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🚪</span><span>Surface serious career moves, not noise</span>
-          </div>
+          <div class="chip"><span class="chip-icon">🤝</span><span>Win more retained or senior mandates</span></div>
+          <div class="chip"><span class="chip-icon">📈</span><span>Spot investable inflection points earlier</span></div>
+          <div class="chip"><span class="chip-icon">📑</span><span>See public-sector work early enough to shape it</span></div>
+          <div class="chip"><span class="chip-icon">🛰️</span><span>Keep a constant pulse on my market</span></div>
+          <div class="chip"><span class="chip-icon">🏗️</span><span>Find change / transformation work</span></div>
+          <div class="chip"><span class="chip-icon">🚪</span><span>Surface serious career moves, not noise</span></div>
         </div>
 
-        <textarea
-          id="goalsText"
-          rows="3"
-          class="mt-8"
-          placeholder="Describe the wins you want your AI scout to create – e.g. ‘2–3 new retained searches a quarter in oncology biotech’, ‘earlier read on portfolio risk’, ‘higher hit-rate on bids we pursue’, ‘3–5 credible role opportunities a year’."
-        ></textarea>
+        <textarea id="goalsText" rows="3" placeholder="Describe the wins you want your AI scout to create – e.g. ‘2–3 new retained searches a quarter in biotech’, ‘earlier read on portfolio risk’, ‘higher hit-rate on bids we pursue’, ‘3–5 credible role opportunities a year’."></textarea>
       </section>
 
-      <!-- SECTION 3: Sectors / markets -->
+      <!-- Step 3: Markets -->
       <section class="signup-section">
         <div class="step-label">Step 3</div>
         <h2>Which markets does your AI scout need to understand?</h2>
@@ -123,35 +482,18 @@
         </p>
 
         <div class="chips" id="sectorChips">
-          <div class="chip">
-            <span class="chip-icon">🧬</span><span>Life sciences & biotech</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🎓</span><span>Higher education & research</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">💹</span><span>Finance & investment</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🌍</span><span>Climate, infrastructure & energy</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏛️</span><span>Government & public sector</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🤝</span><span>Non-profits, think tanks & impact</span>
-          </div>
+          <div class="chip"><span class="chip-icon">🧬</span><span>Life sciences & biotech</span></div>
+          <div class="chip"><span class="chip-icon">🎓</span><span>Higher education & research</span></div>
+          <div class="chip"><span class="chip-icon">💹</span><span>Finance & investment</span></div>
+          <div class="chip"><span class="chip-icon">🌍</span><span>Climate, infrastructure & energy</span></div>
+          <div class="chip"><span class="chip-icon">🏛️</span><span>Government & public sector</span></div>
+          <div class="chip"><span class="chip-icon">🤝</span><span>Non-profits, think tanks & impact</span></div>
         </div>
 
-        <textarea
-          id="sectorsText"
-          rows="3"
-          class="mt-8"
-          placeholder="List specific niches, geographies or segments your AI scout should focus on."
-        ></textarea>
+        <textarea id="sectorsText" rows="3" placeholder="List specific niches, geographies or segments your AI scout should focus on."></textarea>
       </section>
 
-      <!-- SECTION 4: Signals & sources -->
+      <!-- Step 4: Signals & sources -->
       <section class="signup-section">
         <div class="step-label">Step 4</div>
         <h2>What signals and sources should your AI scout watch?</h2>
@@ -160,69 +502,31 @@
         </p>
 
         <div class="chips" id="signalChips">
-          <div class="chip">
-            <span class="chip-icon">💸</span><span>Funding rounds & capital events</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🧑‍💼</span><span>Leadership moves & team reshapes</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📣</span><span>Product launches & new programmes</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🤝</span><span>M&amp;A, partnerships & alliances</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏗️</span><span>Major projects & initiatives</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">⚖️</span><span>Regulatory / policy shifts</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📚</span><span>Research, publications & trials</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🗞️</span><span>Current affairs & macro events</span>
-          </div>
+          <div class="chip"><span class="chip-icon">💸</span><span>Funding rounds & capital events</span></div>
+          <div class="chip"><span class="chip-icon">🧑‍💼</span><span>Leadership moves & team reshapes</span></div>
+          <div class="chip"><span class="chip-icon">📣</span><span>Product launches & new programmes</span></div>
+          <div class="chip"><span class="chip-icon">🤝</span><span>M&amp;A, partnerships & alliances</span></div>
+          <div class="chip"><span class="chip-icon">🏗️</span><span>Major projects & initiatives</span></div>
+          <div class="chip"><span class="chip-icon">⚖️</span><span>Regulatory / policy shifts</span></div>
+          <div class="chip"><span class="chip-icon">📚</span><span>Research, publications & trials</span></div>
+          <div class="chip"><span class="chip-icon">🗞️</span><span>Current affairs & macro events</span></div>
         </div>
 
-        <textarea
-          id="signalsText"
-          rows="3"
-          class="mt-8"
-          placeholder="Call out patterns you care about – e.g. ‘post-Series B hiring’, ‘new online programmes’, ‘framework awards’, ‘spin-outs from specific labs’, ‘policy + current affairs combinations that move your market’."
-        ></textarea>
+        <textarea id="signalsText" rows="3" placeholder="Call out patterns you care about – e.g. ‘post-Series B hiring’, ‘new online programmes’, ‘framework awards’, ‘spin-outs from specific labs’, ‘policy + current affairs combinations that move your market’."></textarea>
 
-        <textarea
-          id="newsText"
-          rows="3"
-          class="mt-8"
-          placeholder="Specific outlets, newsletters, blogs, regulators or journals your AI scout should keep an eye on."
-        ></textarea>
+        <textarea id="newsText" rows="3" placeholder="Specific outlets, newsletters, blogs, regulators or journals your AI scout should keep an eye on."></textarea>
 
         <div class="chips" id="newsChips">
-          <div class="chip">
-            <span class="chip-icon">📰</span><span>Trade & industry press</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏛️</span><span>Government press releases</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">🏢</span><span>Company blogs & newsrooms</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📑</span><span>Regulators & filings</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📖</span><span>Academic journals</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📈</span><span>Analyst & research notes</span>
-          </div>
+          <div class="chip"><span class="chip-icon">📰</span><span>Trade & industry press</span></div>
+          <div class="chip"><span class="chip-icon">🏛️</span><span>Government press releases</span></div>
+          <div class="chip"><span class="chip-icon">🏢</span><span>Company blogs & newsrooms</span></div>
+          <div class="chip"><span class="chip-icon">📑</span><span>Regulators & filings</span></div>
+          <div class="chip"><span class="chip-icon">📖</span><span>Academic journals</span></div>
+          <div class="chip"><span class="chip-icon">📈</span><span>Analyst & research notes</span></div>
         </div>
       </section>
 
-      <!-- SECTION 5: Reporting cadence -->
+      <!-- Step 5: Reporting -->
       <section class="signup-section">
         <div class="step-label">Step 5</div>
         <h2>How should your AI scout report back?</h2>
@@ -231,12 +535,8 @@
         </p>
 
         <div class="chips" id="deliveryChips">
-          <div class="chip">
-            <span class="chip-icon">📅</span><span>Daily intelligence</span>
-          </div>
-          <div class="chip">
-            <span class="chip-icon">📝</span><span>Weekly briefing</span>
-          </div>
+          <div class="chip"><span class="chip-icon">📅</span><span>Daily intelligence</span></div>
+          <div class="chip"><span class="chip-icon">📝</span><span>Weekly briefing</span></div>
         </div>
 
         <div id="weeklyContainer" class="weekly-container" style="display:none;">
@@ -253,32 +553,19 @@
         </div>
 
         <h3 class="subheading">Preferred time of day</h3>
-        <input
-          type="time"
-          id="deliveryTime"
-          value="09:00"
-        />
+        <input type="time" id="deliveryTime" value="09:00" />
         <p class="small-hint">
           Your AI scout will aim to send fresh commercial intelligence around this time.
         </p>
       </section>
 
-      <!-- SECTION 6: Where to send it -->
+      <!-- Step 6: Where to send it -->
       <section class="signup-section">
         <div class="step-label">Step 6</div>
         <h2>Where should your AI scout send its briefings?</h2>
 
-        <input
-          type="email"
-          id="email"
-          placeholder="Work email (you@company.com)"
-        />
-        <input
-          type="password"
-          id="password"
-          placeholder="Create a password"
-          class="mt-8"
-        />
+        <input type="email" id="email" placeholder="Work email (you@company.com)" />
+        <input type="password" id="password" placeholder="Create a password" />
       </section>
 
       <button type="button" class="signup-button" onclick="submitForm()">
@@ -286,7 +573,7 @@
       </button>
       <p class="signup-footnote">
         This doesn’t start sending anything yet – it captures your preferences so we
-        can tune your personal AI scout and preview what your weekly briefings could look like.
+        can tune your personal AI scout and preview what your briefings could look like.
       </p>
     </div>
   </main>
@@ -299,7 +586,7 @@
   </footer>
 
   <script>
-    // Generic chip selection (multi-select, with single-select for cadence)
+    // Generic chip selection (multi-select, single-select for cadence)
     document.querySelectorAll('.chip').forEach(chip => {
       chip.addEventListener('click', () => {
         const parent = chip.parentElement;
