@@ -109,7 +109,6 @@
 
         <!-- Horizontal Scroll Wheel -->
         <div class="industry-scroll">
-
           <article class="industry-card">
             <h3>Executive search &amp; specialist recruitment</h3>
             <p>
@@ -193,7 +192,6 @@
               to time campaigns, programmes and partnerships.
             </p>
           </article>
-
         </div>
       </div>
     </section>
@@ -205,5 +203,17 @@
       <a href="signup.html">Set up your personal AI scout</a>
     </div>
   </footer>
+
+  <script>
+    // Make the industries row scroll horizontally with the mouse wheel
+    const industryScroll = document.querySelector('.industry-scroll');
+    if (industryScroll) {
+      industryScroll.addEventListener('wheel', (event) => {
+        // Only hijack the scroll when the user is over the industries strip
+        event.preventDefault();
+        industryScroll.scrollLeft += event.deltaY;
+      }, { passive: false });
+    }
+  </script>
 </body>
 </html>
