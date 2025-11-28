@@ -2,96 +2,227 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sign up – CloudVista early access</title>
+  <title>CloudVista – Set up your personal AI feed</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="signup-page">
   <header class="site-header">
-    <div class="container header-inner">
-     <div class="logo">
-  <div class="logo-icon">
-    <span class="logo-mark">CV</span>
-  </div>
-  <div class="logo-words">
-    <span class="logo-text">CloudVista</span>
-    <span class="logo-sub">Your personal market AI</span>
-  </div>
-</div>
+    <div class="page-container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <span class="logo-mark">CV</span>
+        </div>
+        <div class="logo-text-block">
+          <span class="logo-text">CloudVista</span>
+          <span class="logo-sub">Your personal market AI</span>
+        </div>
+      </a>
       <nav class="nav">
         <a href="index.html">Home</a>
-        <a href="index.html#features">Features</a>
-        <a href="index.html#who">Who it's for</a>
+        <a href="features.html">Industries</a>
+        <a href="signup.html" class="nav-active">Set up your AI</a>
       </nav>
     </div>
   </header>
 
-  <main class="section">
-    <div class="container narrow">
-      <h1>Join the CloudVista early access list</h1>
-      <p class="section-intro">
-        Tell us a bit about how you work today. We’re optimising CloudVista for
-        people who live or die by pipeline – recruiters, BD and founders.
+  <main class="signup-main">
+    <div class="signup-card">
+      <h1>Create your personalised CloudVista feed</h1>
+      <p class="signup-lead">
+        Tell us how you work and what you care about. Your personal AI will use this
+        to decide what is actually worth surfacing.
       </p>
 
-      <!-- For now this is a front-end only form.
-           When you're ready, we can wire this up to Formspree, Airtable, etc. -->
-      <form class="form-card" action="thank-you.html" method="get">
-        <div class="field-group">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
-        </div>
+      <!-- PURPOSE -->
+      <h2>What are you using CloudVista for?</h2>
+      <textarea id="purpose" rows="3" placeholder="Describe your goals..."></textarea>
+      <div class="chips" id="purposeChips">
+        <div class="chip">Executive search</div>
+        <div class="chip">Recruitment intelligence</div>
+        <div class="chip">Investment research</div>
+        <div class="chip">Portfolio monitoring</div>
+        <div class="chip">Government bids</div>
+        <div class="chip">Academic / research tracking</div>
+        <div class="chip">Job seeking</div>
+        <div class="chip">Competitive / market analysis</div>
+      </div>
 
-        <div class="field-group">
-          <label for="email">Work email</label>
-          <input id="email" name="email" type="email" placeholder="you@company.com" required />
-        </div>
+      <!-- ROLE -->
+      <h2>Your role</h2>
+      <input type="text" id="role" placeholder="Type your specific role..." />
+      <div class="chips" id="roleChips">
+        <div class="chip">Executive search</div>
+        <div class="chip">Recruiter</div>
+        <div class="chip">Researcher</div>
+        <div class="chip">Consultant</div>
+        <div class="chip">Investor / LP</div>
+        <div class="chip">Analyst</div>
+        <div class="chip">Bid / tender lead</div>
+        <div class="chip">Founder</div>
+        <div class="chip">Other</div>
+      </div>
 
-        <div class="field-group">
-          <label for="role">Role</label>
-          <select id="role" name="role" required>
-            <option value="">Select one</option>
-            <option>Executive search</option>
-            <option>Agency recruiter</option>
-            <option>In-house TA</option>
-            <option>Sales / BD</option>
-            <option>Founder / leadership</option>
-            <option>Other</option>
-          </select>
-        </div>
+      <!-- INDUSTRY -->
+      <h2>Industry focus</h2>
+      <input
+        type="text"
+        id="industry"
+        placeholder="e.g. Genomics, Higher Education, Infrastructure, Climate, Finance"
+      />
 
-        <div class="field-group">
-          <label for="company">Company</label>
-          <input id="company" name="company" type="text" placeholder="Company name" />
-        </div>
+      <!-- GEOGRAPHY -->
+      <h2>Where do you operate or track activity?</h2>
+      <input
+        type="text"
+        id="geo"
+        placeholder="e.g. UK & Europe, US & Canada, Global, specific regions"
+      />
 
-        <div class="field-group">
-          <label for="usecase">How are you hoping CloudVista will help?</label>
-          <textarea id="usecase" name="usecase" rows="4"
-            placeholder="e.g. find warm BD opportunities in biotech before competitors, track key clients, etc."></textarea>
-        </div>
+      <!-- SIGNALS -->
+      <h2>What signals matter most to you?</h2>
+      <div class="chips" id="signalChips">
+        <div class="chip">Funding rounds</div>
+        <div class="chip">Hiring activity</div>
+        <div class="chip">Leadership changes</div>
+        <div class="chip">M&A / partnerships</div>
+        <div class="chip">Org restructures</div>
+        <div class="chip">Programme launches</div>
+        <div class="chip">Research output</div>
+        <div class="chip">Regulatory changes</div>
+      </div>
 
-        <div class="field-group">
-          <label class="checkbox">
-            <input type="checkbox" name="updates" checked />
-            Keep me posted with occasional product updates (no spam).
-          </label>
-        </div>
+      <!-- CONTRACTS & BIDS -->
+      <h2>Contracts and bids your AI should watch</h2>
+      <textarea
+        id="contracts"
+        rows="3"
+        placeholder="e.g. NHS frameworks, local authority social care, higher ed online learning, central government digital, defence, transport, etc."
+      ></textarea>
+      <div class="chips" id="contractsChips">
+        <div class="chip">NHS & health frameworks</div>
+        <div class="chip">Local authority services</div>
+        <div class="chip">Central gov digital / data</div>
+        <div class="chip">Infrastructure & transport</div>
+        <div class="chip">Education & skills</div>
+        <div class="chip">Defence & security</div>
+      </div>
 
-        <button type="submit" class="button primary full-width">Request early access</button>
-        <p class="small-print">
-          We’re in closed beta. Joining the list doesn’t guarantee access, but
-          it puts you at the front of the queue.
-        </p>
-      </form>
+      <!-- NEWS / SOURCES -->
+      <h2>What news and sources should your AI track?</h2>
+      <textarea
+        id="newsSources"
+        rows="3"
+        placeholder="Specific outlets, newsletters, blogs, regulators, journals, etc."
+      ></textarea>
+      <div class="chips" id="newsChips">
+        <div class="chip">Trade & industry press</div>
+        <div class="chip">Government press releases</div>
+        <div class="chip">Company blogs & newsroom</div>
+        <div class="chip">Regulators & filings</div>
+        <div class="chip">Academic journals</div>
+        <div class="chip">Analyst / research notes</div>
+      </div>
+
+      <!-- DELIVERY -->
+      <h2>How often should we email your insights?</h2>
+      <div class="chips" id="deliveryChips">
+        <div class="chip">Daily</div>
+        <div class="chip">Weekly</div>
+      </div>
+
+      <div id="weeklyContainer" class="weekly-container" style="display:none;">
+        <h2>Preferred days (for weekly)</h2>
+        <div class="weekdays" id="weekdaySelector">
+          <div class="day">Mon</div>
+          <div class="day">Tue</div>
+          <div class="day">Wed</div>
+          <div class="day">Thu</div>
+          <div class="day">Fri</div>
+          <div class="day">Sat</div>
+          <div class="day">Sun</div>
+        </div>
+      </div>
+
+      <!-- TIME PICKER -->
+      <h2>Preferred time (24h)</h2>
+      <input type="time" id="deliveryTime" value="09:00" />
+
+      <!-- ACCOUNT -->
+      <h2>Start your CloudVista trial</h2>
+      <input type="email" id="email" placeholder="you@company.com" />
+      <input type="password" id="password" placeholder="Create a password" />
+
+      <button type="button" class="signup-button" onclick="submitForm()">
+        Save my preferences
+      </button>
+      <p class="signup-footnote">
+        We’ll use this to tune your personal AI and share a short preview feed.
+        No spam, no sharing your details without consent.
+      </p>
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="page-container footer-inner">
       <p>© 2025 CloudVista.</p>
       <a href="index.html">Back to home</a>
     </div>
   </footer>
+
+  <script>
+    // Generic chip toggle (multi-select)
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        const parent = chip.parentElement;
+
+        // For delivery frequency, single-select
+        if (parent.id === 'deliveryChips') {
+          parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+        }
+
+        chip.classList.toggle('selected');
+
+        // Show/hide weekly days
+        if (parent.id === 'deliveryChips') {
+          const selection = chip.innerText.trim();
+          document.getElementById('weeklyContainer').style.display =
+            selection === 'Weekly' ? 'block' : 'none';
+        }
+      });
+    });
+
+    // Weekly day toggle
+    document.querySelectorAll('.day').forEach(day => {
+      day.addEventListener('click', () => day.classList.toggle('selected'));
+    });
+
+    function submitForm() {
+      const getSelected = (selector) =>
+        [...document.querySelectorAll(selector + ' .selected')].map(el => el.innerText.trim());
+
+      const data = {
+        purpose_text: document.getElementById('purpose').value,
+        purpose_tags: getSelected('#purposeChips'),
+        role_text: document.getElementById('role').value,
+        role_tags: getSelected('#roleChips'),
+        industry: document.getElementById('industry').value,
+        geography: document.getElementById('geo').value,
+        signals: getSelected('#signalChips'),
+        contracts_text: document.getElementById('contracts').value,
+        contracts_tags: getSelected('#contractsChips'),
+        news_sources_text: document.getElementById('newsSources').value,
+        news_sources_tags: getSelected('#newsChips'),
+        delivery_frequency: getSelected('#deliveryChips')[0] || null,
+        delivery_days: getSelected('#weekdaySelector'),
+        delivery_time: document.getElementById('deliveryTime').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+      };
+
+      console.log('CloudVista user profile:', data);
+      alert('Preferences captured – check console for full JSON profile.');
+    }
+  </script>
 </body>
 </html>
