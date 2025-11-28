@@ -17,6 +17,12 @@ body {
   color: #111827;
 }
 
+/* Utility */
+
+.mt-8 {
+  margin-top: 8px;
+}
+
 /* Layout helpers */
 
 .page-container {
@@ -271,43 +277,31 @@ main {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.4rem;
+  gap: 1.2rem;
+}
+
+.feature-grid-tight {
+  margin-top: 1.6rem;
 }
 
 .feature-card {
   background: #ffffff;
   border-radius: 18px;
   border: 1px solid #e5e7eb;
-  padding: 1.4rem 1.3rem;
+  padding: 1.3rem 1.2rem;
   font-size: 0.9rem;
-  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
 }
 
-.feature-card h2 {
-  margin: 0 0 0.4rem;
-  font-size: 1.05rem;
+.feature-card-compact h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.98rem;
 }
 
-.card-sub {
-  margin: 0 0 0.7rem;
-  color: #4b5563;
-}
-
-.card-list {
-  list-style: disc;
-  padding-left: 1.2rem;
-  margin: 0 0 0.8rem;
-  color: #4b5563;
-}
-
-.card-list li + li {
-  margin-top: 0.4rem;
-}
-
-.card-footer {
+.feature-card-compact p {
   margin: 0;
-  font-size: 0.82rem;
-  color: #6b7280;
+  color: #4b5563;
+  font-size: 0.86rem;
 }
 
 /* Buttons */
@@ -371,7 +365,7 @@ main {
   text-decoration: underline;
 }
 
-/* SIGNUP PAGE – based on your CodePen but scoped */
+/* SIGNUP PAGE */
 
 .signup-page {
   background: linear-gradient(160deg, #eef2f7, #dce3ee);
@@ -385,158 +379,12 @@ main {
   max-width: 720px;
   margin: 0 auto;
   background: #ffffff;
-  padding: 40px 32px 32px;
+  padding: 32px 28px 28px;
   border-radius: 22px;
   box-shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
 }
 
 .signup-card h1 {
   margin-top: 0;
-  font-size: 1.9rem;
-  font-weight: 700;
-}
-
-.signup-lead {
-  margin: 0.3rem 0 1.8rem;
-  color: #4b5563;
-  font-size: 0.98rem;
-}
-
-.signup-card h2 {
-  margin-top: 1.9rem;
-  font-size: 1.05rem;
-  font-weight: 600;
-  border-left: 3px solid #2563eb;
-  padding-left: 10px;
-}
-
-.signup-card textarea,
-.signup-card input[type="text"],
-.signup-card input[type="time"],
-.signup-card input[type="email"],
-.signup-card input[type="password"] {
-  width: 100%;
-  padding: 13px 14px;
-  border-radius: 12px;
-  border: 1px solid #cbd5e1;
-  margin-top: 10px;
-  font-size: 0.95rem;
-}
-
-.signup-card textarea {
-  resize: vertical;
-}
-
-/* Chips */
-
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.chip {
-  padding: 8px 14px;
-  background: #eef2f7;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  border: 1px solid transparent;
-  transition: 0.18s;
-}
-
-.chip:hover {
-  background: #e0e7f0;
-}
-
-.chip.selected {
-  background: #2563eb;
-  color: #ffffff;
-  border-color: #1d4ed8;
-}
-
-/* Weekly days */
-
-.weekly-container {
-  margin-top: 0.5rem;
-}
-
-.weekdays {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 12px;
-}
-
-.day {
-  padding: 10px 0;
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
-  width: 13%;
-  text-align: center;
-  cursor: pointer;
-  background: #f3f4f6;
-  font-size: 0.85rem;
-  transition: 0.18s;
-}
-
-.day.selected {
-  background: #2563eb;
-  color: #ffffff;
-  border-color: #1d4ed8;
-}
-
-/* Signup button */
-
-.signup-button {
-  background: #2563eb;
-  color: white;
-  width: 100%;
-  padding: 15px;
-  margin-top: 32px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 14px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.signup-button:hover {
-  background: #1d4ed8;
-}
-
-.signup-footnote {
-  margin-top: 0.9rem;
-  font-size: 0.8rem;
-  color: #6b7280;
-}
-
-/* Responsive tweaks */
-
-@media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .feature-grid,
-  .pill-row {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .header-inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-
-  .hero {
-    padding-top: 2rem;
-  }
-
-  .signup-card {
-    padding: 28px 20px 24px;
-  }
-}
+  font-size: 1.85rem;
+  font-weight:
