@@ -34,130 +34,243 @@
         and what commercial signals are worth your attention.
       </p>
 
-      <!-- 1. Who you are -->
-      <h2>1. Who are you?</h2>
-      <input
-        type="text"
-        id="role"
-        placeholder="Your role (e.g. Executive Search Partner, Investment Analyst, Bid Lead)"
-      />
-      <input
-        type="text"
-        id="orgType"
-        placeholder="Organisation (e.g. Search firm, PE fund, Consultancy, Supplier)"
-        class="mt-8"
-      />
-      <input
-        type="text"
-        id="geo"
-        placeholder="Where you mainly operate (e.g. UK & Europe, US, Global)"
-        class="mt-8"
-      />
+      <!-- SECTION 1: Role -->
+      <section class="signup-section">
+        <div class="step-label">Step 1</div>
+        <h2>What’s your role?</h2>
+        <p class="section-hint">
+          Give your personal AI scout a sense of how you show up in the market.
+        </p>
 
-      <!-- 2. What you want your AI scout to do -->
-      <h2>2. What do you want your AI scout to help with?</h2>
-      <textarea
-        id="goals"
-        rows="3"
-        placeholder="In your own words – e.g. ‘Spot retained search opportunities in oncology biotech before they go public’, ‘Track portfolio companies for leadership changes’, ‘See public sector work early enough to shape it’, etc."
-      ></textarea>
-      <div class="chips" id="useCaseChips">
-        <div class="chip">Executive search</div>
-        <div class="chip">Contingent recruitment</div>
-        <div class="chip">Investment research</div>
-        <div class="chip">Portfolio monitoring</div>
-        <div class="chip">Government / public sector</div>
-        <div class="chip">Competitive / market intelligence</div>
-        <div class="chip">Job seeking / career moves</div>
-      </div>
-
-      <!-- 3. Sectors / markets -->
-      <h2>3. What sectors should your AI scout focus on?</h2>
-      <input
-        type="text"
-        id="sectors"
-        placeholder="e.g. Life sciences, Higher Education, Climate & Infrastructure, Financial services, Government & public sector"
-      />
-      <div class="chips" id="sectorChips">
-        <div class="chip">Life sciences & biotech</div>
-        <div class="chip">Higher education & research</div>
-        <div class="chip">Finance & investment</div>
-        <div class="chip">Climate, infra & energy</div>
-        <div class="chip">Government & public sector</div>
-        <div class="chip">Non-profits & impact</div>
-      </div>
-
-      <!-- 4. Signals & news sources -->
-      <h2>4. What signals and sources should it watch?</h2>
-      <div class="chips" id="signalChips">
-        <div class="chip">Funding rounds</div>
-        <div class="chip">Hiring spikes & freezes</div>
-        <div class="chip">Leadership moves</div>
-        <div class="chip">M&amp;A & partnerships</div>
-        <div class="chip">Org restructures</div>
-        <div class="chip">Programmes / project launches</div>
-        <div class="chip">Regulatory changes</div>
-        <div class="chip">Research & publications</div>
-      </div>
-
-      <textarea
-        id="newsSources"
-        rows="3"
-        class="mt-8"
-        placeholder="Any specific outlets, newsletters, blogs, regulators or journals you want your AI scout to keep an eye on."
-      ></textarea>
-      <div class="chips" id="newsChips">
-        <div class="chip">Trade & industry press</div>
-        <div class="chip">Government press releases</div>
-        <div class="chip">Company blogs & newsrooms</div>
-        <div class="chip">Regulators & filings</div>
-        <div class="chip">Academic journals</div>
-        <div class="chip">Analyst / research notes</div>
-      </div>
-
-      <!-- 5. Reporting cadence -->
-      <h2>5. How often should your AI scout report back?</h2>
-      <div class="chips" id="deliveryChips">
-        <div class="chip">Daily intelligence</div>
-        <div class="chip">Weekly briefing</div>
-      </div>
-
-      <div id="weeklyContainer" class="weekly-container" style="display:none;">
-        <h2>Preferred days for your weekly briefing</h2>
-        <div class="weekdays" id="weekdaySelector">
-          <div class="day">Mon</div>
-          <div class="day">Tue</div>
-          <div class="day">Wed</div>
-          <div class="day">Thu</div>
-          <div class="day">Fri</div>
-          <div class="day">Sat</div>
-          <div class="day">Sun</div>
+        <div class="chips" id="roleChips">
+          <div class="chip">
+            <span class="chip-icon">🔎</span><span>Executive search partner</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🧭</span><span>Talent / market intelligence</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📊</span><span>Investment / equity analyst</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🏛️</span><span>Public-sector / bids lead</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🧠</span><span>Consultant / advisor</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🎯</span><span>Specialist recruiter</span>
+          </div>
         </div>
-      </div>
 
-      <h2>Preferred time of day</h2>
-      <input
-        type="time"
-        id="deliveryTime"
-        value="09:00"
-      />
-      <p class="small-hint">
-        Your AI scout will aim to send fresh commercial intelligence around this time.
-      </p>
+        <textarea
+          id="roleText"
+          rows="2"
+          class="mt-8"
+          placeholder="Describe your role, seniority and the kind of work you actually do day to day."
+        ></textarea>
+      </section>
 
-      <!-- 6. Where to send it -->
-      <h2>6. Where should your AI scout send its briefings?</h2>
-      <input
-        type="email"
-        id="email"
-        placeholder="Work email (you@company.com)"
-      />
-      <input
-        type="password"
-        id="password"
-        placeholder="Create a password"
-        class="mt-8"
-      />
+      <!-- SECTION 2: What you want your AI scout to help with -->
+      <section class="signup-section">
+        <div class="step-label">Step 2</div>
+        <h2>What should your AI scout help you achieve?</h2>
+        <p class="section-hint">
+          Think in terms of outcomes – retained work, deals, mandates, partnerships, contracts won.
+        </p>
+
+        <div class="chips" id="useCaseChips">
+          <div class="chip">
+            <span class="chip-icon">🤝</span><span>Find retained search work earlier</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📈</span><span>Spot investable inflection points</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🧩</span><span>Map leadership / team moves</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📑</span><span>See public-sector work earlier</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🛰️</span><span>Ongoing market / competitive intel</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🚪</span><span>Identify roles / moves for myself</span>
+          </div>
+        </div>
+
+        <textarea
+          id="goalsText"
+          rows="3"
+          class="mt-8"
+          placeholder="In your own words – what would ‘CloudVista is working’ look like in 6–12 months?"
+        ></textarea>
+      </section>
+
+      <!-- SECTION 3: Sectors / markets -->
+      <section class="signup-section">
+        <div class="step-label">Step 3</div>
+        <h2>Which markets does your AI scout need to understand?</h2>
+        <p class="section-hint">
+          Your personal AI scout only needs to know the worlds you actually operate in.
+        </p>
+
+        <div class="chips" id="sectorChips">
+          <div class="chip">
+            <span class="chip-icon">🧬</span><span>Life sciences & biotech</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🎓</span><span>Higher education & research</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">💹</span><span>Finance & investment</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🌍</span><span>Climate, infrastructure & energy</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🏛️</span><span>Government & public sector</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🤝</span><span>Non-profits, think tanks & impact</span>
+          </div>
+        </div>
+
+        <textarea
+          id="sectorsText"
+          rows="3"
+          class="mt-8"
+          placeholder="List specific niches, geographies, or segments your AI scout should focus on."
+        ></textarea>
+      </section>
+
+      <!-- SECTION 4: Signals & sources -->
+      <section class="signup-section">
+        <div class="step-label">Step 4</div>
+        <h2>What signals and sources should your AI scout watch?</h2>
+        <p class="section-hint">
+          These are the public signals you already read between the lines of – CloudVista just scales it.
+        </p>
+
+        <div class="chips" id="signalChips">
+          <div class="chip">
+            <span class="chip-icon">💸</span><span>Funding rounds & capital events</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🧑‍💼</span><span>Leadership moves & team reshapes</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📣</span><span>Product launches & new programmes</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🤝</span><span>M&amp;A, partnerships & alliances</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🏗️</span><span>Major projects & initiatives</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">⚖️</span><span>Regulatory / policy shifts</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📚</span><span>Research, publications & trials</span>
+          </div>
+        </div>
+
+        <textarea
+          id="signalsText"
+          rows="3"
+          class="mt-8"
+          placeholder="Any particular patterns or moments you care about? e.g. ‘post-Series B hires’, ‘new online programmes’, ‘framework awards’, etc."
+        ></textarea>
+
+        <textarea
+          id="newsText"
+          rows="3"
+          class="mt-8"
+          placeholder="Specific outlets, newsletters, blogs, regulators or journals your AI scout should keep an eye on."
+        ></textarea>
+
+        <div class="chips" id="newsChips">
+          <div class="chip">
+            <span class="chip-icon">📰</span><span>Trade & industry press</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🏛️</span><span>Government press releases</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">🏢</span><span>Company blogs & newsrooms</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📑</span><span>Regulators & filings</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📖</span><span>Academic journals</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📈</span><span>Analyst & research notes</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: Reporting cadence -->
+      <section class="signup-section">
+        <div class="step-label">Step 5</div>
+        <h2>How should your AI scout report back?</h2>
+        <p class="section-hint">
+          Cadence for your commercial intelligence – not another noisy feed.
+        </p>
+
+        <div class="chips" id="deliveryChips">
+          <div class="chip">
+            <span class="chip-icon">📅</span><span>Daily intelligence</span>
+          </div>
+          <div class="chip">
+            <span class="chip-icon">📝</span><span>Weekly briefing</span>
+          </div>
+        </div>
+
+        <div id="weeklyContainer" class="weekly-container" style="display:none;">
+          <h3 class="subheading">Preferred days for a weekly briefing</h3>
+          <div class="weekdays" id="weekdaySelector">
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+            <div class="day">Sun</div>
+          </div>
+        </div>
+
+        <h3 class="subheading">Preferred time of day</h3>
+        <input
+          type="time"
+          id="deliveryTime"
+          value="09:00"
+        />
+        <p class="small-hint">
+          Your AI scout will aim to send fresh commercial intelligence around this time.
+        </p>
+      </section>
+
+      <!-- SECTION 6: Where to send it -->
+      <section class="signup-section">
+        <div class="step-label">Step 6</div>
+        <h2>Where should your AI scout send its briefings?</h2>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Work email (you@company.com)"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Create a password"
+          class="mt-8"
+        />
+      </section>
 
       <button type="button" class="signup-button" onclick="submitForm()">
         Save my CloudVista profile
@@ -193,7 +306,7 @@
         if (parent.id === 'deliveryChips') {
           const selection = chip.innerText.trim();
           const weeklyBox = document.getElementById('weeklyContainer');
-          weeklyBox.style.display = selection === 'Weekly briefing' ? 'block' : 'none';
+          weeklyBox.style.display = selection.includes('Weekly') ? 'block' : 'none';
         }
       });
     });
@@ -210,16 +323,16 @@
         Array.from(document.querySelectorAll(selector + ' .selected')).map(el => el.innerText.trim());
 
       const profile = {
-        role: document.getElementById('role').value,
-        org_type: document.getElementById('orgType').value,
-        geography: document.getElementById('geo').value,
-        goals_text: document.getElementById('goals').value,
+        role_tags: getSelectedTexts('#roleChips'),
+        role_text: document.getElementById('roleText').value,
         goals_tags: getSelectedTexts('#useCaseChips'),
-        sectors_text: document.getElementById('sectors').value,
+        goals_text: document.getElementById('goalsText').value,
         sectors_tags: getSelectedTexts('#sectorChips'),
+        sectors_text: document.getElementById('sectorsText').value,
         signals_tags: getSelectedTexts('#signalChips'),
-        news_sources_text: document.getElementById('newsSources').value,
+        signals_text: document.getElementById('signalsText').value,
         news_sources_tags: getSelectedTexts('#newsChips'),
+        news_sources_text: document.getElementById('newsText').value,
         delivery_cadence: getSelectedTexts('#deliveryChips')[0] || null,
         delivery_days: getSelectedTexts('#weekdaySelector'),
         delivery_time: document.getElementById('deliveryTime').value,
