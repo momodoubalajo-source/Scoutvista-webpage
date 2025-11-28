@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CloudVista – Features by industry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <span class="logo-mark">CV</span>
+        </div>
+        <div class="logo-text-block">
+          <span class="logo-text">CloudVista</span>
+          <span class="logo-sub">Your personal market AI</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="features.html" class="nav-active">Features</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section section-hero-sub">
+      <div class="container narrow">
+        <h1>Where CloudVista helps first</h1>
+        <p class="section-lead">
+          Same engine. Different markets.  
+          You choose the world you work in, CloudVista learns the signals that matter.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container feature-grid">
+        <!-- Recruitment / Executive search -->
+        <article class="feature-card">
+          <h2>Recruitment &amp; executive search</h2>
+          <p class="card-sub">
+            For when your job is to be early, relevant and trusted.
+          </p>
+          <ul class="card-list">
+            <li>
+              Tracks leadership moves, funding and team restructures across
+              your target accounts.
+            </li>
+            <li>
+              Highlights “headcount shock” moments: sudden exits, new units,
+              fresh mandates.
+            </li>
+            <li>
+              Learns which roles, geographies and levels convert into real
+              retained work for you.
+            </li>
+          </ul>
+          <p class="card-footer">
+            Output: a short list of accounts that actually need a search
+            partner this month.
+          </p>
+        </article>
+
+        <!-- Finance & investment -->
+        <article class="feature-card">
+          <h2>Finance &amp; investment</h2>
+          <p class="card-sub">
+            For investors, analysts and portfolio teams looking for quiet edges.
+          </p>
+          <ul class="card-list">
+            <li>
+              Watches leadership changes, product launches and hiring spikes
+              across your universe of companies.
+            </li>
+            <li>
+              Surfaces inflection points: pre-raise noise, post-deal hiring,
+              strategy pivots.
+            </li>
+            <li>
+              Learns which patterns match the deals and theses you actually
+              act on.
+            </li>
+          </ul>
+          <p class="card-footer">
+            Output: a shortlist of moves to research, call on or brief your IC with.
+          </p>
+        </article>
+
+        <!-- Government contract bidding -->
+        <article class="feature-card">
+          <h2>Government &amp; public sector bids</h2>
+          <p class="card-sub">
+            For teams trying to spot and shape opportunities before they hit the portal.
+          </p>
+          <ul class="card-list">
+            <li>
+              Monitors departments, agencies and authorities you care about,
+              not the whole state.
+            </li>
+            <li>
+              Flags leadership changes, policy shifts and programme launches
+              that often precede tenders.
+            </li>
+            <li>
+              Learns which signals lined up with tenders you actually chased,
+              won or lost.
+            </li>
+          </ul>
+          <p class="card-footer">
+            Output: early context and warm entry points before the invitation to tender lands.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-simple">
+      <div class="container narrow center">
+        <h2>One AI, tuned to you</h2>
+        <p class="section-lead">
+          You don’t manage CloudVista.  
+          You give it a universe to watch, react to the signals that feel right,
+          and let it learn your pattern.
+        </p>
+        <p class="section-note">
+          Start with one market. Add others as your work evolves.
+        </p>
+        <a href="index.html" class="button primary">Back to home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 2025 CloudVista.</p>
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+</body>
+</html>
 
