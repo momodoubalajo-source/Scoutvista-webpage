@@ -1,4 +1,6 @@
-/* Global layout & typography – light, simple */
+/* ==============
+   Base & Layout
+   ============== */
 
 *,
 *::before,
@@ -6,7 +8,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -17,13 +20,13 @@ body {
   color: #111827;
 }
 
-/* Utility */
+/* Simple utility */
 
 .mt-8 {
   margin-top: 8px;
 }
 
-/* Layout helpers */
+/* Page container */
 
 .page-container {
   width: 100%;
@@ -40,14 +43,16 @@ main {
   padding-bottom: 2.5rem;
 }
 
-/* Header */
+/* ==========
+   Header
+   ========== */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 20;
   backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid #e5e7eb;
 }
 
@@ -130,7 +135,9 @@ main {
   color: #ffffff !important;
 }
 
-/* Hero (home) */
+/* ==========
+   Hero (Home)
+   ========== */
 
 .hero {
   padding: 2.8rem 0 3rem;
@@ -213,7 +220,9 @@ main {
   color: #6b7280;
 }
 
-/* Sections */
+/* ==========
+   Sections
+   ========== */
 
 .section {
   padding: 2.3rem 0;
@@ -244,7 +253,7 @@ main {
   margin-top: 0;
 }
 
-/* Pill cards (home) */
+/* Pill row (What CloudVista does for you) */
 
 .pill-row {
   display: grid;
@@ -272,7 +281,9 @@ main {
   color: #4b5563;
 }
 
-/* Feature cards (industries) */
+/* ==========
+   Features grid (industries)
+   ========== */
 
 .feature-grid {
   display: grid;
@@ -304,7 +315,9 @@ main {
   font-size: 0.86rem;
 }
 
-/* Buttons */
+/* ==========
+   Buttons
+   ========== */
 
 .button {
   display: inline-flex;
@@ -340,7 +353,9 @@ main {
   background: #d1d5db;
 }
 
-/* Footer */
+/* ==========
+   Footer
+   ========== */
 
 .site-footer {
   border-top: 1px solid #e5e7eb;
@@ -365,7 +380,9 @@ main {
   text-decoration: underline;
 }
 
-/* SIGNUP PAGE */
+/* ==================
+   Signup page layout
+   ================== */
 
 .signup-page {
   background: linear-gradient(160deg, #eef2f7, #dce3ee);
@@ -376,7 +393,7 @@ main {
 }
 
 .signup-card {
-  max-width: 720px;
+  max-width: 780px;
   margin: 0 auto;
   background: #ffffff;
   padding: 32px 28px 28px;
@@ -387,4 +404,203 @@ main {
 .signup-card h1 {
   margin-top: 0;
   font-size: 1.85rem;
-  font-weight:
+  font-weight: 700;
+}
+
+.signup-lead {
+  margin: 0.3rem 0 1.6rem;
+  color: #4b5563;
+  font-size: 0.94rem;
+}
+
+/* Signup sections */
+
+.signup-section {
+  margin-top: 1.6rem;
+  padding: 1.1rem 1rem 1.2rem;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.step-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: #e5edff;
+  color: #1d4ed8;
+  margin-bottom: 0.3rem;
+}
+
+.signup-section h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.subheading {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.section-hint {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+/* Form controls */
+
+.signup-card textarea,
+.signup-card input[type="text"],
+.signup-card input[type="time"],
+.signup-card input[type="email"],
+.signup-card input[type="password"] {
+  width: 100%;
+  padding: 10px 11px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  margin-top: 8px;
+  font-size: 0.88rem;
+}
+
+.signup-card textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.small-hint {
+  margin: 5px 0 0;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+/* Chips with icons */
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  background: #eef2f7;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  border: 1px solid transparent;
+  transition: 0.18s;
+}
+
+.chip-icon {
+  font-size: 0.95rem;
+}
+
+.chip:hover {
+  background: #e0e7f0;
+}
+
+.chip.selected {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+/* Weekly days */
+
+.weekly-container {
+  margin-top: 0.7rem;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  gap: 6px;
+}
+
+.day {
+  padding: 7px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  background: #f3f4f6;
+  font-size: 0.8rem;
+  transition: 0.18s;
+}
+
+.day.selected {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+/* Signup button */
+
+.signup-button {
+  background: #2563eb;
+  color: white;
+  width: 100%;
+  padding: 14px;
+  margin-top: 26px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.signup-button:hover {
+  background: #1d4ed8;
+}
+
+.signup-footnote {
+  margin-top: 0.8rem;
+  font-size: 0.78rem;
+  color: #6b7280;
+}
+
+/* ==========
+   Responsive
+   ========== */
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .pill-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .signup-card {
+    padding: 26px 20px 22px;
+  }
+}
