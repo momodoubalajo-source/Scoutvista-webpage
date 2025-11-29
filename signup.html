@@ -1,644 +1,1025 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>CloudVista – Set up your personal AI scout</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<title>Set up your AI scout – CloudVista</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+/* ===========================
+   MODERN RESET & BASE
+=========================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <style>
-  /* ===========================
-     Base, layout & typography
-     (identical to index.html)
-     =========================== */
+html {
+  scroll-behavior: smooth;
+}
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
+  background: #0a0e27;
+  color: #e2e8f0;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Animated gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f172a 100%);
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+  animation: float 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  33% { transform: translate(30px, -50px) rotate(120deg); }
+  66% { transform: translate(-20px, 20px) rotate(240deg); }
+}
+
+/* ===========================
+   CONTAINER & UTILITIES
+=========================== */
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.site-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  background: rgba(10, 14, 39, 0.8);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
   }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
+}
 
-  body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-    background: linear-gradient(160deg, #eef2f7, #dce3ee);
-    color: #111827;
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+/* Logo with pulse animation */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-icon {
+  position: relative;
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+  50% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+}
+
+.logo-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3b82f6;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.logo-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #94a3b8;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.nav a:hover::before {
+  left: 100%;
+}
+
+.nav a:hover {
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+.nav-active {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+  color: #fff !important;
+}
+
+/* ===========================
+   SIGNUP FORM SECTION
+=========================== */
+.signup-section {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
 
+.signup-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.signup-header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.signup-header p {
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+/* Form Card */
+.form-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideInUp 0.8s ease 0.4s backwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
+.form-group label .required {
+  color: #ef4444;
+  margin-left: 0.25rem;
+}
+
+.form-help {
+  display: block;
+  font-size: 0.85rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+/* Input Styles */
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  background: rgba(10, 14, 39, 0.5);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: rgba(10, 14, 39, 0.7);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #475569;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+}
+
+.form-select option {
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Industry-specific fields container */
+.industry-fields {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.industry-fields.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Privacy Note */
+.privacy-note {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.privacy-note a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.privacy-note a:hover {
+  color: #8b5cf6;
+  text-decoration: underline;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+.site-footer {
+  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  padding: 2rem 0;
+  background: rgba(10, 14, 39, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #64748b;
+}
+
+.footer-inner a {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-inner a:hover {
+  color: #8b5cf6;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .signup-header h1 {
+    font-size: 2rem;
+  }
+  
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .signup-section {
+    padding: 6rem 0 3rem;
+  }
+  
   .page-container {
-    width: 100%;
-    max-width: 1040px;
-    margin: 0 auto;
     padding: 0 1.5rem;
   }
-
-  .section {
-    padding: 2.3rem 0;
-    scroll-margin-top: 90px;
-  }
-
-  .narrow {
-    max-width: 640px;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  /* ==========
-     Header (same as index)
-     ========== */
-
-  .site-header {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    backdrop-filter: blur(14px);
-    background: rgba(255, 255, 255, 0.94);
-    border-bottom: 1px solid #e5e7eb;
-  }
-
-  .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.7rem 0;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  .logo-icon {
-    padding: 2px;
-    border-radius: 999px;
-    background: radial-gradient(circle at 30% 20%, #dbeafe, #3b82f6);
-  }
-
-  .logo-mark {
-    width: 28px;
-    height: 28px;
-    border-radius: 999px;
-    background: #0f172a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #e5e7eb;
-    font-size: 0.8rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-  }
-
-  .logo-text-block {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-  }
-
-  .logo-text {
-    font-size: 0.95rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .logo-sub {
-    font-size: 0.7rem;
-    color: #6b7280;
-  }
-
-  .nav {
-    display: flex;
-    gap: 0.8rem;
-    font-size: 0.85rem;
-  }
-
-  .nav a {
-    text-decoration: none;
-    color: #6b7280;
-    padding: 0.3rem 0.8rem;
-    border-radius: 999px;
-  }
-
-  .nav a:hover {
-    background: #e5e7eb;
-    color: #111827;
-  }
-
-  .nav-active {
-    background: #2563eb;
-    color: #ffffff !important;
-  }
-
-  /* ==========
-     Buttons (same as index)
-     ========== */
-
-  .button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.7rem 1.5rem;
-    border-radius: 999px;
-    border: 1px solid transparent;
-    font-size: 0.9rem;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.15s ease-out;
-    white-space: nowrap;
-  }
-
-  .button.primary {
-    background: #2563eb;
-    color: #ffffff;
-  }
-
-  .button.primary:hover {
-    background: #1d4ed8;
-  }
-
-  .button.ghost {
-    background: #e5e7eb;
-    color: #111827;
-  }
-
-  /* ==========
-     Footer (same as index)
-     ========== */
-
-  .site-footer {
-    border-top: 1px solid #e5e7eb;
-    padding: 1.3rem 0 1.7rem;
-    background: rgba(255, 255, 255, 0.9);
-  }
-
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.8rem;
-    color: #6b7280;
-  }
-
-  .footer-inner a {
-    text-decoration: none;
-    color: #2563eb;
-  }
-
-  .footer-inner a:hover {
-    text-decoration: underline;
-  }
-
-  /* ==================
-     Signup page layout
-     ================== */
-
-  body.signup-page {
-    background: linear-gradient(160deg, #eef2f7, #dce3ee);
-  }
-
-  .signup-main {
-    padding: 2.5rem 1.5rem 3rem;
-  }
-
-  .signup-card {
-    max-width: 780px;
-    margin: 0 auto;
-    background: #ffffff;
-    padding: 32px 28px 28px;
-    border-radius: 22px;
-    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
-  }
-
-  .signup-card h1 {
-    margin-top: 0;
-    font-size: 1.85rem;
-    font-weight: 700;
-  }
-
-  .signup-lead {
-    margin: 0.3rem 0 1.6rem;
-    color: #4b5563;
-    font-size: 0.94rem;
-  }
-
-  .signup-section {
-    margin-top: 1.6rem;
-    padding: 1.1rem 1rem 1.2rem;
-    border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    background: #f9fafb;
-  }
-
-  .step-label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    padding: 0.15rem 0.6rem;
-    border-radius: 999px;
-    background: #e5edff;
-    color: #1d4ed8;
-    margin-bottom: 0.3rem;
-  }
-
-  .signup-section h2 {
-    margin: 0 0 0.25rem;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .subheading {
-    margin: 0.7rem 0 0.2rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-
-  .section-hint {
-    margin: 0 0 0.55rem;
-    font-size: 0.82rem;
-    color: #6b7280;
-  }
-
-  .signup-card textarea,
-  .signup-card input[type="text"],
-  .signup-card input[type="time"],
-  .signup-card input[type="email"],
-  .signup-card input[type="password"] {
-    width: 100%;
-    padding: 10px 11px;
-    border-radius: 10px;
-    border: 1px solid #cbd5e1;
-    margin-top: 8px;
-    font-size: 0.88rem;
-    font-family: inherit;
-  }
-
-  .signup-card textarea {
-    resize: vertical;
-    min-height: 60px;
-  }
-
-  .small-hint {
-    margin: 5px 0 0;
-    font-size: 0.78rem;
-    color: #6b7280;
-  }
-
-  /* Chips & icons – same visual language as site */
-
-  .chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 6px;
-  }
-
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 7px 12px;
-    background: #eef2f7;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    border: 1px solid transparent;
-    transition: 0.18s;
-  }
-
-  .chip-icon {
-    font-size: 0.95rem;
-  }
-
-  .chip:hover {
-    background: #e0e7f0;
-  }
-
-  .chip.selected {
-    background: #2563eb;
-    color: #ffffff;
-    border-color: #1d4ed8;
-  }
-
-  /* Weekly days */
-
-  .weekly-container {
-    margin-top: 0.7rem;
-  }
-
-  .weekdays {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 8px;
-    gap: 6px;
-  }
-
-  .day {
-    padding: 7px 0;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    flex: 1;
-    text-align: center;
-    cursor: pointer;
-    background: #f3f4f6;
-    font-size: 0.8rem;
-    transition: 0.18s;
-  }
-
-  .day.selected {
-    background: #2563eb;
-    color: #ffffff;
-    border-color: #1d4ed8;
-  }
-
-  /* Signup main button */
-
-  .signup-button {
-    background: #2563eb;
-    color: white;
-    width: 100%;
-    padding: 14px;
-    margin-top: 26px;
-    font-size: 0.95rem;
-    border: none;
-    border-radius: 14px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.2s;
-  }
-
-  .signup-button:hover {
-    background: #1d4ed8;
-  }
-
-  .signup-footnote {
-    margin-top: 0.8rem;
-    font-size: 0.78rem;
-    color: #6b7280;
-  }
-
-  @media (max-width: 640px) {
-    .header-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.4rem;
-    }
-
-    .signup-main {
-      padding: 2rem 1.1rem 2.6rem;
-    }
-
-    .signup-card {
-      padding: 26px 20px 22px;
-    }
-  }
-  </style>
+}
+</style>
 </head>
+<body>
 
-<body class="signup-page">
-  <header class="site-header">
-    <div class="page-container header-inner">
-      <a href="index.html" class="logo">
-        <div class="logo-icon"><span class="logo-mark">CV</span></div>
-        <div class="logo-text-block">
-          <span class="logo-text">CloudVista</span>
-          <span class="logo-sub">Your personal AI scout</span>
-        </div>
-      </a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#industries">Industries</a>
-        <a href="signup.html" class="nav-active">Set up your AI scout</a>
-      </nav>
-    </div>
-  </header>
+<header class="site-header">
+  <div class="page-container header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <span class="logo-mark">CV</span>
+      </div>
+      <span class="logo-text">CloudVista</span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#industries">Industries</a>
+      <a href="signup.html" class="nav-active">Get Started</a>
+    </nav>
+  </div>
+</header>
 
-  <main class="signup-main">
-    <div class="signup-card">
-      <h1>Set up your personal AI scout</h1>
-      <p class="signup-lead">
-        A lightweight profile so CloudVista understands who you are, how you work
-        and what commercial signals are worth your attention.
-      </p>
+<main>
+  <section class="signup-section">
+    <div class="page-container signup-container">
+      
+      <div class="signup-header">
+        <h1>Set up your AI scout</h1>
+        <p>Tell us about your world and we'll configure your personal AI scout to surface what matters.</p>
+      </div>
 
-      <!-- Step 1: Role -->
-      <section class="signup-section">
-        <div class="step-label">Step 1</div>
-        <h2>What’s your role?</h2>
-        <p class="section-hint">
-          Give your personal AI scout a sense of how you show up in the market.
-        </p>
-
-        <div class="chips" id="roleChips">
-          <div class="chip"><span class="chip-icon">🔎</span><span>Executive search / specialist recruiter</span></div>
-          <div class="chip"><span class="chip-icon">🧭</span><span>Talent or market intelligence</span></div>
-          <div class="chip"><span class="chip-icon">📊</span><span>Investor / PE / VC / public markets</span></div>
-          <div class="chip"><span class="chip-icon">🏛️</span><span>Public-sector supplier / bids lead</span></div>
-          <div class="chip"><span class="chip-icon">🧠</span><span>Consultant / advisor</span></div>
-          <div class="chip"><span class="chip-icon">🏢</span><span>Corporate strategy / corp dev</span></div>
-          <div class="chip"><span class="chip-icon">⚖️</span><span>Professional services / law</span></div>
-          <div class="chip"><span class="chip-icon">🚪</span><span>Senior candidate / job seeker</span></div>
-        </div>
-
-        <textarea id="roleText" rows="2" placeholder="Describe your role, seniority and the work you actually do day to day."></textarea>
-      </section>
-
-      <!-- Step 2: Goals -->
-      <section class="signup-section">
-        <div class="step-label">Step 2</div>
-        <h2>What should your AI scout help you achieve?</h2>
-        <p class="section-hint">
-          Focus on outcomes – the deals, mandates and opportunities that would make this feel indispensable.
-        </p>
-
-        <div class="chips" id="useCaseChips">
-          <div class="chip"><span class="chip-icon">🤝</span><span>Win more retained or senior mandates</span></div>
-          <div class="chip"><span class="chip-icon">📈</span><span>Spot investable inflection points earlier</span></div>
-          <div class="chip"><span class="chip-icon">📑</span><span>See public-sector work early enough to shape it</span></div>
-          <div class="chip"><span class="chip-icon">🛰️</span><span>Keep a constant pulse on my market</span></div>
-          <div class="chip"><span class="chip-icon">🏗️</span><span>Find change / transformation work</span></div>
-          <div class="chip"><span class="chip-icon">🚪</span><span>Surface serious career moves, not noise</span></div>
-        </div>
-
-        <textarea id="goalsText" rows="3" placeholder="Describe the wins you want your AI scout to create – e.g. ‘2–3 new retained searches a quarter in biotech’, ‘earlier read on portfolio risk’, ‘higher hit-rate on bids we pursue’, ‘3–5 credible role opportunities a year’."></textarea>
-      </section>
-
-      <!-- Step 3: Markets -->
-      <section class="signup-section">
-        <div class="step-label">Step 3</div>
-        <h2>Which markets does your AI scout need to understand?</h2>
-        <p class="section-hint">
-          Your personal AI scout only needs to know the worlds you actually operate in.
-        </p>
-
-        <div class="chips" id="sectorChips">
-          <div class="chip"><span class="chip-icon">🧬</span><span>Life sciences & biotech</span></div>
-          <div class="chip"><span class="chip-icon">🎓</span><span>Higher education & research</span></div>
-          <div class="chip"><span class="chip-icon">💹</span><span>Finance & investment</span></div>
-          <div class="chip"><span class="chip-icon">🌍</span><span>Climate, infrastructure & energy</span></div>
-          <div class="chip"><span class="chip-icon">🏛️</span><span>Government & public sector</span></div>
-          <div class="chip"><span class="chip-icon">🤝</span><span>Non-profits, think tanks & impact</span></div>
-        </div>
-
-        <textarea id="sectorsText" rows="3" placeholder="List specific niches, geographies or segments your AI scout should focus on."></textarea>
-      </section>
-
-      <!-- Step 4: Signals & sources -->
-      <section class="signup-section">
-        <div class="step-label">Step 4</div>
-        <h2>What signals and sources should your AI scout watch?</h2>
-        <p class="section-hint">
-          These are the public signals you already read between the lines of – CloudVista just scales it.
-        </p>
-
-        <div class="chips" id="signalChips">
-          <div class="chip"><span class="chip-icon">💸</span><span>Funding rounds & capital events</span></div>
-          <div class="chip"><span class="chip-icon">🧑‍💼</span><span>Leadership moves & team reshapes</span></div>
-          <div class="chip"><span class="chip-icon">📣</span><span>Product launches & new programmes</span></div>
-          <div class="chip"><span class="chip-icon">🤝</span><span>M&amp;A, partnerships & alliances</span></div>
-          <div class="chip"><span class="chip-icon">🏗️</span><span>Major projects & initiatives</span></div>
-          <div class="chip"><span class="chip-icon">⚖️</span><span>Regulatory / policy shifts</span></div>
-          <div class="chip"><span class="chip-icon">📚</span><span>Research, publications & trials</span></div>
-          <div class="chip"><span class="chip-icon">🗞️</span><span>Current affairs & macro events</span></div>
-        </div>
-
-        <textarea id="signalsText" rows="3" placeholder="Call out patterns you care about – e.g. ‘post-Series B hiring’, ‘new online programmes’, ‘framework awards’, ‘spin-outs from specific labs’, ‘policy + current affairs combinations that move your market’."></textarea>
-
-        <textarea id="newsText" rows="3" placeholder="Specific outlets, newsletters, blogs, regulators or journals your AI scout should keep an eye on."></textarea>
-
-        <div class="chips" id="newsChips">
-          <div class="chip"><span class="chip-icon">📰</span><span>Trade & industry press</span></div>
-          <div class="chip"><span class="chip-icon">🏛️</span><span>Government press releases</span></div>
-          <div class="chip"><span class="chip-icon">🏢</span><span>Company blogs & newsrooms</span></div>
-          <div class="chip"><span class="chip-icon">📑</span><span>Regulators & filings</span></div>
-          <div class="chip"><span class="chip-icon">📖</span><span>Academic journals</span></div>
-          <div class="chip"><span class="chip-icon">📈</span><span>Analyst & research notes</span></div>
-        </div>
-      </section>
-
-      <!-- Step 5: Reporting -->
-      <section class="signup-section">
-        <div class="step-label">Step 5</div>
-        <h2>How should your AI scout report back?</h2>
-        <p class="section-hint">
-          Cadence for your commercial intelligence – not another noisy feed.
-        </p>
-
-        <div class="chips" id="deliveryChips">
-          <div class="chip"><span class="chip-icon">📅</span><span>Daily intelligence</span></div>
-          <div class="chip"><span class="chip-icon">📝</span><span>Weekly briefing</span></div>
-        </div>
-
-        <div id="weeklyContainer" class="weekly-container" style="display:none;">
-          <h3 class="subheading">Preferred days for a weekly briefing</h3>
-          <div class="weekdays" id="weekdaySelector">
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day">Thu</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
-            <div class="day">Sun</div>
+      <div class="form-card">
+        <form id="signupForm" action="#" method="POST">
+          
+          <!-- Basic Info -->
+          <div class="form-group">
+            <label for="name">Your name <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              class="form-input" 
+              placeholder="e.g. Sarah Chen"
+              required
+            />
           </div>
-        </div>
 
-        <h3 class="subheading">Preferred time of day</h3>
-        <input type="time" id="deliveryTime" value="09:00" />
-        <p class="small-hint">
-          Your AI scout will aim to send fresh commercial intelligence around this time.
-        </p>
-      </section>
+          <div class="form-group">
+            <label for="email">Email address <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="e.g. sarah@company.com"
+              required
+            />
+          </div>
 
-      <!-- Step 6: Where to send it -->
-      <section class="signup-section">
-        <div class="step-label">Step 6</div>
-        <h2>Where should your AI scout send its briefings?</h2>
+          <div class="form-group">
+            <label for="company">Your organisation <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="company" 
+              name="company" 
+              class="form-input" 
+              placeholder="e.g. Acme Partners, Ministry of Defence, or Independent"
+              required
+            />
+          </div>
 
-        <input type="email" id="email" placeholder="Work email (you@company.com)" />
-        <input type="password" id="password" placeholder="Create a password" />
-      </section>
+          <div class="form-group">
+            <label for="role">Your role <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="role" 
+              name="role" 
+              class="form-input" 
+              placeholder="e.g. Partner, Investment Director, Head of Strategy"
+              required
+            />
+          </div>
 
-      <button type="button" class="signup-button" onclick="submitForm()">
-        Save my CloudVista profile
-      </button>
-      <p class="signup-footnote">
-        This doesn’t start sending anything yet – it captures your preferences so we
-        can tune your personal AI scout and preview what your briefings could look like.
-      </p>
+          <!-- Industry Selection -->
+          <div class="form-group">
+            <label for="industry">Which best describes your work? <span class="required">*</span></label>
+            <select id="industry" name="industry" class="form-select" required>
+              <option value="">Select your industry...</option>
+              <option value="executive-search">Executive search, recruitment & talent intelligence</option>
+              <option value="pe-vc">Private equity, venture capital & public markets</option>
+              <option value="public-sector">Suppliers to public sector contracts</option>
+              <option value="consulting">Management consulting & advisory</option>
+              <option value="education">Higher education & research</option>
+              <option value="pharma">Pharma, biotech & health innovation</option>
+              <option value="infrastructure">Infrastructure, climate & energy</option>
+              <option value="corporate-strategy">Corporate strategy & corporate development</option>
+              <option value="professional-services">Professional services & law firms</option>
+              <option value="nonprofit">Non-profits & impact organisations</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Executive Search & Talent Intelligence -->
+          <div id="executive-search-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="exec-specialization">Which markets do you focus on?</label>
+              <input 
+                type="text" 
+                id="exec-specialization" 
+                name="exec-specialization" 
+                class="form-input" 
+                placeholder="e.g. Tech CFOs, Healthcare C-suite, Financial Services GCs"
+              />
+              <span class="form-help">The sectors, functions or seniority you typically recruit for.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="exec-signals">What signals trigger your outreach?</label>
+              <textarea 
+                id="exec-signals" 
+                name="exec-signals" 
+                class="form-textarea" 
+                placeholder="e.g. New funding rounds, leadership departures, restructures, M&A activity, rapid headcount growth"
+              ></textarea>
+              <span class="form-help">The events or changes that typically create hiring needs in your target accounts.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="exec-accounts">Key target organisations</label>
+              <textarea 
+                id="exec-accounts" 
+                name="exec-accounts" 
+                class="form-textarea" 
+                placeholder="e.g. Stripe, Revolut, NHS England, McKinsey, HSBC"
+              ></textarea>
+              <span class="form-help">Companies or institutions you actively track or want to build relationships with.</span>
+            </div>
+          </div>
+
+          <!-- PE/VC Fields -->
+          <div id="pe-vc-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="pe-focus">Investment focus areas</label>
+              <input 
+                type="text" 
+                id="pe-focus" 
+                name="pe-focus" 
+                class="form-input" 
+                placeholder="e.g. B2B SaaS, Climate tech, Healthcare services, Series A-B"
+              />
+              <span class="form-help">Sectors, stages, geographies or deal sizes you invest in.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="pe-signals">What signals matter for your pipeline?</label>
+              <textarea 
+                id="pe-signals" 
+                name="pe-signals" 
+                class="form-textarea" 
+                placeholder="e.g. Revenue milestones, product launches, key hires, regulatory approvals, customer wins"
+              ></textarea>
+              <span class="form-help">Events or metrics that indicate investment readiness or portfolio momentum.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="pe-portfolio">Portfolio or watchlist companies</label>
+              <textarea 
+                id="pe-portfolio" 
+                name="pe-portfolio" 
+                class="form-textarea" 
+                placeholder="e.g. Portfolio: Acme Corp, Beta Ltd. Tracking: Gamma Inc, Delta Systems"
+              ></textarea>
+              <span class="form-help">Current portfolio companies and prospects you're monitoring.</span>
+            </div>
+          </div>
+
+          <!-- Public Sector Fields -->
+          <div id="public-sector-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="ps-services">What do you supply?</label>
+              <input 
+                type="text" 
+                id="ps-services" 
+                name="ps-services" 
+                class="form-input" 
+                placeholder="e.g. IT infrastructure, Training & development, Consulting services"
+              />
+              <span class="form-help">The products, services or capabilities you provide to public sector clients.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="ps-departments">Target departments or agencies</label>
+              <textarea 
+                id="ps-departments" 
+                name="ps-departments" 
+                class="form-textarea" 
+                placeholder="e.g. Ministry of Defence, NHS Trusts, Local authorities, HMRC"
+              ></textarea>
+              <span class="form-help">Government bodies, agencies or public institutions you work with or target.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="ps-signals">Early signals you track</label>
+              <textarea 
+                id="ps-signals" 
+                name="ps-signals" 
+                class="form-textarea" 
+                placeholder="e.g. Policy announcements, budget allocations, leadership changes, programme launches"
+              ></textarea>
+              <span class="form-help">Events or changes that typically lead to procurement opportunities.</span>
+            </div>
+          </div>
+
+          <!-- Consulting Fields -->
+          <div id="consulting-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="consulting-services">Your service offerings</label>
+              <input 
+                type="text" 
+                id="consulting-services" 
+                name="consulting-services" 
+                class="form-input" 
+                placeholder="e.g. Digital transformation, Operating model design, M&A integration"
+              />
+              <span class="form-help">The types of consulting or advisory work you deliver.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="consulting-clients">Target client profile</label>
+              <textarea 
+                id="consulting-clients" 
+                name="consulting-clients" 
+                class="form-textarea" 
+                placeholder="e.g. FTSE 250 CFOs, PE-backed scale-ups, Public sector transformation teams"
+              ></textarea>
+              <span class="form-help">Industries, company sizes or buyer personas you typically serve.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="consulting-triggers">What creates demand for your work?</label>
+              <textarea 
+                id="consulting-triggers" 
+                name="consulting-triggers" 
+                class="form-textarea" 
+                placeholder="e.g. Post-acquisition integration, Regulatory pressure, Growth stalls, Leadership changes"
+              ></textarea>
+              <span class="form-help">Problems, events or inflection points that trigger advisory needs.</span>
+            </div>
+          </div>
+
+          <!-- Education Fields -->
+          <div id="education-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="edu-focus">Your area of focus</label>
+              <input 
+                type="text" 
+                id="edu-focus" 
+                name="edu-focus" 
+                class="form-input" 
+                placeholder="e.g. Research partnerships, Student recruitment, EdTech procurement"
+              />
+              <span class="form-help">What you provide to or seek from higher education institutions.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="edu-institutions">Target institutions or networks</label>
+              <textarea 
+                id="edu-institutions" 
+                name="edu-institutions" 
+                class="form-textarea" 
+                placeholder="e.g. Russell Group universities, Research-intensive institutions, UK business schools"
+              ></textarea>
+              <span class="form-help">Universities, research groups or academic networks you engage with.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="edu-signals">Signals that matter</label>
+              <textarea 
+                id="edu-signals" 
+                name="edu-signals" 
+                class="form-textarea" 
+                placeholder="e.g. New programme launches, Research grants, Leadership appointments, Strategic partnerships"
+              ></textarea>
+              <span class="form-help">Events or changes that create opportunities or collaboration needs.</span>
+            </div>
+          </div>
+
+          <!-- Pharma/Biotech Fields -->
+          <div id="pharma-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="pharma-focus">Therapeutic or technology focus</label>
+              <input 
+                type="text" 
+                id="pharma-focus" 
+                name="pharma-focus" 
+                class="form-input" 
+                placeholder="e.g. Oncology, Gene therapy, Medical devices, Clinical trial services"
+              />
+              <span class="form-help">Your area of expertise or commercial interest in life sciences.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="pharma-targets">Companies or programmes you track</label>
+              <textarea 
+                id="pharma-targets" 
+                name="pharma-targets" 
+                class="form-textarea" 
+                placeholder="e.g. AstraZeneca, Moderna, Oxford BioMedica, Phase II oncology trials"
+              ></textarea>
+              <span class="form-help">Organisations, pipelines or clinical programmes relevant to your work.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="pharma-signals">Key inflection points</label>
+              <textarea 
+                id="pharma-signals" 
+                name="pharma-signals" 
+                class="form-textarea" 
+                placeholder="e.g. Trial readouts, Regulatory approvals, Licensing deals, Leadership hires"
+              ></textarea>
+              <span class="form-help">Events that create commercial, clinical or talent opportunities.</span>
+            </div>
+          </div>
+
+          <!-- Infrastructure Fields -->
+          <div id="infrastructure-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="infra-sector">Your sector focus</label>
+              <input 
+                type="text" 
+                id="infra-sector" 
+                name="infra-sector" 
+                class="form-input" 
+                placeholder="e.g. Renewable energy, Transport infrastructure, Carbon capture, Smart cities"
+              />
+              <span class="form-help">The infrastructure or climate domains you operate in.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="infra-projects">Projects or organisations you monitor</label>
+              <textarea 
+                id="infra-projects" 
+                name="infra-projects" 
+                class="form-textarea" 
+                placeholder="e.g. HS2, Offshore wind developers, National Grid, Local authority retrofit programmes"
+              ></textarea>
+              <span class="form-help">Major projects, developers or public bodies relevant to your pipeline.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="infra-signals">What signals matter?</label>
+              <textarea 
+                id="infra-signals" 
+                name="infra-signals" 
+                class="form-textarea" 
+                placeholder="e.g. Funding announcements, Planning approvals, Policy shifts, Contract awards"
+              ></textarea>
+              <span class="form-help">Events or milestones that create deal flow or partnership opportunities.</span>
+            </div>
+          </div>
+
+          <!-- Corporate Strategy Fields -->
+          <div id="corporate-strategy-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="corp-focus">Strategic priorities</label>
+              <input 
+                type="text" 
+                id="corp-focus" 
+                name="corp-focus" 
+                class="form-input" 
+                placeholder="e.g. M&A targets, Build vs buy decisions, Market entry, Competitive intelligence"
+              />
+              <span class="form-help">The strategic questions or initiatives you're working on.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="corp-markets">Markets or competitors you track</label>
+              <textarea 
+                id="corp-markets" 
+                name="corp-markets" 
+                class="form-textarea" 
+                placeholder="e.g. Fintech competitors, Adjacent markets (e.g. embedded finance), Acquisition targets"
+              ></textarea>
+              <span class="form-help">Industries, companies or trends you need visibility into.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="corp-signals">Signals that inform decisions</label>
+              <textarea 
+                id="corp-signals" 
+                name="corp-signals" 
+                class="form-textarea" 
+                placeholder="e.g. Product launches, Funding rounds, Partnerships, Talent moves, Customer traction"
+              ></textarea>
+              <span class="form-help">Events or data points that shape your strategic recommendations.</span>
+            </div>
+          </div>
+
+          <!-- Professional Services Fields -->
+          <div id="professional-services-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="prof-services">Your practice areas</label>
+              <input 
+                type="text" 
+                id="prof-services" 
+                name="prof-services" 
+                class="form-input" 
+                placeholder="e.g. Corporate law, Restructuring & insolvency, Tax advisory, Forensic accounting"
+              />
+              <span class="form-help">The legal, audit or advisory services you provide.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="prof-clients">Target client segments</label>
+              <textarea 
+                id="prof-clients" 
+                name="prof-clients" 
+                class="form-textarea" 
+                placeholder="e.g. PE portfolio companies, Listed corporates, Distressed businesses, High-net-worth individuals"
+              ></textarea>
+              <span class="form-help">Industries, company types or client profiles you serve.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="prof-triggers">What creates demand?</label>
+              <textarea 
+                id="prof-triggers" 
+                name="prof-triggers" 
+                class="form-textarea" 
+                placeholder="e.g. M&A activity, Regulatory investigations, Financial distress, Disputes, IPO preparations"
+              ></textarea>
+              <span class="form-help">Events or situations that generate mandates or advisory needs.</span>
+            </div>
+          </div>
+
+          <!-- Non-profit Fields -->
+          <div id="nonprofit-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="nonprofit-mission">Your mission or cause areas</label>
+              <input 
+                type="text" 
+                id="nonprofit-mission" 
+                name="nonprofit-mission" 
+                class="form-input" 
+                placeholder="e.g. Climate justice, Education access, Public health, Human rights"
+              />
+              <span class="form-help">The social or environmental issues your organisation addresses.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="nonprofit-stakeholders">Key stakeholders or partners</label>
+              <textarea 
+                id="nonprofit-stakeholders" 
+                name="nonprofit-stakeholders" 
+                class="form-textarea" 
+                placeholder="e.g. Government departments, Philanthropic foundations, Corporate partners, Research institutions"
+              ></textarea>
+              <span class="form-help">Funders, policymakers or organisations you collaborate with or influence.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="nonprofit-signals">What signals shape your work?</label>
+              <textarea 
+                id="nonprofit-signals" 
+                name="nonprofit-signals" 
+                class="form-textarea" 
+                placeholder="e.g. Policy debates, Funding calls, Leadership changes, Public discourse shifts, Research publications"
+              ></textarea>
+              <span class="form-help">Events, trends or opportunities that inform your campaigns or programmes.</span>
+            </div>
+          </div>
+
+          <!-- Other Industry -->
+          <div id="other-fields" class="industry-fields">
+            <div class="form-group">
+              <label for="other-description">Tell us about your work</label>
+              <textarea 
+                id="other-description" 
+                name="other-description" 
+                class="form-textarea" 
+                placeholder="Describe what you do, who you serve, and what signals or opportunities you need to stay on top of..."
+              ></textarea>
+              <span class="form-help">Help us understand your world so we can configure your AI scout effectively.</span>
+            </div>
+          </div>
+
+          <!-- General Context -->
+          <div class="form-group">
+            <label for="additional-context">Anything else we should know?</label>
+            <textarea 
+              id="additional-context" 
+              name="additional-context" 
+              class="form-textarea" 
+              placeholder="e.g. Geographic focus, specific relationships you're building, frequency preferences..."
+            ></textarea>
+            <span class="form-help">Optional: Any other context that helps us understand what matters to you.</span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="submit-btn">
+            Set up my AI scout
+          </button>
+
+          <div class="privacy-note">
+            By submitting this form, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.<br/>
+            We'll use this information to configure your personal AI scout and may contact you to refine your setup.
+          </div>
+
+        </form>
+      </div>
+
     </div>
-  </main>
+  </section>
+</main>
 
-  <footer class="site-footer">
-    <div class="page-container footer-inner">
-      <p>© 2025 CloudVista.</p>
-      <a href="index.html">Back to home</a>
-    </div>
-  </footer>
+<footer class="site-footer">
+  <div class="page-container footer-inner">
+    <p>© 2025 CloudVista.</p>
+    <a href="index.html">Back to home →</a>
+  </div>
+</footer>
 
-  <script>
-    // Generic chip selection (multi-select, single-select for cadence)
-    document.querySelectorAll('.chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        const parent = chip.parentElement;
-
-        // Reporting cadence is single-select
-        if (parent.id === 'deliveryChips') {
-          parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
-        }
-
-        chip.classList.toggle('selected');
-
-        // Show/hide weekly day picker
-        if (parent.id === 'deliveryChips') {
-          const selection = chip.innerText.trim();
-          const weeklyBox = document.getElementById('weeklyContainer');
-          weeklyBox.style.display = selection.includes('Weekly') ? 'block' : 'none';
-        }
-      });
-    });
-
-    // Weekly days toggle
-    document.querySelectorAll('.day').forEach(day => {
-      day.addEventListener('click', () => {
-        day.classList.toggle('selected');
-      });
-    });
-
-    function submitForm() {
-      const getSelectedTexts = (selector) =>
-        Array.from(document.querySelectorAll(selector + ' .selected')).map(el => el.innerText.trim());
-
-      const profile = {
-        role_tags: getSelectedTexts('#roleChips'),
-        role_text: document.getElementById('roleText').value,
-        goals_tags: getSelectedTexts('#useCaseChips'),
-        goals_text: document.getElementById('goalsText').value,
-        sectors_tags: getSelectedTexts('#sectorChips'),
-        sectors_text: document.getElementById('sectorsText').value,
-        signals_tags: getSelectedTexts('#signalChips'),
-        signals_text: document.getElementById('signalsText').value,
-        news_sources_tags: getSelectedTexts('#newsChips'),
-        news_sources_text: document.getElementById('newsText').value,
-        delivery_cadence: getSelectedTexts('#deliveryChips')[0] || null,
-        delivery_days: getSelectedTexts('#weekdaySelector'),
-        delivery_time: document.getElementById('deliveryTime').value,
-        email: document.getElementById('email').value,
-        password: document.getElementById('password').value
-      };
-
-      console.log('CloudVista profile:', profile);
-      alert('Preferences captured. Open the browser console to see your CloudVista profile JSON.');
+<script>
+// Dynamic form fields based on industry selection
+document.getElementById('industry').addEventListener('change', function() {
+  // Hide all industry-specific fields
+  const allFields = document.querySelectorAll('.industry-fields');
+  allFields.forEach(field => {
+    field.classList.remove('active');
+  });
+  
+  // Show selected industry fields
+  const selectedValue = this.value;
+  if (selectedValue) {
+    const targetFields = document.getElementById(selectedValue + '-fields');
+    if (targetFields) {
+      targetFields.classList.add('active');
     }
-  </script>
+  }
+});
+
+// Form submission (you'll need to connect this to your backend)
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Collect form data
+  const formData = new FormData(this);
+  
+  // Here you would send the data to your backend
+  console.log('Form submitted with data:', Object.fromEntries(formData));
+  
+  // Show success message (you can customize this)
+  alert('Thank you! We\'ll set up your AI scout and be in touch soon.');
+  
+  // Optionally redirect
+  // window.location.href = 'thank-you.html';
+});
+</script>
+
 </body>
 </html>
