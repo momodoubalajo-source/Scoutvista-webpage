@@ -20,29 +20,24 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
-  background: #050608;
+
+  /* Teal gradient */
+  background: linear-gradient(
+    135deg,
+    #c3d6dd 0%,
+    #1f4b59 35%,
+    #0c6f7a 70%,
+    #0a3f4c 100%
+  );
+
   color: #f5f5f7;
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* Subtle warm gradient background to match home but softer */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:
-    radial-gradient(ellipse at top, rgba(214, 93, 14, 0.10) 0%, rgba(5, 6, 8, 1) 50%),
-    radial-gradient(circle at bottom right, rgba(231, 138, 61, 0.08), transparent 60%);
-  z-index: -1;
-}
-
 /* ===========================
-   CONTAINER & UTILITIES
+   CONTAINER
 =========================== */
 .page-container {
   max-width: 980px;
@@ -51,7 +46,7 @@ body::before {
 }
 
 /* ===========================
-   HEADER – aligned with home
+   HEADER – Apple-style
 =========================== */
 .site-header {
   position: fixed;
@@ -59,8 +54,8 @@ body::before {
   width: 100%;
   z-index: 1000;
   backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(0, 0, 0, 0.72);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 41, 52, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .header-inner {
@@ -77,11 +72,6 @@ body::before {
   gap: 8px;
   text-decoration: none;
   color: #f5f5f7;
-  transition: opacity 0.3s ease;
-}
-
-.logo:hover {
-  opacity: 0.7;
 }
 
 .logo-icon {
@@ -96,54 +86,42 @@ body::before {
 .logo-mark {
   width: 32px;
   height: 24px;
-  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: #050608;
+  border-radius: 50%;
+  background: #0b323f;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #ffffff;
 }
 
 .logo-text {
   font-size: 17px;
   font-weight: 600;
-  letter-spacing: -0.022em;
-  color: #f5f5f7;
 }
 
 /* Navigation */
 .nav {
   display: flex;
   gap: 24px;
-  align-items: center;
 }
 
 .nav a {
   text-decoration: none;
-  color: rgba(245, 245, 247, 0.8);
+  color: rgba(245, 245, 247, 0.9);
   font-size: 12px;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  transition: opacity 0.3s ease, color 0.3s ease;
-}
-
-.nav a:hover {
-  opacity: 0.7;
 }
 
 .nav-active {
-  color: #d65d0e !important;
-  font-weight: 500;
+  color: #ffd3a0 !important;
 }
 
 /* ===========================
-   SIGNUP FORM SECTION
+   SIGNUP SECTION
 =========================== */
 .signup-section {
   padding: 120px 0 60px;
-  min-height: 100vh;
 }
 
 .signup-container {
@@ -158,29 +136,29 @@ body::before {
 
 .signup-header h1 {
   font-size: 2.6rem;
-  margin-bottom: 1rem;
-  background: linear-gradient(135deg, #f5f5f7, rgba(245, 245, 247, 0.6));
+  background: linear-gradient(135deg, #fff, rgba(245,245,247,0.7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .signup-header p {
   font-size: 1.1rem;
-  color: rgba(245, 245, 247, 0.7);
+  color: rgba(245,245,247,0.9);
 }
 
-/* Form Card – matches home glassy panels */
+/* Card */
 .form-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
+  background: rgba(6, 32, 41, 0.9);
+  backdrop-filter: blur(22px);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255,255,255,0.18);
   padding: 3rem;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
 }
 
-/* Form Groups */
+/* ===========================
+   FORM FIELDS
+=========================== */
 .form-group {
   margin-bottom: 2rem;
 }
@@ -190,55 +168,26 @@ body::before {
   margin-bottom: 0.75rem;
   font-weight: 600;
   color: #f5f5f7;
-  font-size: 0.95rem;
 }
 
-.form-group label .required {
-  color: #ff6b6b;
-  margin-left: 0.25rem;
-}
-
-.form-help {
-  display: block;
-  font-size: 0.8rem;
-  color: rgba(245, 245, 247, 0.5);
-  margin-top: 0.5rem;
-  line-height: 1.5;
-}
-
-/* Input Styles */
 .form-input,
 .form-textarea {
   width: 100%;
   padding: 0.9rem 1.1rem;
-  background: rgba(5, 6, 8, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(9, 39, 50, 0.95);
+  border: 1px solid rgba(148,163,184,0.7);
   border-radius: 12px;
   color: #f5f5f7;
   font-size: 0.95rem;
-  transition: all 0.25s ease;
-  font-family: inherit;
 }
 
 .form-input:focus,
 .form-textarea:focus {
-  outline: none;
-  border-color: rgba(214, 93, 14, 0.9);
-  background: rgba(5, 6, 8, 0.95);
-  box-shadow: 0 0 0 2px rgba(214, 93, 14, 0.35);
+  border-color: #d65d0e;
+  box-shadow: 0 0 0 2px rgba(214,93,14,0.35);
 }
 
-.form-input::placeholder,
-.form-textarea::placeholder {
-  color: rgba(245, 245, 247, 0.35);
-}
-
-.form-textarea {
-  min-height: 100px;
-  resize: vertical;
-}
-
-/* Chips for contextual suggestions */
+/* Chips (Purpose, Role, Signals, Delivery) */
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -248,28 +197,20 @@ body::before {
 
 .chip {
   padding: 0.55rem 0.95rem;
-  background: rgba(214, 93, 14, 0.08);
-  border: 1px solid rgba(214, 93, 14, 0.25);
+  background: rgba(214,93,14,0.12);
+  border: 1px solid rgba(214,93,14,0.35);
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.8rem;
-  transition: all 0.2s ease;
-  color: rgba(245, 245, 247, 0.75);
-}
-
-.chip:hover {
-  background: rgba(214, 93, 14, 0.15);
-  border-color: rgba(214, 93, 14, 0.5);
-  color: #f5f5f7;
+  color: rgba(248,250,252,0.95);
 }
 
 .chip.selected {
   background: linear-gradient(135deg, #d65d0e, #e78a3d);
   color: #fff;
-  border-color: #d65d0e;
 }
 
-/* Submit Button – aligns with home CTA */
+/* Submit Button */
 .submit-btn {
   width: 100%;
   padding: 1.05rem 2rem;
@@ -278,98 +219,21 @@ body::before {
   border: none;
   border-radius: 980px;
   font-size: 1.02rem;
-  font-weight: 500;
   cursor: pointer;
-  transition: all 0.25s ease;
-  box-shadow: 0 14px 32px rgba(214, 93, 14, 0.4);
-  letter-spacing: -0.01em;
+  box-shadow: 0 14px 32px rgba(214,93,14,0.45);
 }
 
-.submit-btn:hover {
-  transform: translateY(-1px) scale(1.01);
-  box-shadow: 0 18px 40px rgba(214, 93, 14, 0.55);
-}
-
-.submit-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 10px 24px rgba(214, 93, 14, 0.4);
-}
-
-/* Privacy Note */
-.privacy-note {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  text-align: center;
-  font-size: 0.8rem;
-  color: rgba(245, 245, 247, 0.6);
-  line-height: 1.6;
-}
-
-.privacy-note a {
-  color: #e78a3d;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.privacy-note a:hover {
-  color: #ffd2a1;
-}
-
-/* ===========================
-   FOOTER – aligned with home
-=========================== */
+/* Footer */
 .site-footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255,255,255,0.18);
   padding: 32px 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(16px);
+  background: rgba(6,32,41,0.9);
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  letter-spacing: -0.01em;
-  color: rgba(245, 245, 247, 0.6);
-}
-
-.footer-inner a {
-  color: rgba(245, 245, 247, 0.75);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.footer-inner a:hover {
-  color: #f5f5f7;
-}
-
-/* ===========================
-   RESPONSIVE
-=========================== */
-@media (max-width: 768px) {
-  .form-card {
-    padding: 2rem 1.5rem;
-  }
-  
-  .signup-header h1 {
-    font-size: 2.1rem;
-  }
-  
-  .nav {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .signup-section {
-    padding: 100px 0 40px;
-  }
-  
-  .page-container {
-    padding: 0 18px;
-  }
+  color: rgba(226,232,240,0.9);
 }
 </style>
 </head>
@@ -378,9 +242,7 @@ body::before {
 <header class="site-header">
   <div class="page-container header-inner">
     <a href="index.html" class="logo">
-      <div class="logo-icon">
-        <span class="logo-mark">CV</span>
-      </div>
+      <div class="logo-icon"><span class="logo-mark">CV</span></div>
       <span class="logo-text">CloudVista</span>
     </a>
     <nav class="nav">
@@ -394,24 +256,19 @@ body::before {
 <main>
   <section class="signup-section">
     <div class="page-container signup-container">
-      
+
       <div class="signup-header">
         <h1>Create Your Personalised CloudVista Feed</h1>
         <p>Tell us a little about what you need — and we'll tailor insights just for you.</p>
       </div>
 
       <div class="form-card">
-        <form id="signupForm" action="#" method="POST">
-          
+        <form id="signupForm">
+
           <!-- PURPOSE -->
           <div class="form-group">
-            <label for="purpose">What are you using CloudVista for?</label>
-            <textarea 
-              id="purpose" 
-              name="purpose" 
-              class="form-textarea" 
-              placeholder="Describe your goals..."
-            ></textarea>
+            <label>What are you using CloudVista for?</label>
+            <textarea class="form-textarea" id="purpose"></textarea>
             <div class="chips" id="purposeChips">
               <div class="chip">Talent intelligence</div>
               <div class="chip">Business development</div>
@@ -425,15 +282,8 @@ body::before {
 
           <!-- ROLE -->
           <div class="form-group">
-            <label for="role">Your role <span class="required">*</span></label>
-            <input 
-              type="text" 
-              id="role" 
-              name="role" 
-              class="form-input" 
-              placeholder="Type your specific role..."
-              required
-            />
+            <label>Your role *</label>
+            <input class="form-input" id="role" required />
             <div class="chips" id="roleChips">
               <div class="chip">Recruiter</div>
               <div class="chip">Investor</div>
@@ -449,37 +299,20 @@ body::before {
 
           <!-- INDUSTRY -->
           <div class="form-group">
-            <label for="industry">Industry focus</label>
-            <input 
-              type="text" 
-              id="industry" 
-              name="industry" 
-              class="form-input" 
-              placeholder="e.g. Genomics, AI, Higher Education, Finance, ESG"
-            />
+            <label>Industry focus</label>
+            <input class="form-input" id="industry" placeholder="e.g. AI, biotech, higher education" />
           </div>
 
           <!-- GEOGRAPHY -->
           <div class="form-group">
-            <label for="geo">Where do you operate or track activity?</label>
-            <input 
-              type="text" 
-              id="geo" 
-              name="geo" 
-              class="form-input" 
-              placeholder="e.g. UK & Europe, Global, North America"
-            />
+            <label>What regions matter to you?</label>
+            <input class="form-input" id="geo" placeholder="e.g. UK & Europe, Global, North America" />
           </div>
 
           <!-- SIGNALS -->
           <div class="form-group">
-            <label for="signals">What signals matter most to you?</label>
-            <textarea 
-              id="signals" 
-              name="signals" 
-              class="form-textarea" 
-              placeholder="Describe the specific events, changes, or developments you need to track..."
-            ></textarea>
+            <label>What signals matter most to you?</label>
+            <textarea class="form-textarea" id="signals"></textarea>
             <div class="chips" id="signalChips">
               <div class="chip">Funding & M&A</div>
               <div class="chip">Leadership moves</div>
@@ -493,104 +326,47 @@ body::before {
             </div>
           </div>
 
-          <!-- NEWS SOURCES -->
+          <!-- NEWS SOURCES (FREETEXT ONLY) -->
           <div class="form-group">
-            <label for="newsSources">Any particular news sources you'd like your AI to keep an eye on?</label>
+            <label>Want your AI scout to track specific outlets?</label>
             <textarea 
-              id="newsSources" 
-              name="newsSources" 
-              class="form-textarea" 
+              class="form-textarea"
+              id="newsSources"
               placeholder="regional media, sector blogs, tender portals..."
             ></textarea>
-            <div class="chips" id="newsChips">
-              <!-- FT & Economist – repeated across different angles -->
-              <div class="chip">Financial Times – markets & companies</div>
-              <div class="chip">Financial Times – deals & M&amp;A</div>
-              <div class="chip">The Economist – macro & geopolitics</div>
-              <div class="chip">The Economist – business & special reports</div>
-              <!-- Global & diverse media -->
-              <div class="chip">Bloomberg</div>
-              <div class="chip">Al Jazeera English</div>
-              <div class="chip">BBC World Service</div>
-              <div class="chip">Nikkei Asia</div>
-              <div class="chip">Rest of World</div>
-              <div class="chip">Quartz Africa / India</div>
-              <div class="chip">Africa Confidential</div>
-              <div class="chip">LatinFinance / América Economía</div>
-              <!-- Sector & specialist -->
-              <div class="chip">TechCrunch / Sifted</div>
-              <div class="chip">Nature / Science</div>
-              <div class="chip">STAT / Endpoints (life sciences)</div>
-              <div class="chip">Politico / Politico EU</div>
-              <!-- Bids, tenders & contracts -->
-              <div class="chip">EU TED – Tenders Electronic Daily</div>
-              <div class="chip">UK Contracts Finder</div>
-              <div class="chip">Find a Tender (UK)</div>
-              <div class="chip">SAM.gov – US federal contracts</div>
-              <div class="chip">Grants.gov – US grants</div>
-              <div class="chip">World Bank Tenders</div>
-              <div class="chip">UNGM – UN Global Marketplace</div>
-            </div>
-            <span class="form-help">
-              Choose a mix that reflects how you really work – mainstream, niche, Global South, sector-specific, and where bids &amp; contracts actually get posted.
-            </span>
           </div>
 
           <!-- DELIVERY -->
           <div class="form-group">
-            <label for="delivery">How often should we email your insights?</label>
+            <label>How often should we email your insights?</label>
             <div class="chips" id="deliveryChips">
               <div class="chip">Daily</div>
               <div class="chip">Weekly</div>
             </div>
           </div>
 
-          <!-- TIME PICKER -->
+          <!-- TIME -->
           <div class="form-group">
-            <label for="deliveryTime">Choose your preferred time (24h)</label>
-            <input 
-              type="time" 
-              id="deliveryTime" 
-              name="deliveryTime" 
-              class="form-input" 
-              value="09:00"
-            />
+            <label>Preferred delivery time (24h)</label>
+            <input type="time" class="form-input" id="deliveryTime" value="09:00" />
           </div>
 
-          <!-- ACCOUNT -->
+          <!-- EMAIL -->
           <div class="form-group">
-            <label for="email">Email address <span class="required">*</span></label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="form-input" 
-              placeholder="you@company.com"
-              required
-            />
+            <label>Email address *</label>
+            <input type="email" class="form-input" id="email" required placeholder="you@company.com" />
           </div>
 
+          <!-- PASSWORD -->
           <div class="form-group">
-            <label for="password">Create a password <span class="required">*</span></label>
-            <input 
-              type="password" 
-              id="password" 
-              name="password" 
-              class="form-input" 
-              placeholder="Create a secure password"
-              required
-            />
+            <label>Create a password *</label>
+            <input type="password" class="form-input" id="password" required />
           </div>
 
-          <!-- Submit -->
+          <!-- SUBMIT -->
           <button type="submit" class="submit-btn">
             Start 3-Month Free Trial
           </button>
-
-          <div class="privacy-note">
-            By submitting this form, you agree to our <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.<br/>
-            We'll use this information to configure your personal AI scout and may contact you to refine your setup.
-          </div>
 
         </form>
       </div>
@@ -607,49 +383,15 @@ body::before {
 </footer>
 
 <script>
-// Generic chip toggle (multi-select)
+// Chip toggle
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const parent = chip.parentElement;
-    
-    // For delivery frequency, single-select behaviour
     if (parent.id === "deliveryChips") {
       parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
     }
-    
     chip.classList.toggle('selected');
   });
-});
-
-// Form submission
-document.getElementById('signupForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const getSelected = (selector) =>
-    [...document.querySelectorAll(selector + " .selected")].map(el => el.innerText);
-  
-  const data = {
-    purpose_text: document.getElementById('purpose').value,
-    purpose_tags: getSelected('#purposeChips'),
-    role_text: document.getElementById('role').value,
-    role_tags: getSelected('#roleChips'),
-    industry: document.getElementById('industry').value,
-    geography: document.getElementById('geo').value,
-    signals_text: document.getElementById('signals').value,
-    signals_tags: getSelected('#signalChips'),
-    news_sources_text: document.getElementById('newsSources').value,
-    news_sources_tags: getSelected('#newsChips'),
-    delivery_frequency: getSelected('#deliveryChips')[0] || null,
-    delivery_time: document.getElementById('deliveryTime').value,
-    email: document.getElementById('email').value,
-    password: document.getElementById('password').value,
-  };
-  
-  console.log("CloudVista User Profile:", data);
-  alert("Profile captured — check console for full JSON. Thank you for signing up!");
-  
-  // Optionally redirect to thank you page
-  // window.location.href = 'thank-you.html';
 });
 </script>
 
