@@ -20,17 +20,18 @@ html {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
-
-  /* Teal gradient */
-  background: linear-gradient(
-    135deg,
-    #c3d6dd 0%,
-    #1f4b59 35%,
-    #0c6f7a 70%,
-    #0a3f4c 100%
-  );
-
-  color: #f5f5f7;
+  /* Lighter teal with orange woven in */
+  background:
+    radial-gradient(circle at 80% 20%, rgba(229, 138, 74, 0.35), transparent 55%),
+    linear-gradient(
+      135deg,
+      #ddebf0 0%,
+      #a8ced8 25%,
+      #4e8d99 50%,
+      #0f6270 70%,
+      #f2be8a 100%
+    );
+  color: #0b1720;
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
@@ -54,7 +55,12 @@ body {
   width: 100%;
   z-index: 1000;
   backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(10, 41, 52, 0.9);
+  background: linear-gradient(
+    90deg,
+    rgba(6, 32, 41, 0.9),
+    rgba(6, 32, 41, 0.85),
+    rgba(10, 47, 60, 0.85)
+  );
   border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
@@ -99,6 +105,7 @@ body {
 .logo-text {
   font-size: 17px;
   font-weight: 600;
+  color: #f5f5f7;
 }
 
 /* Navigation */
@@ -136,24 +143,31 @@ body {
 
 .signup-header h1 {
   font-size: 2.6rem;
-  background: linear-gradient(135deg, #fff, rgba(245,245,247,0.7));
+  background: linear-gradient(135deg, #09131c, rgba(9, 19, 28, 0.7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .signup-header p {
   font-size: 1.1rem;
-  color: rgba(245,245,247,0.9);
+  color: rgba(9, 19, 28, 0.75);
 }
 
 /* Card */
 .form-card {
-  background: rgba(6, 32, 41, 0.9);
+  background: linear-gradient(
+    145deg,
+    rgba(6, 32, 41, 0.95),
+    rgba(9, 39, 50, 0.97)
+  );
   backdrop-filter: blur(22px);
   border-radius: 24px;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   padding: 3rem;
-  box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  color: #f5f5f7;
 }
 
 /* ===========================
@@ -168,23 +182,40 @@ body {
   margin-bottom: 0.75rem;
   font-weight: 600;
   color: #f5f5f7;
+  font-size: 0.95rem;
 }
 
 .form-input,
 .form-textarea {
   width: 100%;
   padding: 0.9rem 1.1rem;
-  background: rgba(9, 39, 50, 0.95);
-  border: 1px solid rgba(148,163,184,0.7);
+  background: rgba(9, 39, 50, 0.98);
+  border: 1px solid rgba(148, 163, 184, 0.7);
   border-radius: 12px;
   color: #f5f5f7;
   font-size: 0.95rem;
+  transition: all 0.25s ease;
+  font-family: inherit;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Make ALL placeholders identical, including "regional media..." */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: rgba(203, 213, 225, 0.95);
 }
 
 .form-input:focus,
 .form-textarea:focus {
+  outline: none;
   border-color: #d65d0e;
-  box-shadow: 0 0 0 2px rgba(214,93,14,0.35);
+  box-shadow: 0 0 0 2px rgba(214, 93, 14, 0.35);
 }
 
 /* Chips (Purpose, Role, Signals, Delivery) */
@@ -197,17 +228,24 @@ body {
 
 .chip {
   padding: 0.55rem 0.95rem;
-  background: rgba(214,93,14,0.12);
-  border: 1px solid rgba(214,93,14,0.35);
+  background: rgba(214, 93, 14, 0.12);
+  border: 1px solid rgba(214, 93, 14, 0.35);
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.8rem;
-  color: rgba(248,250,252,0.95);
+  color: rgba(248, 250, 252, 0.95);
+  transition: all 0.2s ease;
+}
+
+.chip:hover {
+  background: rgba(214, 93, 14, 0.2);
+  border-color: rgba(214, 93, 14, 0.6);
 }
 
 .chip.selected {
   background: linear-gradient(135deg, #d65d0e, #e78a3d);
   color: #fff;
+  border-color: #d65d0e;
 }
 
 /* Submit Button */
@@ -220,20 +258,63 @@ body {
   border-radius: 980px;
   font-size: 1.02rem;
   cursor: pointer;
-  box-shadow: 0 14px 32px rgba(214,93,14,0.45);
+  box-shadow: 0 14px 32px rgba(214, 93, 14, 0.45);
+  transition: all 0.25s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(214, 93, 14, 0.6);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 24px rgba(214, 93, 14, 0.45);
 }
 
 /* Footer */
 .site-footer {
-  border-top: 1px solid rgba(255,255,255,0.18);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
   padding: 32px 0;
-  background: rgba(6,32,41,0.9);
+  background: rgba(6, 32, 41, 0.92);
+  backdrop-filter: blur(16px);
+  color: rgba(226, 232, 240, 0.9);
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
-  color: rgba(226,232,240,0.9);
+  align-items: center;
+}
+
+.footer-inner a {
+  color: rgba(241, 245, 249, 0.9);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .form-card {
+    padding: 2rem 1.5rem;
+  }
+  
+  .signup-header h1 {
+    font-size: 2.1rem;
+  }
+  
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .signup-section {
+    padding: 100px 0 40px;
+  }
+  
+  .page-container {
+    padding: 0 18px;
+  }
 }
 </style>
 </head>
@@ -268,7 +349,7 @@ body {
           <!-- PURPOSE -->
           <div class="form-group">
             <label>What are you using CloudVista for?</label>
-            <textarea class="form-textarea" id="purpose"></textarea>
+            <textarea class="form-textarea" id="purpose" placeholder="Describe your goals..."></textarea>
             <div class="chips" id="purposeChips">
               <div class="chip">Talent intelligence</div>
               <div class="chip">Business development</div>
@@ -283,7 +364,12 @@ body {
           <!-- ROLE -->
           <div class="form-group">
             <label>Your role *</label>
-            <input class="form-input" id="role" required />
+            <input
+              class="form-input"
+              id="role"
+              placeholder="Type your specific role..."
+              required
+            />
             <div class="chips" id="roleChips">
               <div class="chip">Recruiter</div>
               <div class="chip">Investor</div>
@@ -300,19 +386,31 @@ body {
           <!-- INDUSTRY -->
           <div class="form-group">
             <label>Industry focus</label>
-            <input class="form-input" id="industry" placeholder="e.g. AI, biotech, higher education" />
+            <input
+              class="form-input"
+              id="industry"
+              placeholder="e.g. Genomics, AI, Higher Education, Finance, ESG"
+            />
           </div>
 
           <!-- GEOGRAPHY -->
           <div class="form-group">
             <label>What regions matter to you?</label>
-            <input class="form-input" id="geo" placeholder="e.g. UK & Europe, Global, North America" />
+            <input
+              class="form-input"
+              id="geo"
+              placeholder="e.g. UK & Europe, Global, North America"
+            />
           </div>
 
           <!-- SIGNALS -->
           <div class="form-group">
             <label>What signals matter most to you?</label>
-            <textarea class="form-textarea" id="signals"></textarea>
+            <textarea
+              class="form-textarea"
+              id="signals"
+              placeholder="Describe the specific events, changes, or developments you need to track..."
+            ></textarea>
             <div class="chips" id="signalChips">
               <div class="chip">Funding & M&A</div>
               <div class="chip">Leadership moves</div>
@@ -329,7 +427,7 @@ body {
           <!-- NEWS SOURCES (FREETEXT ONLY) -->
           <div class="form-group">
             <label>Want your AI scout to track specific outlets?</label>
-            <textarea 
+            <textarea
               class="form-textarea"
               id="newsSources"
               placeholder="regional media, sector blogs, tender portals..."
@@ -348,19 +446,36 @@ body {
           <!-- TIME -->
           <div class="form-group">
             <label>Preferred delivery time (24h)</label>
-            <input type="time" class="form-input" id="deliveryTime" value="09:00" />
+            <input
+              type="time"
+              class="form-input"
+              id="deliveryTime"
+              value="09:00"
+            />
           </div>
 
           <!-- EMAIL -->
           <div class="form-group">
             <label>Email address *</label>
-            <input type="email" class="form-input" id="email" required placeholder="you@company.com" />
+            <input
+              type="email"
+              class="form-input"
+              id="email"
+              required
+              placeholder="you@company.com"
+            />
           </div>
 
           <!-- PASSWORD -->
           <div class="form-group">
             <label>Create a password *</label>
-            <input type="password" class="form-input" id="password" required />
+            <input
+              type="password"
+              class="form-input"
+              id="password"
+              required
+              placeholder="Create a secure password"
+            />
           </div>
 
           <!-- SUBMIT -->
