@@ -312,7 +312,7 @@ body::after {
 }
 
 .form-textarea {
-  min-height: 120px;
+  min-height: 100px;
   resize: vertical;
 }
 
@@ -330,19 +330,35 @@ body::after {
   color: #e2e8f0;
 }
 
-/* Industry-specific fields container */
-.industry-fields {
-  display: none;
-  animation: fadeIn 0.4s ease;
+/* Chips for contextual suggestions */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
 }
 
-.industry-fields.active {
-  display: block;
+.chip {
+  padding: 0.6rem 1rem;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  color: #94a3b8;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+.chip:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  color: #e2e8f0;
+}
+
+.chip.selected {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: #fff;
+  border-color: #3b82f6;
 }
 
 /* Submit Button */
@@ -489,50 +505,34 @@ body::after {
     <div class="page-container signup-container">
       
       <div class="signup-header">
-        <h1>Set up your AI scout</h1>
-        <p>Tell us about your world and we'll configure your personal AI scout to surface what matters.</p>
+        <h1>Create Your Personalised CloudVista Feed</h1>
+        <p>Tell us a little about what you need — and we'll tailor insights just for you.</p>
       </div>
 
       <div class="form-card">
         <form id="signupForm" action="#" method="POST">
           
-          <!-- Basic Info -->
+          <!-- PURPOSE -->
           <div class="form-group">
-            <label for="name">Your name <span class="required">*</span></label>
-            <input 
-              type="text" 
-              id="name" 
-              name="name" 
-              class="form-input" 
-              placeholder="e.g. Sarah Chen"
-              required
-            />
+            <label for="purpose">What are you using CloudVista for?</label>
+            <textarea 
+              id="purpose" 
+              name="purpose" 
+              class="form-textarea" 
+              placeholder="Describe your goals..."
+            ></textarea>
+            <div class="chips" id="purposeChips">
+              <div class="chip">Talent intelligence</div>
+              <div class="chip">Business development</div>
+              <div class="chip">Investment research</div>
+              <div class="chip">Academic tracking</div>
+              <div class="chip">Market intelligence</div>
+              <div class="chip">Policy & regulation</div>
+              <div class="chip">Career opportunities</div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="email">Email address <span class="required">*</span></label>
-            <input 
-              type="email" 
-              id="email" 
-              name="email" 
-              class="form-input" 
-              placeholder="e.g. sarah@company.com"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="company">Your organisation <span class="required">*</span></label>
-            <input 
-              type="text" 
-              id="company" 
-              name="company" 
-              class="form-input" 
-              placeholder="e.g. Acme Partners, Ministry of Defence, or Independent"
-              required
-            />
-          </div>
-
+          <!-- ROLE -->
           <div class="form-group">
             <label for="role">Your role <span class="required">*</span></label>
             <input 
@@ -540,429 +540,129 @@ body::after {
               id="role" 
               name="role" 
               class="form-input" 
-              placeholder="e.g. Partner, Investment Director, Head of Strategy"
+              placeholder="Type your specific role..."
+              required
+            />
+            <div class="chips" id="roleChips">
+              <div class="chip">Recruiter</div>
+              <div class="chip">Investor</div>
+              <div class="chip">Consultant</div>
+              <div class="chip">Business Developer</div>
+              <div class="chip">Founder/Executive</div>
+              <div class="chip">Analyst</div>
+              <div class="chip">Researcher</div>
+              <div class="chip">Policy/Govt</div>
+              <div class="chip">Journalist</div>
+            </div>
+          </div>
+
+          <!-- INDUSTRY -->
+          <div class="form-group">
+            <label for="industry">Industry focus</label>
+            <input 
+              type="text" 
+              id="industry" 
+              name="industry" 
+              class="form-input" 
+              placeholder="e.g. Genomics, AI, Higher Education, Finance, ESG"
+            />
+          </div>
+
+          <!-- GEOGRAPHY -->
+          <div class="form-group">
+            <label for="geo">Where do you operate or track activity?</label>
+            <input 
+              type="text" 
+              id="geo" 
+              name="geo" 
+              class="form-input" 
+              placeholder="e.g. UK & Europe, Global, North America"
+            />
+          </div>
+
+          <!-- SIGNALS -->
+          <div class="form-group">
+            <label for="signals">What signals matter most to you?</label>
+            <textarea 
+              id="signals" 
+              name="signals" 
+              class="form-textarea" 
+              placeholder="Describe the specific events, changes, or developments you need to track..."
+            ></textarea>
+            <div class="chips" id="signalChips">
+              <div class="chip">Funding & M&A</div>
+              <div class="chip">Leadership moves</div>
+              <div class="chip">Product launches</div>
+              <div class="chip">Regulatory changes</div>
+              <div class="chip">Research publications</div>
+              <div class="chip">Market trends</div>
+              <div class="chip">Company performance</div>
+              <div class="chip">Strategic partnerships</div>
+              <div class="chip">Current affairs</div>
+            </div>
+          </div>
+
+          <!-- NEWS SOURCES -->
+          <div class="form-group">
+            <label for="newsSources">Any particular news sources you'd like your AI to keep an eye on?</label>
+            <textarea 
+              id="newsSources" 
+              name="newsSources" 
+              class="form-textarea" 
+              placeholder="e.g. Financial Times, TechCrunch, Nature, The Economist, industry blogs..."
+            ></textarea>
+            <span class="form-help">Optional: Specific publications, blogs, or media outlets that matter to your work.</span>
+          </div>
+
+          <!-- DELIVERY -->
+          <div class="form-group">
+            <label for="delivery">How often should we email your insights?</label>
+            <div class="chips" id="deliveryChips">
+              <div class="chip">Daily</div>
+              <div class="chip">Weekly</div>
+            </div>
+          </div>
+
+          <!-- TIME PICKER -->
+          <div class="form-group">
+            <label for="deliveryTime">Choose your preferred time (24h)</label>
+            <input 
+              type="time" 
+              id="deliveryTime" 
+              name="deliveryTime" 
+              class="form-input" 
+              value="09:00"
+            />
+          </div>
+
+          <!-- ACCOUNT -->
+          <div class="form-group">
+            <label for="email">Email address <span class="required">*</span></label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="you@company.com"
               required
             />
           </div>
 
-          <!-- Industry Selection -->
           <div class="form-group">
-            <label for="industry">Which best describes your work? <span class="required">*</span></label>
-            <select id="industry" name="industry" class="form-select" required>
-              <option value="">Select your industry...</option>
-              <option value="executive-search">Executive search, recruitment & talent intelligence</option>
-              <option value="pe-vc">Private equity, venture capital & public markets</option>
-              <option value="public-sector">Suppliers to public sector contracts</option>
-              <option value="consulting">Management consulting & advisory</option>
-              <option value="education">Higher education & research</option>
-              <option value="pharma">Pharma, biotech & health innovation</option>
-              <option value="infrastructure">Infrastructure, climate & energy</option>
-              <option value="corporate-strategy">Corporate strategy & corporate development</option>
-              <option value="professional-services">Professional services & law firms</option>
-              <option value="nonprofit">Non-profits & impact organisations</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <!-- Executive Search & Talent Intelligence -->
-          <div id="executive-search-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="exec-specialization">Which markets do you focus on?</label>
-              <input 
-                type="text" 
-                id="exec-specialization" 
-                name="exec-specialization" 
-                class="form-input" 
-                placeholder="e.g. Tech CFOs, Healthcare C-suite, Financial Services GCs"
-              />
-              <span class="form-help">The sectors, functions or seniority you typically recruit for.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="exec-signals">What signals trigger your outreach?</label>
-              <textarea 
-                id="exec-signals" 
-                name="exec-signals" 
-                class="form-textarea" 
-                placeholder="e.g. New funding rounds, leadership departures, restructures, M&A activity, rapid headcount growth"
-              ></textarea>
-              <span class="form-help">The events or changes that typically create hiring needs in your target accounts.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="exec-accounts">Key target organisations</label>
-              <textarea 
-                id="exec-accounts" 
-                name="exec-accounts" 
-                class="form-textarea" 
-                placeholder="e.g. Stripe, Revolut, NHS England, McKinsey, HSBC"
-              ></textarea>
-              <span class="form-help">Companies or institutions you actively track or want to build relationships with.</span>
-            </div>
-          </div>
-
-          <!-- PE/VC Fields -->
-          <div id="pe-vc-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="pe-focus">Investment focus areas</label>
-              <input 
-                type="text" 
-                id="pe-focus" 
-                name="pe-focus" 
-                class="form-input" 
-                placeholder="e.g. B2B SaaS, Climate tech, Healthcare services, Series A-B"
-              />
-              <span class="form-help">Sectors, stages, geographies or deal sizes you invest in.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="pe-signals">What signals matter for your pipeline?</label>
-              <textarea 
-                id="pe-signals" 
-                name="pe-signals" 
-                class="form-textarea" 
-                placeholder="e.g. Revenue milestones, product launches, key hires, regulatory approvals, customer wins"
-              ></textarea>
-              <span class="form-help">Events or metrics that indicate investment readiness or portfolio momentum.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="pe-portfolio">Portfolio or watchlist companies</label>
-              <textarea 
-                id="pe-portfolio" 
-                name="pe-portfolio" 
-                class="form-textarea" 
-                placeholder="e.g. Portfolio: Acme Corp, Beta Ltd. Tracking: Gamma Inc, Delta Systems"
-              ></textarea>
-              <span class="form-help">Current portfolio companies and prospects you're monitoring.</span>
-            </div>
-          </div>
-
-          <!-- Public Sector Fields -->
-          <div id="public-sector-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="ps-services">What do you supply?</label>
-              <input 
-                type="text" 
-                id="ps-services" 
-                name="ps-services" 
-                class="form-input" 
-                placeholder="e.g. IT infrastructure, Training & development, Consulting services"
-              />
-              <span class="form-help">The products, services or capabilities you provide to public sector clients.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="ps-departments">Target departments or agencies</label>
-              <textarea 
-                id="ps-departments" 
-                name="ps-departments" 
-                class="form-textarea" 
-                placeholder="e.g. Ministry of Defence, NHS Trusts, Local authorities, HMRC"
-              ></textarea>
-              <span class="form-help">Government bodies, agencies or public institutions you work with or target.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="ps-signals">Early signals you track</label>
-              <textarea 
-                id="ps-signals" 
-                name="ps-signals" 
-                class="form-textarea" 
-                placeholder="e.g. Policy announcements, budget allocations, leadership changes, programme launches"
-              ></textarea>
-              <span class="form-help">Events or changes that typically lead to procurement opportunities.</span>
-            </div>
-          </div>
-
-          <!-- Consulting Fields -->
-          <div id="consulting-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="consulting-services">Your service offerings</label>
-              <input 
-                type="text" 
-                id="consulting-services" 
-                name="consulting-services" 
-                class="form-input" 
-                placeholder="e.g. Digital transformation, Operating model design, M&A integration"
-              />
-              <span class="form-help">The types of consulting or advisory work you deliver.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="consulting-clients">Target client profile</label>
-              <textarea 
-                id="consulting-clients" 
-                name="consulting-clients" 
-                class="form-textarea" 
-                placeholder="e.g. FTSE 250 CFOs, PE-backed scale-ups, Public sector transformation teams"
-              ></textarea>
-              <span class="form-help">Industries, company sizes or buyer personas you typically serve.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="consulting-triggers">What creates demand for your work?</label>
-              <textarea 
-                id="consulting-triggers" 
-                name="consulting-triggers" 
-                class="form-textarea" 
-                placeholder="e.g. Post-acquisition integration, Regulatory pressure, Growth stalls, Leadership changes"
-              ></textarea>
-              <span class="form-help">Problems, events or inflection points that trigger advisory needs.</span>
-            </div>
-          </div>
-
-          <!-- Education Fields -->
-          <div id="education-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="edu-focus">Your area of focus</label>
-              <input 
-                type="text" 
-                id="edu-focus" 
-                name="edu-focus" 
-                class="form-input" 
-                placeholder="e.g. Research partnerships, Student recruitment, EdTech procurement"
-              />
-              <span class="form-help">What you provide to or seek from higher education institutions.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="edu-institutions">Target institutions or networks</label>
-              <textarea 
-                id="edu-institutions" 
-                name="edu-institutions" 
-                class="form-textarea" 
-                placeholder="e.g. Russell Group universities, Research-intensive institutions, UK business schools"
-              ></textarea>
-              <span class="form-help">Universities, research groups or academic networks you engage with.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="edu-signals">Signals that matter</label>
-              <textarea 
-                id="edu-signals" 
-                name="edu-signals" 
-                class="form-textarea" 
-                placeholder="e.g. New programme launches, Research grants, Leadership appointments, Strategic partnerships"
-              ></textarea>
-              <span class="form-help">Events or changes that create opportunities or collaboration needs.</span>
-            </div>
-          </div>
-
-          <!-- Pharma/Biotech Fields -->
-          <div id="pharma-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="pharma-focus">Therapeutic or technology focus</label>
-              <input 
-                type="text" 
-                id="pharma-focus" 
-                name="pharma-focus" 
-                class="form-input" 
-                placeholder="e.g. Oncology, Gene therapy, Medical devices, Clinical trial services"
-              />
-              <span class="form-help">Your area of expertise or commercial interest in life sciences.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="pharma-targets">Companies or programmes you track</label>
-              <textarea 
-                id="pharma-targets" 
-                name="pharma-targets" 
-                class="form-textarea" 
-                placeholder="e.g. AstraZeneca, Moderna, Oxford BioMedica, Phase II oncology trials"
-              ></textarea>
-              <span class="form-help">Organisations, pipelines or clinical programmes relevant to your work.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="pharma-signals">Key inflection points</label>
-              <textarea 
-                id="pharma-signals" 
-                name="pharma-signals" 
-                class="form-textarea" 
-                placeholder="e.g. Trial readouts, Regulatory approvals, Licensing deals, Leadership hires"
-              ></textarea>
-              <span class="form-help">Events that create commercial, clinical or talent opportunities.</span>
-            </div>
-          </div>
-
-          <!-- Infrastructure Fields -->
-          <div id="infrastructure-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="infra-sector">Your sector focus</label>
-              <input 
-                type="text" 
-                id="infra-sector" 
-                name="infra-sector" 
-                class="form-input" 
-                placeholder="e.g. Renewable energy, Transport infrastructure, Carbon capture, Smart cities"
-              />
-              <span class="form-help">The infrastructure or climate domains you operate in.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="infra-projects">Projects or organisations you monitor</label>
-              <textarea 
-                id="infra-projects" 
-                name="infra-projects" 
-                class="form-textarea" 
-                placeholder="e.g. HS2, Offshore wind developers, National Grid, Local authority retrofit programmes"
-              ></textarea>
-              <span class="form-help">Major projects, developers or public bodies relevant to your pipeline.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="infra-signals">What signals matter?</label>
-              <textarea 
-                id="infra-signals" 
-                name="infra-signals" 
-                class="form-textarea" 
-                placeholder="e.g. Funding announcements, Planning approvals, Policy shifts, Contract awards"
-              ></textarea>
-              <span class="form-help">Events or milestones that create deal flow or partnership opportunities.</span>
-            </div>
-          </div>
-
-          <!-- Corporate Strategy Fields -->
-          <div id="corporate-strategy-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="corp-focus">Strategic priorities</label>
-              <input 
-                type="text" 
-                id="corp-focus" 
-                name="corp-focus" 
-                class="form-input" 
-                placeholder="e.g. M&A targets, Build vs buy decisions, Market entry, Competitive intelligence"
-              />
-              <span class="form-help">The strategic questions or initiatives you're working on.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="corp-markets">Markets or competitors you track</label>
-              <textarea 
-                id="corp-markets" 
-                name="corp-markets" 
-                class="form-textarea" 
-                placeholder="e.g. Fintech competitors, Adjacent markets (e.g. embedded finance), Acquisition targets"
-              ></textarea>
-              <span class="form-help">Industries, companies or trends you need visibility into.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="corp-signals">Signals that inform decisions</label>
-              <textarea 
-                id="corp-signals" 
-                name="corp-signals" 
-                class="form-textarea" 
-                placeholder="e.g. Product launches, Funding rounds, Partnerships, Talent moves, Customer traction"
-              ></textarea>
-              <span class="form-help">Events or data points that shape your strategic recommendations.</span>
-            </div>
-          </div>
-
-          <!-- Professional Services Fields -->
-          <div id="professional-services-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="prof-services">Your practice areas</label>
-              <input 
-                type="text" 
-                id="prof-services" 
-                name="prof-services" 
-                class="form-input" 
-                placeholder="e.g. Corporate law, Restructuring & insolvency, Tax advisory, Forensic accounting"
-              />
-              <span class="form-help">The legal, audit or advisory services you provide.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="prof-clients">Target client segments</label>
-              <textarea 
-                id="prof-clients" 
-                name="prof-clients" 
-                class="form-textarea" 
-                placeholder="e.g. PE portfolio companies, Listed corporates, Distressed businesses, High-net-worth individuals"
-              ></textarea>
-              <span class="form-help">Industries, company types or client profiles you serve.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="prof-triggers">What creates demand?</label>
-              <textarea 
-                id="prof-triggers" 
-                name="prof-triggers" 
-                class="form-textarea" 
-                placeholder="e.g. M&A activity, Regulatory investigations, Financial distress, Disputes, IPO preparations"
-              ></textarea>
-              <span class="form-help">Events or situations that generate mandates or advisory needs.</span>
-            </div>
-          </div>
-
-          <!-- Non-profit Fields -->
-          <div id="nonprofit-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="nonprofit-mission">Your mission or cause areas</label>
-              <input 
-                type="text" 
-                id="nonprofit-mission" 
-                name="nonprofit-mission" 
-                class="form-input" 
-                placeholder="e.g. Climate justice, Education access, Public health, Human rights"
-              />
-              <span class="form-help">The social or environmental issues your organisation addresses.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="nonprofit-stakeholders">Key stakeholders or partners</label>
-              <textarea 
-                id="nonprofit-stakeholders" 
-                name="nonprofit-stakeholders" 
-                class="form-textarea" 
-                placeholder="e.g. Government departments, Philanthropic foundations, Corporate partners, Research institutions"
-              ></textarea>
-              <span class="form-help">Funders, policymakers or organisations you collaborate with or influence.</span>
-            </div>
-
-            <div class="form-group">
-              <label for="nonprofit-signals">What signals shape your work?</label>
-              <textarea 
-                id="nonprofit-signals" 
-                name="nonprofit-signals" 
-                class="form-textarea" 
-                placeholder="e.g. Policy debates, Funding calls, Leadership changes, Public discourse shifts, Research publications"
-              ></textarea>
-              <span class="form-help">Events, trends or opportunities that inform your campaigns or programmes.</span>
-            </div>
-          </div>
-
-          <!-- Other Industry -->
-          <div id="other-fields" class="industry-fields">
-            <div class="form-group">
-              <label for="other-description">Tell us about your work</label>
-              <textarea 
-                id="other-description" 
-                name="other-description" 
-                class="form-textarea" 
-                placeholder="Describe what you do, who you serve, and what signals or opportunities you need to stay on top of..."
-              ></textarea>
-              <span class="form-help">Help us understand your world so we can configure your AI scout effectively.</span>
-            </div>
-          </div>
-
-          <!-- General Context -->
-          <div class="form-group">
-            <label for="additional-context">Anything else we should know?</label>
-            <textarea 
-              id="additional-context" 
-              name="additional-context" 
-              class="form-textarea" 
-              placeholder="e.g. Geographic focus, specific relationships you're building, frequency preferences..."
-            ></textarea>
-            <span class="form-help">Optional: Any other context that helps us understand what matters to you.</span>
+            <label for="password">Create a password <span class="required">*</span></label>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              class="form-input" 
+              placeholder="Create a secure password"
+              required
+            />
           </div>
 
           <!-- Submit -->
           <button type="submit" class="submit-btn">
-            Set up my AI scout
+            Start Free Trial
           </button>
 
           <div class="privacy-note">
@@ -985,38 +685,47 @@ body::after {
 </footer>
 
 <script>
-// Dynamic form fields based on industry selection
-document.getElementById('industry').addEventListener('change', function() {
-  // Hide all industry-specific fields
-  const allFields = document.querySelectorAll('.industry-fields');
-  allFields.forEach(field => {
-    field.classList.remove('active');
-  });
-  
-  // Show selected industry fields
-  const selectedValue = this.value;
-  if (selectedValue) {
-    const targetFields = document.getElementById(selectedValue + '-fields');
-    if (targetFields) {
-      targetFields.classList.add('active');
+// Generic chip toggle (multi-select)
+document.querySelectorAll('.chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const parent = chip.parentElement;
+    
+    // For delivery frequency, single-select behaviour
+    if (parent.id === "deliveryChips") {
+      parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
     }
-  }
+    
+    chip.classList.toggle('selected');
+  });
 });
 
-// Form submission (you'll need to connect this to your backend)
+// Form submission
 document.getElementById('signupForm').addEventListener('submit', function(e) {
   e.preventDefault();
   
-  // Collect form data
-  const formData = new FormData(this);
+  const getSelected = (selector) =>
+    [...document.querySelectorAll(selector + " .selected")].map(el => el.innerText);
   
-  // Here you would send the data to your backend
-  console.log('Form submitted with data:', Object.fromEntries(formData));
+  const data = {
+    purpose_text: document.getElementById('purpose').value,
+    purpose_tags: getSelected('#purposeChips'),
+    role_text: document.getElementById('role').value,
+    role_tags: getSelected('#roleChips'),
+    industry: document.getElementById('industry').value,
+    geography: document.getElementById('geo').value,
+    signals_text: document.getElementById('signals').value,
+    signals_tags: getSelected('#signalChips'),
+    news_sources: document.getElementById('newsSources').value,
+    delivery_frequency: getSelected('#deliveryChips')[0] || null,
+    delivery_time: document.getElementById('deliveryTime').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value,
+  };
   
-  // Show success message (you can customize this)
-  alert('Thank you! We\'ll set up your AI scout and be in touch soon.');
+  console.log("CloudVista User Profile:", data);
+  alert("Profile captured — check console for full JSON. Thank you for signing up!");
   
-  // Optionally redirect
+  // Optionally redirect to thank you page
   // window.location.href = 'thank-you.html';
 });
 </script>
