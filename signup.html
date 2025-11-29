@@ -19,15 +19,15 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", sans-serif;
-  background: #0a0e27;
-  color: #e2e8f0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
+  background: #050608;
+  color: #f5f5f7;
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
 }
 
-/* Animated gradient background */
+/* Subtle warm gradient background to match home but softer */
 body::before {
   content: '';
   position: fixed;
@@ -35,179 +35,115 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f172a 100%);
-  z-index: -2;
-}
-
-body::after {
-  content: '';
-  position: fixed;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-  animation: float 20s ease-in-out infinite;
+  background:
+    radial-gradient(ellipse at top, rgba(214, 93, 14, 0.10) 0%, rgba(5, 6, 8, 1) 50%),
+    radial-gradient(circle at bottom right, rgba(231, 138, 61, 0.08), transparent 60%);
   z-index: -1;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(30px, -50px) rotate(120deg); }
-  66% { transform: translate(-20px, 20px) rotate(240deg); }
 }
 
 /* ===========================
    CONTAINER & UTILITIES
 =========================== */
 .page-container {
-  max-width: 1200px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 22px;
 }
 
 /* ===========================
-   HEADER
+   HEADER – aligned with home
 =========================== */
 .site-header {
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  backdrop-filter: blur(20px);
-  background: rgba(10, 14, 39, 0.8);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
-  animation: slideDown 0.5s ease;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+  backdrop-filter: saturate(180%) blur(20px);
+  background: rgba(0, 0, 0, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  height: 44px;
 }
 
-/* Logo with pulse animation */
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 8px;
   text-decoration: none;
-  color: inherit;
-  transition: transform 0.3s ease;
+  color: #f5f5f7;
+  transition: opacity 0.3s ease;
 }
 
 .logo:hover {
-  transform: scale(1.05);
+  opacity: 0.7;
 }
 
 .logo-icon {
-  position: relative;
-  padding: 3px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-  50% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-}
-
-.logo-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #3b82f6;
-  font-size: 0.9rem;
-  font-weight: 700;
+  border-radius: 999px;
+  padding: 2px;
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+}
+
+.logo-mark {
+  width: 32px;
+  height: 24px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: #050608;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .logo-text {
-  font-size: 1.1rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  color: #f5f5f7;
 }
 
 /* Navigation */
 .nav {
   display: flex;
-  gap: 0.5rem;
+  gap: 24px;
+  align-items: center;
 }
 
 .nav a {
   text-decoration: none;
-  color: #94a3b8;
-  padding: 0.5rem 1.2rem;
-  border-radius: 50px;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.nav a::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.nav a:hover::before {
-  left: 100%;
+  color: rgba(245, 245, 247, 0.8);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  transition: opacity 0.3s ease, color 0.3s ease;
 }
 
 .nav a:hover {
-  color: #3b82f6;
-  background: rgba(59, 130, 246, 0.1);
+  opacity: 0.7;
 }
 
 .nav-active {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
-  color: #fff !important;
+  color: #d65d0e !important;
+  font-weight: 500;
 }
 
 /* ===========================
    SIGNUP FORM SECTION
 =========================== */
 .signup-section {
-  padding: 8rem 0 4rem;
+  padding: 120px 0 60px;
   min-height: 100vh;
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards 0.2s;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
 }
 
 .signup-container {
@@ -221,9 +157,9 @@ body::after {
 }
 
 .signup-header h1 {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #fff, #94a3b8);
+  background: linear-gradient(135deg, #f5f5f7, rgba(245, 245, 247, 0.6));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -231,29 +167,17 @@ body::after {
 
 .signup-header p {
   font-size: 1.1rem;
-  color: #94a3b8;
+  color: rgba(245, 245, 247, 0.7);
 }
 
-/* Form Card */
+/* Form Card – matches home glassy panels */
 .form-card {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(20px);
   border-radius: 24px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 3rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-  animation: slideInUp 0.8s ease 0.4s backwards;
-}
-
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* Form Groups */
@@ -265,69 +189,53 @@ body::after {
   display: block;
   margin-bottom: 0.75rem;
   font-weight: 600;
-  color: #e2e8f0;
-  font-size: 1rem;
+  color: #f5f5f7;
+  font-size: 0.95rem;
 }
 
 .form-group label .required {
-  color: #ef4444;
+  color: #ff6b6b;
   margin-left: 0.25rem;
 }
 
 .form-help {
   display: block;
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: 0.8rem;
+  color: rgba(245, 245, 247, 0.5);
   margin-top: 0.5rem;
   line-height: 1.5;
 }
 
 /* Input Styles */
 .form-input,
-.form-select,
 .form-textarea {
   width: 100%;
-  padding: 0.9rem 1.2rem;
-  background: rgba(10, 14, 39, 0.5);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  padding: 0.9rem 1.1rem;
+  background: rgba(5, 6, 8, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
-  color: #e2e8f0;
+  color: #f5f5f7;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   font-family: inherit;
 }
 
 .form-input:focus,
-.form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #3b82f6;
-  background: rgba(10, 14, 39, 0.7);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: rgba(214, 93, 14, 0.9);
+  background: rgba(5, 6, 8, 0.95);
+  box-shadow: 0 0 0 2px rgba(214, 93, 14, 0.35);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #475569;
+  color: rgba(245, 245, 247, 0.35);
 }
 
 .form-textarea {
   min-height: 100px;
   resize: vertical;
-}
-
-.form-select {
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 3rem;
-}
-
-.form-select option {
-  background: #0f172a;
-  color: #e2e8f0;
 }
 
 /* Chips for contextual suggestions */
@@ -339,119 +247,102 @@ body::after {
 }
 
 .chip {
-  padding: 0.6rem 1rem;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 20px;
+  padding: 0.55rem 0.95rem;
+  background: rgba(214, 93, 14, 0.08);
+  border: 1px solid rgba(214, 93, 14, 0.25);
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: all 0.2s ease;
-  color: #94a3b8;
+  color: rgba(245, 245, 247, 0.75);
 }
 
 .chip:hover {
-  background: rgba(59, 130, 246, 0.2);
-  border-color: rgba(59, 130, 246, 0.5);
-  color: #e2e8f0;
+  background: rgba(214, 93, 14, 0.15);
+  border-color: rgba(214, 93, 14, 0.5);
+  color: #f5f5f7;
 }
 
 .chip.selected {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
   color: #fff;
-  border-color: #3b82f6;
+  border-color: #d65d0e;
 }
 
-/* Submit Button */
+/* Submit Button – aligns with home CTA */
 .submit-btn {
   width: 100%;
-  padding: 1.1rem 2rem;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  padding: 1.05rem 2rem;
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
   color: #fff;
   border: none;
-  border-radius: 50px;
-  font-size: 1.05rem;
-  font-weight: 600;
+  border-radius: 980px;
+  font-size: 1.02rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-}
-
-.submit-btn::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-}
-
-.submit-btn:hover::before {
-  width: 400px;
-  height: 400px;
+  transition: all 0.25s ease;
+  box-shadow: 0 14px 32px rgba(214, 93, 14, 0.4);
+  letter-spacing: -0.01em;
 }
 
 .submit-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 0 18px 40px rgba(214, 93, 14, 0.55);
 }
 
 .submit-btn:active {
   transform: translateY(0);
+  box-shadow: 0 10px 24px rgba(214, 93, 14, 0.4);
 }
 
 /* Privacy Note */
 .privacy-note {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(59, 130, 246, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
-  font-size: 0.85rem;
-  color: #64748b;
+  font-size: 0.8rem;
+  color: rgba(245, 245, 247, 0.6);
   line-height: 1.6;
 }
 
 .privacy-note a {
-  color: #3b82f6;
+  color: #e78a3d;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .privacy-note a:hover {
-  color: #8b5cf6;
-  text-decoration: underline;
+  color: #ffd2a1;
 }
 
 /* ===========================
-   FOOTER
+   FOOTER – aligned with home
 =========================== */
 .site-footer {
-  border-top: 1px solid rgba(59, 130, 246, 0.1);
-  padding: 2rem 0;
-  background: rgba(10, 14, 39, 0.8);
-  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 32px 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(16px);
 }
 
 .footer-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #64748b;
+  font-size: 12px;
+  letter-spacing: -0.01em;
+  color: rgba(245, 245, 247, 0.6);
 }
 
 .footer-inner a {
-  color: #3b82f6;
+  color: rgba(245, 245, 247, 0.75);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .footer-inner a:hover {
-  color: #8b5cf6;
+  color: #f5f5f7;
 }
 
 /* ===========================
@@ -463,7 +354,7 @@ body::after {
   }
   
   .signup-header h1 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
   
   .nav {
@@ -473,11 +364,11 @@ body::after {
 
 @media (max-width: 640px) {
   .signup-section {
-    padding: 6rem 0 3rem;
+    padding: 100px 0 40px;
   }
   
   .page-container {
-    padding: 0 1.5rem;
+    padding: 0 18px;
   }
 }
 </style>
@@ -609,9 +500,40 @@ body::after {
               id="newsSources" 
               name="newsSources" 
               class="form-textarea" 
-              placeholder="e.g. Financial Times, TechCrunch, Nature, The Economist, industry blogs..."
+              placeholder="regional media, sector blogs, tender portals..."
             ></textarea>
-            <span class="form-help">Optional: Specific publications, blogs, or media outlets that matter to your work.</span>
+            <div class="chips" id="newsChips">
+              <!-- FT & Economist – repeated across different angles -->
+              <div class="chip">Financial Times – markets & companies</div>
+              <div class="chip">Financial Times – deals & M&amp;A</div>
+              <div class="chip">The Economist – macro & geopolitics</div>
+              <div class="chip">The Economist – business & special reports</div>
+              <!-- Global & diverse media -->
+              <div class="chip">Bloomberg</div>
+              <div class="chip">Al Jazeera English</div>
+              <div class="chip">BBC World Service</div>
+              <div class="chip">Nikkei Asia</div>
+              <div class="chip">Rest of World</div>
+              <div class="chip">Quartz Africa / India</div>
+              <div class="chip">Africa Confidential</div>
+              <div class="chip">LatinFinance / América Economía</div>
+              <!-- Sector & specialist -->
+              <div class="chip">TechCrunch / Sifted</div>
+              <div class="chip">Nature / Science</div>
+              <div class="chip">STAT / Endpoints (life sciences)</div>
+              <div class="chip">Politico / Politico EU</div>
+              <!-- Bids, tenders & contracts -->
+              <div class="chip">EU TED – Tenders Electronic Daily</div>
+              <div class="chip">UK Contracts Finder</div>
+              <div class="chip">Find a Tender (UK)</div>
+              <div class="chip">SAM.gov – US federal contracts</div>
+              <div class="chip">Grants.gov – US grants</div>
+              <div class="chip">World Bank Tenders</div>
+              <div class="chip">UNGM – UN Global Marketplace</div>
+            </div>
+            <span class="form-help">
+              Choose a mix that reflects how you really work – mainstream, niche, Global South, sector-specific, and where bids &amp; contracts actually get posted.
+            </span>
           </div>
 
           <!-- DELIVERY -->
@@ -662,7 +584,7 @@ body::after {
 
           <!-- Submit -->
           <button type="submit" class="submit-btn">
-            Start Free Trial
+            Start 3-Month Free Trial
           </button>
 
           <div class="privacy-note">
@@ -679,7 +601,7 @@ body::after {
 
 <footer class="site-footer">
   <div class="page-container footer-inner">
-    <p>© 2025 CloudVista.</p>
+    <p>© 2025 CloudVista. Intelligence that matters.</p>
     <a href="index.html">Back to home →</a>
   </div>
 </footer>
@@ -715,7 +637,8 @@ document.getElementById('signupForm').addEventListener('submit', function(e) {
     geography: document.getElementById('geo').value,
     signals_text: document.getElementById('signals').value,
     signals_tags: getSelected('#signalChips'),
-    news_sources: document.getElementById('newsSources').value,
+    news_sources_text: document.getElementById('newsSources').value,
+    news_sources_tags: getSelected('#newsChips'),
     delivery_frequency: getSelected('#deliveryChips')[0] || null,
     delivery_time: document.getElementById('deliveryTime').value,
     email: document.getElementById('email').value,
