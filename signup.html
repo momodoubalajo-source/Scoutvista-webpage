@@ -47,7 +47,7 @@ body {
 }
 
 /* ===========================
-   HEADER – Apple-style
+   HEADER – Apple-style, MATCH MAIN PAGE
 =========================== */
 .site-header {
   position: fixed;
@@ -71,40 +71,42 @@ body {
   height: 44px;
 }
 
-/* Logo */
+/* Logo – IDENTICAL TO MAIN PAGE */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
   text-decoration: none;
   color: #f5f5f7;
+  transition: opacity 0.3s ease;
 }
 
-.logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  padding: 2px;
-  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+.logo:hover {
+  opacity: 0.7;
 }
 
 .logo-mark {
-  width: 32px;
-  height: 24px;
-  border-radius: 50%;
-  background: #0b323f;
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: 600;
+  width: 36px;
+  height: 27px;
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+
+.logo-mark::before {
+  content: '◉';
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
 }
 
 .logo-text {
   font-size: 17px;
   font-weight: 600;
+  letter-spacing: -0.022em;
   color: #f5f5f7;
 }
 
@@ -203,7 +205,7 @@ body {
   resize: vertical;
 }
 
-/* Make ALL placeholders identical, including "regional media..." */
+/* All placeholders identical, including "regional media..." */
 .form-input::placeholder,
 .form-textarea::placeholder {
   font-family: inherit;
@@ -323,7 +325,7 @@ body {
 <header class="site-header">
   <div class="page-container header-inner">
     <a href="index.html" class="logo">
-      <div class="logo-icon"><span class="logo-mark">CV</span></div>
+      <div class="logo-mark"></div>
       <span class="logo-text">CloudVista</span>
     </a>
     <nav class="nav">
@@ -349,7 +351,11 @@ body {
           <!-- PURPOSE -->
           <div class="form-group">
             <label>What are you using CloudVista for?</label>
-            <textarea class="form-textarea" id="purpose" placeholder="Describe your goals..."></textarea>
+            <textarea
+              class="form-textarea"
+              id="purpose"
+              placeholder="Describe your goals..."
+            ></textarea>
             <div class="chips" id="purposeChips">
               <div class="chip">Talent intelligence</div>
               <div class="chip">Business development</div>
