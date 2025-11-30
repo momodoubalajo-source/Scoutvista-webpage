@@ -242,11 +242,7 @@ body {
 
 /* Warm feature cards */
 .feature-card {
-  background: linear-gradient(
-    145deg,
-    #fdf4ec 0%,
-    #f7e1cb 100%
-  );
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
   border: 1px solid rgba(214, 93, 14, 0.18);
   border-radius: 22px;
   padding: 32px 26px;
@@ -254,7 +250,7 @@ body {
   position: relative;
   overflow: hidden;
   box-shadow:
-    0 12px 32px rgba(15, 98, 112, 0.22),
+    0 12px 32px rgba(15, 98, 112, 0.18),
     0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
@@ -264,7 +260,7 @@ body {
   inset: 0;
   background: radial-gradient(
     circle at 0% 0%,
-    rgba(255, 211, 160, 0.25),
+    rgba(255, 211, 160, 0.18),
     transparent 75%
   );
   opacity: 0;
@@ -275,7 +271,7 @@ body {
   transform: translateY(-4px);
   border-color: rgba(214, 93, 14, 0.55);
   box-shadow:
-    0 18px 44px rgba(15, 98, 112, 0.3),
+    0 18px 44px rgba(15, 98, 112, 0.26),
     0 0 0 1px rgba(255, 255, 255, 0.9);
 }
 
@@ -283,7 +279,7 @@ body {
   opacity: 1;
 }
 
-/* ===== ICON STYLE A: SOFT GLASS PILL ===== */
+/* ===== ICONS: COOL GLASS, LIGHT STROKE ===== */
 .feature-icon,
 .industry-icon {
   width: 64px;
@@ -294,11 +290,11 @@ body {
   justify-content: center;
   border-radius: 22px;
   background:
-    radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.2), transparent 60%),
-    linear-gradient(135deg, rgba(6, 32, 41, 0.95), rgba(10, 47, 60, 0.95));
-  border: 1px solid rgba(255, 255, 255, 0.35);
+    radial-gradient(circle at 15% 0%, rgba(255, 255, 255, 0.22), transparent 60%),
+    linear-gradient(135deg, rgba(6, 32, 41, 0.96), rgba(10, 47, 60, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow:
-    0 10px 26px rgba(6, 32, 41, 0.65),
+    0 10px 26px rgba(6, 32, 41, 0.7),
     0 0 0 1px rgba(15, 98, 112, 0.55);
   backdrop-filter: blur(16px);
   transition: all 0.28s ease;
@@ -308,28 +304,28 @@ body {
 .industry-icon svg {
   width: 32px;
   height: 32px;
-  stroke: #ffd3a0;
+  stroke: #f9fafb;   /* light, not peachy */
   fill: none;
   stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Hover – more orange, but controlled */
+/* Hover – gradient shift + orange accent */
 .feature-card:hover .feature-icon,
 .industry-card:hover .industry-icon {
   background:
-    radial-gradient(circle at 0% 0%, rgba(255, 211, 160, 0.35), transparent 70%),
+    radial-gradient(circle at 0% 0%, rgba(255, 211, 160, 0.32), transparent 70%),
     linear-gradient(135deg, rgba(10, 47, 60, 0.98), rgba(15, 98, 112, 0.98));
   box-shadow:
-    0 14px 32px rgba(6, 32, 41, 0.8),
-    0 0 0 1px rgba(214, 93, 14, 0.85);
+    0 14px 32px rgba(6, 32, 41, 0.85),
+    0 0 0 1px rgba(214, 93, 14, 0.8);
   transform: translateY(-1px) scale(1.03);
 }
 
 .feature-card:hover .feature-icon svg,
 .industry-card:hover .industry-icon svg {
-  stroke: #ffe7c9;
+  stroke: #ffd9aa;   /* soft warm on hover */
 }
 
 .feature-card h3 {
@@ -401,13 +397,9 @@ body {
   position: relative;
   padding: 26px 18px 18px;
   border-radius: 22px;
-  background: linear-gradient(
-    145deg,
-    #fdf4ec 0%,
-    #f7e1cb 100%
-  );
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
   border: 1px solid rgba(214, 93, 14, 0.18);
-  box-shadow: 0 12px 32px rgba(15, 98, 112, 0.22);
+  box-shadow: 0 12px 32px rgba(15, 98, 112, 0.18);
 }
 
 /* Step number – glass language */
@@ -421,18 +413,18 @@ body {
   border-radius: 20px;
   background:
     radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.22), transparent 65%),
-    linear-gradient(135deg, rgba(6, 32, 41, 0.95), rgba(10, 47, 60, 0.95));
+    linear-gradient(135deg, rgba(6, 32, 41, 0.96), rgba(10, 47, 60, 0.96));
   border: 1px solid rgba(255, 255, 255, 0.4);
   font-size: 24px;
   font-weight: 700;
-  color: #ffe7c9;
-  box-shadow: 0 10px 24px rgba(6, 32, 41, 0.65);
+  color: #f9fafb;
+  box-shadow: 0 10px 24px rgba(6, 32, 41, 0.7);
   transition: all 0.25s ease;
 }
 
 .step:hover .step-number {
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 14px 30px rgba(6, 32, 41, 0.8);
+  box-shadow: 0 14px 30px rgba(6, 32, 41, 0.85);
   border-color: rgba(214, 93, 14, 0.85);
 }
 
@@ -505,11 +497,7 @@ body {
 
 /* Warm industry cards */
 .industry-card {
-  background: linear-gradient(
-    145deg,
-    #fdf4ec 0%,
-    #f7e1cb 100%
-  );
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
   padding: 34px 24px;
   border-radius: 22px;
   border: 1px solid rgba(214, 93, 14, 0.2);
@@ -887,7 +875,7 @@ body {
       </div>
       
       <div class="industries-grid">
-        <!-- Recruitment & Executive Search -->
+        <!-- 1. Recruitment & Executive Search -->
         <a href="signup.html" class="industry-card">
           <div class="industry-icon">
             <svg viewBox="0 0 24 24">
@@ -903,8 +891,8 @@ body {
             Track leadership changes, rising talent, and organisational signals before competitors do.
           </span>
         </a>
-        
-        <!-- Private Equity & VC -->
+
+        <!-- 2. Private Equity & VC -->
         <a href="signup.html" class="industry-card">
           <div class="industry-icon">
             <svg viewBox="0 0 24 24">
@@ -914,11 +902,187 @@ body {
           </div>
           <h3>Private Equity & VC</h3>
           <p>Deal flow & market trends</p>
-          <span class="industry-description">Surface investment opportunities and monitor portfolio companies with precision.</span>
+          <span class="industry-description">
+            Surface investment opportunities and monitor portfolio companies with precision.
+          </span>
         </a>
-        
-        <!-- Public Sector -->
+
+        <!-- 3. Public Sector -->
         <a href="signup.html" class="industry-card">
           <div class="industry-icon">
             <svg viewBox="0 0 24 24">
               <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+              <polyline points="9 22 9 12 15 12 15 22"/>
+            </svg>
+          </div>
+          <h3>Public Sector</h3>
+          <p>Policy & procurement</p>
+          <span class="industry-description">
+            Stay ahead of policy changes and identify procurement opportunities early.
+          </span>
+        </a>
+
+        <!-- 4. Consulting -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </div>
+          <h3>Consulting</h3>
+          <p>Client triggers & opportunities</p>
+          <span class="industry-description">
+            Identify when prospects need your expertise and engage at the perfect moment.
+          </span>
+        </a>
+
+        <!-- 5. Higher Education -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+            </svg>
+          </div>
+          <h3>Higher Education</h3>
+          <p>Research & partnerships</p>
+          <span class="industry-description">
+            Monitor academic breakthroughs and institutional partnerships as they emerge.
+          </span>
+        </a>
+
+        <!-- 6. Pharma & Biotech -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>Pharma & Biotech</h3>
+          <p>Trials & approvals</p>
+          <span class="industry-description">
+            Track clinical milestones and regulatory decisions that move markets.
+          </span>
+        </a>
+
+        <!-- 7. Infrastructure -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18"/>
+              <path d="M9 21V9"/>
+            </svg>
+          </div>
+          <h3>Infrastructure</h3>
+          <p>Projects & funding</p>
+          <span class="industry-description">
+            Catch major project announcements and funding decisions before the crowd.
+          </span>
+        </a>
+
+        <!-- 8. Corporate Strategy -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3>Corporate Strategy</h3>
+          <p>Competitive intelligence</p>
+          <span class="industry-description">
+            Monitor competitors and market dynamics to inform strategic decisions.
+          </span>
+        </a>
+
+        <!-- 9. Professional Services -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+            </svg>
+          </div>
+          <h3>Professional Services</h3>
+          <p>Regulatory & market changes</p>
+          <span class="industry-description">
+            Stay current on regulations and shifts that impact your clients' businesses.
+          </span>
+        </a>
+
+        <!-- 10. Non-Profits -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <h3>Non-Profits</h3>
+          <p>Funding & policy tracking</p>
+          <span class="industry-description">
+            Track funding opportunities and policy developments that advance your mission.
+          </span>
+        </a>
+
+        <!-- 11. Founders -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+            </svg>
+          </div>
+          <h3>Founders</h3>
+          <p>Competitors & market shifts</p>
+          <span class="industry-description">
+            Monitor competitive moves and market trends to stay ahead of the curve.
+          </span>
+        </a>
+
+        <!-- 12. Journalism -->
+        <a href="signup.html" class="industry-card">
+          <div class="industry-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+          </div>
+          <h3>Journalism</h3>
+          <p>Breaking stories & narratives</p>
+          <span class="industry-description">
+            Discover emerging stories and track evolving narratives across your beat.
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="page-container">
+      <h2>Ready to get started?</h2>
+      <p>Set up your personalised AI scout in under 5 minutes.</p>
+      <div class="cta-buttons">
+        <a href="signup.html" class="btn-primary">Start 3-Month Free Trial</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="page-container footer-inner">
+    <p>© 2025 CloudVista. Intelligence that matters.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
