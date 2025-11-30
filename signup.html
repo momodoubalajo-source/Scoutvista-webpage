@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Set up your AI scout – CloudVista</title>
+<title>Set up your AI scout – ScoutVista</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
 /* ===========================
-   MODERN RESET & BASE
+   RESET & BASE
 =========================== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -16,11 +16,13 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
-  /* Lighter teal with orange woven in */
+  /* Match main page: light teal + warm orange */
   background:
     radial-gradient(circle at 80% 20%, rgba(229, 138, 74, 0.35), transparent 55%),
     linear-gradient(
@@ -47,7 +49,7 @@ body {
 }
 
 /* ===========================
-   HEADER – Apple-style, MATCH MAIN PAGE
+   HEADER (match main page)
 =========================== */
 .site-header {
   position: fixed;
@@ -57,11 +59,11 @@ body {
   backdrop-filter: saturate(180%) blur(20px);
   background: linear-gradient(
     90deg,
+    rgba(6, 32, 41, 0.94),
     rgba(6, 32, 41, 0.9),
-    rgba(6, 32, 41, 0.85),
-    rgba(10, 47, 60, 0.85)
+    rgba(10, 47, 60, 0.9)
   );
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .header-inner {
@@ -71,7 +73,7 @@ body {
   height: 44px;
 }
 
-/* Logo – IDENTICAL TO MAIN PAGE */
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -106,7 +108,6 @@ body {
 .logo-text {
   font-size: 17px;
   font-weight: 600;
-  letter-spacing: -0.022em;
   color: #f5f5f7;
 }
 
@@ -120,6 +121,11 @@ body {
   text-decoration: none;
   color: rgba(245, 245, 247, 0.9);
   font-size: 12px;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+  opacity: 0.7;
 }
 
 .nav-active {
@@ -148,28 +154,26 @@ body {
   background: linear-gradient(135deg, #09131c, rgba(9, 19, 28, 0.7));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .signup-header p {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: rgba(9, 19, 28, 0.75);
 }
 
-/* Card */
+/* ===========================
+   FORM CARD – warm, softer
+=========================== */
 .form-card {
-  background: linear-gradient(
-    145deg,
-    rgba(6, 32, 41, 0.95),
-    rgba(9, 39, 50, 0.97)
-  );
-  backdrop-filter: blur(22px);
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  padding: 3rem;
+  border: 1px solid rgba(214, 93, 14, 0.2);
+  padding: 2.8rem 2.4rem;
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.45),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
-  color: #f5f5f7;
+    0 18px 44px rgba(15, 98, 112, 0.24),
+    0 0 0 1px rgba(255, 255, 255, 0.7);
+  color: #0b1720;
 }
 
 /* ===========================
@@ -183,20 +187,20 @@ body {
   display: block;
   margin-bottom: 0.75rem;
   font-weight: 600;
-  color: #f5f5f7;
+  color: #09131c;
   font-size: 0.95rem;
 }
 
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 0.9rem 1.1rem;
-  background: rgba(9, 39, 50, 0.98);
-  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 0.85rem 1.1rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(148, 163, 184, 0.8);
   border-radius: 12px;
-  color: #f5f5f7;
+  color: #0b1720;
   font-size: 0.95rem;
-  transition: all 0.25s ease;
+  transition: all 0.22s ease;
   font-family: inherit;
 }
 
@@ -205,22 +209,23 @@ body {
   resize: vertical;
 }
 
-/* All placeholders identical, including "regional media..." */
+/* Placeholders consistent */
 .form-input::placeholder,
 .form-textarea::placeholder {
   font-family: inherit;
   font-size: 0.95rem;
-  color: rgba(203, 213, 225, 0.95);
+  color: rgba(100, 116, 139, 0.9);
 }
 
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
   border-color: #d65d0e;
-  box-shadow: 0 0 0 2px rgba(214, 93, 14, 0.35);
+  box-shadow: 0 0 0 2px rgba(214, 93, 14, 0.25);
+  background: #ffffff;
 }
 
-/* Chips (Purpose, Role, Signals, Delivery) */
+/* Chips */
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -230,17 +235,17 @@ body {
 
 .chip {
   padding: 0.55rem 0.95rem;
-  background: rgba(214, 93, 14, 0.12);
+  background: rgba(214, 93, 14, 0.08);
   border: 1px solid rgba(214, 93, 14, 0.35);
   border-radius: 999px;
   cursor: pointer;
   font-size: 0.8rem;
-  color: rgba(248, 250, 252, 0.95);
+  color: #3b2a1b;
   transition: all 0.2s ease;
 }
 
 .chip:hover {
-  background: rgba(214, 93, 14, 0.2);
+  background: rgba(214, 93, 14, 0.16);
   border-color: rgba(214, 93, 14, 0.6);
 }
 
@@ -259,6 +264,7 @@ body {
   border: none;
   border-radius: 980px;
   font-size: 1.02rem;
+  font-weight: 600;
   cursor: pointer;
   box-shadow: 0 14px 32px rgba(214, 93, 14, 0.45);
   transition: all 0.25s ease;
@@ -274,11 +280,13 @@ body {
   box-shadow: 0 10px 24px rgba(214, 93, 14, 0.45);
 }
 
-/* Footer */
+/* ===========================
+   FOOTER
+=========================== */
 .site-footer {
   border-top: 1px solid rgba(255, 255, 255, 0.18);
   padding: 32px 0;
-  background: rgba(6, 32, 41, 0.92);
+  background: rgba(6, 32, 41, 0.95);
   backdrop-filter: blur(16px);
   color: rgba(226, 232, 240, 0.9);
 }
@@ -287,17 +295,25 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 12px;
 }
 
 .footer-inner a {
   color: rgba(241, 245, 249, 0.9);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Responsive */
+.footer-inner a:hover {
+  color: #ffffff;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
 @media (max-width: 768px) {
   .form-card {
-    padding: 2rem 1.5rem;
+    padding: 2rem 1.6rem;
   }
   
   .signup-header h1 {
@@ -326,7 +342,7 @@ body {
   <div class="page-container header-inner">
     <a href="index.html" class="logo">
       <div class="logo-mark"></div>
-      <span class="logo-text">CloudVista</span>
+      <span class="logo-text">ScoutVista</span>
     </a>
     <nav class="nav">
       <a href="index.html">Home</a>
@@ -341,7 +357,7 @@ body {
     <div class="page-container signup-container">
 
       <div class="signup-header">
-        <h1>Create Your Personalised CloudVista Feed</h1>
+        <h1>Create Your Personalised ScoutVista Feed</h1>
         <p>Tell us a little about what you need — and we'll tailor insights just for you.</p>
       </div>
 
@@ -350,12 +366,8 @@ body {
 
           <!-- PURPOSE -->
           <div class="form-group">
-            <label>What are you using CloudVista for?</label>
-            <textarea
-              class="form-textarea"
-              id="purpose"
-              placeholder="Describe your goals..."
-            ></textarea>
+            <label>What are you using ScoutVista for?</label>
+            <textarea class="form-textarea" id="purpose" placeholder="Describe your goals..."></textarea>
             <div class="chips" id="purposeChips">
               <div class="chip">Talent intelligence</div>
               <div class="chip">Business development</div>
@@ -498,7 +510,7 @@ body {
 
 <footer class="site-footer">
   <div class="page-container footer-inner">
-    <p>© 2025 CloudVista. Intelligence that matters.</p>
+    <p>© 2025 ScoutVista. Intelligence that matters.</p>
     <a href="index.html">Back to home →</a>
   </div>
 </footer>
