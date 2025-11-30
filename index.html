@@ -277,7 +277,7 @@ body {
   opacity: 1;
 }
 
-/* Icon containers – soft, not heavy */
+/* ICON CONTAINERS – GLASS EFFECT, VERY LEGIBLE */
 .feature-icon {
   width: 64px;
   height: 64px;
@@ -287,26 +287,32 @@ body {
   justify-content: center;
   border-radius: 20px;
   background:
-    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.9), transparent 65%),
-    linear-gradient(135deg, rgba(214, 93, 14, 0.12), rgba(231, 138, 61, 0.06));
-  border: 1px solid rgba(214, 93, 14, 0.4);
+    radial-gradient(circle at 10% 0%, rgba(255, 255, 255, 0.18), transparent 65%),
+    linear-gradient(135deg, rgba(6, 32, 41, 0.9), rgba(9, 39, 50, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 10px 24px rgba(6, 32, 41, 0.55),
+    0 0 0 1px rgba(15, 98, 112, 0.6);
+  backdrop-filter: blur(16px);
   transition: all 0.3s ease;
 }
 
 .feature-card:hover .feature-icon {
   background:
-    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 1), transparent 70%),
-    linear-gradient(135deg, rgba(214, 93, 14, 0.2), rgba(231, 138, 61, 0.12));
-  border-color: rgba(214, 93, 14, 0.8);
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.24), transparent 70%),
+    linear-gradient(135deg, rgba(6, 32, 41, 0.96), rgba(9, 47, 60, 0.96));
+  box-shadow:
+    0 14px 30px rgba(6, 32, 41, 0.7),
+    0 0 0 1px rgba(214, 93, 14, 0.7);
   transform: translateY(-1px) scale(1.03);
 }
 
 .feature-icon svg {
   width: 32px;
   height: 32px;
-  stroke: rgba(214, 93, 14, 0.9);
+  stroke: rgba(255, 211, 160, 0.96);
   fill: none;
-  stroke-width: 1.5;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -374,7 +380,7 @@ body {
   opacity: 0.85;
 }
 
-/* Step cards – same language as features, just a bit simpler */
+/* Step cards – light/glass language aligned with features */
 .step {
   text-align: center;
   position: relative;
@@ -387,7 +393,7 @@ body {
   box-shadow: 0 12px 32px rgba(15, 98, 112, 0.25);
 }
 
-/* Step number */
+/* Step number – subtle glass, very legible */
 .step-number {
   width: 56px;
   height: 56px;
@@ -397,20 +403,19 @@ body {
   justify-content: center;
   border-radius: 20px;
   background:
-    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 1), transparent 60%),
-    linear-gradient(135deg, rgba(214, 93, 14, 0.18), rgba(231, 138, 61, 0.1));
-  border: 1px solid rgba(214, 93, 14, 0.6);
+    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.28), transparent 60%),
+    linear-gradient(135deg, rgba(6, 32, 41, 0.92), rgba(9, 39, 50, 0.92));
+  border: 1px solid rgba(255, 255, 255, 0.4);
   font-size: 24px;
   font-weight: 700;
-  color: #09131c;
-  box-shadow: 0 8px 20px rgba(214, 93, 14, 0.35);
+  color: #ffe7c9;
+  box-shadow: 0 10px 24px rgba(6, 32, 41, 0.65);
   transition: all 0.25s ease;
 }
 
-/* Hover lift */
 .step:hover .step-number {
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 12px 26px rgba(214, 93, 14, 0.45);
+  box-shadow: 0 14px 30px rgba(6, 32, 41, 0.75);
 }
 
 .step h3 {
@@ -519,7 +524,7 @@ body {
   opacity: 1;
 }
 
-/* Industry icons */
+/* INDUSTRY ICONS – GLASS EFFECT, VERY LEGIBLE */
 .industry-icon {
   width: 64px;
   height: 64px;
@@ -529,9 +534,13 @@ body {
   justify-content: center;
   border-radius: 20px;
   background:
-    radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 1), transparent 65%),
-    linear-gradient(135deg, rgba(214, 93, 14, 0.16), rgba(231, 138, 61, 0.08));
-  border: 1px solid rgba(214, 93, 14, 0.5);
+    radial-gradient(circle at 12% 0%, rgba(255, 255, 255, 0.2), transparent 65%),
+    linear-gradient(135deg, rgba(6, 32, 41, 0.9), rgba(9, 39, 50, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 10px 24px rgba(6, 32, 41, 0.6),
+    0 0 0 1px rgba(15, 98, 112, 0.6);
+  backdrop-filter: blur(16px);
   transition: all 0.3s ease;
   position: relative;
   z-index: 1;
@@ -539,18 +548,20 @@ body {
 
 .industry-card:hover .industry-icon {
   background:
-    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 1), transparent 70%),
-    linear-gradient(135deg, rgba(214, 93, 14, 0.24), rgba(231, 138, 61, 0.12));
-  border-color: rgba(214, 93, 14, 0.9);
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.28), transparent 70%),
+    linear-gradient(135deg, rgba(6, 32, 41, 0.96), rgba(9, 47, 60, 0.96));
+  box-shadow:
+    0 14px 30px rgba(6, 32, 41, 0.75),
+    0 0 0 1px rgba(214, 93, 14, 0.75);
   transform: scale(1.04);
 }
 
 .industry-icon svg {
   width: 34px;
   height: 34px;
-  stroke: rgba(214, 93, 14, 0.9);
+  stroke: rgba(255, 211, 160, 0.96);
   fill: none;
-  stroke-width: 1.5;
+  stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -569,7 +580,6 @@ body {
 .industry-card p {
   font-size: 13px;
   font-weight: 500;
-  text-transform: none;
   line-height: 1.4;
   letter-spacing: -0.01em;
   color: #374552;
