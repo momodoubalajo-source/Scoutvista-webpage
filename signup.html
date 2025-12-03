@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="UTF-8" />
 <title>Set up your AI scout – ScoutVista</title>
@@ -255,6 +255,215 @@ body {
   border-color: #d65d0e;
 }
 
+/* Default preference display */
+.preference-default {
+  padding: 1rem 1.2rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preference-default-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.preference-default-label {
+  font-weight: 600;
+  color: #09131c;
+  font-size: 0.95rem;
+}
+
+.preference-default-value {
+  font-size: 0.85rem;
+  color: rgba(9, 19, 28, 0.7);
+}
+
+.preference-change-btn {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(214, 93, 14, 0.3);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #d65d0e;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.preference-change-btn:hover {
+  background: rgba(214, 93, 14, 0.1);
+  border-color: rgba(214, 93, 14, 0.5);
+}
+
+.preference-custom {
+  display: none;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(214, 93, 14, 0.15);
+  margin-top: 1rem;
+}
+
+.preference-custom.active {
+  display: block;
+}
+
+/* Calendar and Time Picker */
+.schedule-picker {
+  display: none;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(214, 93, 14, 0.2);
+}
+
+.schedule-picker.active {
+  display: block;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.day-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #09131c;
+  margin-bottom: 1rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #09131c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.calendar-day:hover {
+  background: rgba(214, 93, 14, 0.1);
+  border-color: rgba(214, 93, 14, 0.4);
+  transform: translateY(-1px);
+}
+
+.calendar-day.selected {
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(214, 93, 14, 0.3);
+}
+
+.calendar-day.header {
+  background: transparent;
+  border: none;
+  color: rgba(9, 19, 28, 0.6);
+  font-size: 0.75rem;
+  cursor: default;
+  font-weight: 500;
+}
+
+.calendar-day.header:hover {
+  transform: none;
+}
+
+.time-picker {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-scroll-container {
+  height: 220px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  border: 1.5px solid rgba(148, 163, 184, 0.3);
+  padding: 0.5rem 0;
+  scroll-snap-type: y mandatory;
+  position: relative;
+}
+
+.time-scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.time-scroll-container::-webkit-scrollbar-track {
+  background: rgba(214, 93, 14, 0.1);
+  border-radius: 4px;
+}
+
+.time-scroll-container::-webkit-scrollbar-thumb {
+  background: rgba(214, 93, 14, 0.4);
+  border-radius: 4px;
+}
+
+.time-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(214, 93, 14, 0.6);
+}
+
+.time-option {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(9, 19, 28, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  scroll-snap-align: center;
+}
+
+.time-option:hover {
+  background: rgba(214, 93, 14, 0.1);
+  color: #09131c;
+}
+
+.time-option.selected {
+  background: linear-gradient(135deg, rgba(214, 93, 14, 0.15), rgba(231, 138, 61, 0.15));
+  color: #d65d0e;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.schedule-summary {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #09131c;
+}
+
+.schedule-summary strong {
+  color: #d65d0e;
+  font-weight: 600;
+}
+
 /* Submit Button */
 .submit-btn {
   width: 100%;
@@ -323,6 +532,21 @@ body {
   .nav {
     display: none;
   }
+  
+  .preference-default {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .calendar-day {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -345,8 +569,7 @@ body {
       <span class="logo-text">ScoutVista</span>
     </a>
     <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="index.html#industries">Industries</a>
+      <a href="index.html#showcase">Intelligence</a>
       <a href="signup.html" class="nav-active">Get Started</a>
     </nav>
   </div>
@@ -358,7 +581,7 @@ body {
 
       <div class="signup-header">
         <h1>Create Your Personalised ScoutVista Feed</h1>
-        <p>Tell us a little about what you need — and we'll tailor insights just for you.</p>
+        <p>Tell us a little about what you need—and we'll tailor insights just for you.</p>
       </div>
 
       <div class="form-card">
@@ -452,24 +675,115 @@ body {
             ></textarea>
           </div>
 
-          <!-- DELIVERY -->
+          <!-- DELIVERY PREFERENCES -->
           <div class="form-group">
-            <label>How often should we email your insights?</label>
-            <div class="chips" id="deliveryChips">
-              <div class="chip">Daily</div>
-              <div class="chip">Weekly</div>
+            <label>Email delivery preferences</label>
+            
+            <div class="preference-default">
+              <div class="preference-default-text">
+                <span class="preference-default-label">Default: Weekly digest at 9:00am</span>
+                <span class="preference-default-value">Receive your intelligence every Monday morning</span>
+              </div>
+              <button type="button" class="preference-change-btn" id="changePreferenceBtn">
+                Customise
+              </button>
             </div>
-          </div>
 
-          <!-- TIME -->
-          <div class="form-group">
-            <label>Preferred delivery time (24h)</label>
-            <input
-              type="time"
-              class="form-input"
-              id="deliveryTime"
-              value="09:00"
-            />
+            <div class="preference-custom" id="customPreferences">
+              <!-- DELIVERY FREQUENCY -->
+              <div style="margin-bottom: 1.5rem;">
+                <label style="font-size: 0.9rem; margin-bottom: 0.5rem;">How often should we email your insights?</label>
+                <div class="chips" id="deliveryChips">
+                  <div class="chip" data-frequency="daily">Daily</div>
+                  <div class="chip selected" data-frequency="weekly">Weekly</div>
+                </div>
+              </div>
+
+              <!-- SCHEDULE PICKER (Day & Time) -->
+              <div class="schedule-picker active" id="schedulePicker">
+                <div class="schedule-grid">
+                  <!-- DAY PICKER -->
+                  <div class="day-picker">
+                    <div class="picker-label">Choose your day</div>
+                    <div class="calendar-grid">
+                      <div class="calendar-day header">M</div>
+                      <div class="calendar-day header">T</div>
+                      <div class="calendar-day header">W</div>
+                      <div class="calendar-day header">T</div>
+                      <div class="calendar-day header">F</div>
+                      <div class="calendar-day header">S</div>
+                      <div class="calendar-day header">S</div>
+                      
+                      <div class="calendar-day selected" data-day="monday">Mon</div>
+                      <div class="calendar-day" data-day="tuesday">Tue</div>
+                      <div class="calendar-day" data-day="wednesday">Wed</div>
+                      <div class="calendar-day" data-day="thursday">Thu</div>
+                      <div class="calendar-day" data-day="friday">Fri</div>
+                      <div class="calendar-day" data-day="saturday">Sat</div>
+                      <div class="calendar-day" data-day="sunday">Sun</div>
+                    </div>
+                  </div>
+
+                  <!-- TIME PICKER -->
+                  <div class="time-picker">
+                    <div class="picker-label">Choose your time</div>
+                    <div class="time-scroll-container" id="timeScroll">
+                      <div class="time-option" data-time="06:00">06:00</div>
+                      <div class="time-option" data-time="07:00">07:00</div>
+                      <div class="time-option" data-time="08:00">08:00</div>
+                      <div class="time-option selected" data-time="09:00">09:00</div>
+                      <div class="time-option" data-time="10:00">10:00</div>
+                      <div class="time-option" data-time="11:00">11:00</div>
+                      <div class="time-option" data-time="12:00">12:00</div>
+                      <div class="time-option" data-time="13:00">13:00</div>
+                      <div class="time-option" data-time="14:00">14:00</div>
+                      <div class="time-option" data-time="15:00">15:00</div>
+                      <div class="time-option" data-time="16:00">16:00</div>
+                      <div class="time-option" data-time="17:00">17:00</div>
+                      <div class="time-option" data-time="18:00">18:00</div>
+                      <div class="time-option" data-time="19:00">19:00</div>
+                      <div class="time-option" data-time="20:00">20:00</div>
+                      <div class="time-option" data-time="21:00">21:00</div>
+                      <div class="time-option" data-time="22:00">22:00</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- SCHEDULE SUMMARY -->
+                <div class="schedule-summary" id="scheduleSummary">
+                  Your digest will arrive every <strong>Monday at 09:00</strong>
+                </div>
+              </div>
+
+              <!-- DAILY TIME PICKER (hidden by default) -->
+              <div class="schedule-picker" id="dailyTimePicker">
+                <div class="time-picker">
+                  <div class="picker-label">Choose your time</div>
+                  <div class="time-scroll-container" id="dailyTimeScroll">
+                    <div class="time-option" data-time="06:00">06:00</div>
+                    <div class="time-option" data-time="07:00">07:00</div>
+                    <div class="time-option" data-time="08:00">08:00</div>
+                    <div class="time-option selected" data-time="09:00">09:00</div>
+                    <div class="time-option" data-time="10:00">10:00</div>
+                    <div class="time-option" data-time="11:00">11:00</div>
+                    <div class="time-option" data-time="12:00">12:00</div>
+                    <div class="time-option" data-time="13:00">13:00</div>
+                    <div class="time-option" data-time="14:00">14:00</div>
+                    <div class="time-option" data-time="15:00">15:00</div>
+                    <div class="time-option" data-time="16:00">16:00</div>
+                    <div class="time-option" data-time="17:00">17:00</div>
+                    <div class="time-option" data-time="18:00">18:00</div>
+                    <div class="time-option" data-time="19:00">19:00</div>
+                    <div class="time-option" data-time="20:00">20:00</div>
+                    <div class="time-option" data-time="21:00">21:00</div>
+                    <div class="time-option" data-time="22:00">22:00</div>
+                  </div>
+                </div>
+                <div class="schedule-summary" id="dailySummary">
+                  Your digest will arrive every day at <strong>09:00</strong>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- EMAIL -->
@@ -516,15 +830,103 @@ body {
 </footer>
 
 <script>
+// State
+let selectedDay = 'monday';
+let selectedTime = '09:00';
+let isWeekly = true;
+
 // Chip toggle
 document.querySelectorAll('.chip').forEach(chip => {
   chip.addEventListener('click', () => {
     const parent = chip.parentElement;
+    
+    // Handle delivery frequency chips
     if (parent.id === "deliveryChips") {
       parent.querySelectorAll('.chip').forEach(c => c.classList.remove('selected'));
+      chip.classList.add('selected');
+      
+      const frequency = chip.dataset.frequency;
+      isWeekly = frequency === 'weekly';
+      
+      // Toggle schedule pickers
+      document.getElementById('schedulePicker').classList.toggle('active', isWeekly);
+      document.getElementById('dailyTimePicker').classList.toggle('active', !isWeekly);
+      
+      updateScheduleSummary();
+    } else {
+      chip.classList.toggle('selected');
     }
-    chip.classList.toggle('selected');
   });
+});
+
+// Customise preferences toggle
+document.getElementById('changePreferenceBtn').addEventListener('click', () => {
+  const customSection = document.getElementById('customPreferences');
+  const btn = document.getElementById('changePreferenceBtn');
+  
+  if (customSection.classList.contains('active')) {
+    customSection.classList.remove('active');
+    btn.textContent = 'Customise';
+  } else {
+    customSection.classList.add('active');
+    btn.textContent = 'Use defaults';
+  }
+});
+
+// Calendar day selection
+document.querySelectorAll('.calendar-day[data-day]').forEach(day => {
+  day.addEventListener('click', () => {
+    document.querySelectorAll('.calendar-day[data-day]').forEach(d => d.classList.remove('selected'));
+    day.classList.add('selected');
+    selectedDay = day.dataset.day;
+    updateScheduleSummary();
+  });
+});
+
+// Time selection (weekly)
+document.querySelectorAll('#timeScroll .time-option').forEach(time => {
+  time.addEventListener('click', () => {
+    document.querySelectorAll('#timeScroll .time-option').forEach(t => t.classList.remove('selected'));
+    time.classList.add('selected');
+    selectedTime = time.dataset.time;
+    updateScheduleSummary();
+    
+    // Scroll to center
+    time.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+
+// Time selection (daily)
+document.querySelectorAll('#dailyTimeScroll .time-option').forEach(time => {
+  time.addEventListener('click', () => {
+    document.querySelectorAll('#dailyTimeScroll .time-option').forEach(t => t.classList.remove('selected'));
+    time.classList.add('selected');
+    selectedTime = time.dataset.time;
+    updateDailySummary();
+    
+    // Scroll to center
+    time.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+});
+
+// Update schedule summary
+function updateScheduleSummary() {
+  const dayName = selectedDay.charAt(0).toUpperCase() + selectedDay.slice(1);
+  document.getElementById('scheduleSummary').innerHTML = 
+    `Your digest will arrive every <strong>${dayName} at ${selectedTime}</strong>`;
+}
+
+function updateDailySummary() {
+  document.getElementById('dailySummary').innerHTML = 
+    `Your digest will arrive every day at <strong>${selectedTime}</strong>`;
+}
+
+// Scroll selected time into view on load
+window.addEventListener('load', () => {
+  const selectedWeeklyTime = document.querySelector('#timeScroll .time-option.selected');
+  if (selectedWeeklyTime) {
+    selectedWeeklyTime.scrollIntoView({ block: 'center' });
+  }
 });
 </script>
 
