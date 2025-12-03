@@ -489,6 +489,86 @@ body {
   color: #10b981;
 }
 
+.feedback-section {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(214, 93, 14, 0.15);
+}
+
+.feedback-header {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(9, 19, 28, 0.6);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.feedback-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(9, 19, 28, 0.1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex: 1;
+  max-width: 120px;
+}
+
+.feedback-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 98, 112, 0.12);
+}
+
+.feedback-love {
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.feedback-love:hover {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.feedback-useful {
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.feedback-useful:hover {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.feedback-not-useful {
+  border-color: rgba(156, 163, 175, 0.25);
+}
+
+.feedback-not-useful:hover {
+  background: rgba(156, 163, 175, 0.08);
+  border-color: rgba(156, 163, 175, 0.4);
+}
+
+.feedback-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.feedback-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #09131c;
+  line-height: 1.2;
+}
+
 .email-navigation {
   display: flex;
   align-items: center;
@@ -547,60 +627,118 @@ body {
 }
 
 /* ===========================
-   INDUSTRIES SECTION
+   INDUSTRY SCROLL WHEEL (IN EMAIL SHOWCASE)
 =========================== */
-.industries {
-  background: #f8f9fa;
-  padding: 100px 0;
+.industry-scroll-container {
+  margin: 50px 0 60px 0;
+  position: relative;
+  padding: 0 50px;
 }
 
-.industries-intro {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.industries-intro h2 {
-  font-size: 42px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  color: #09131c;
-}
-
-.industries-intro p {
-  font-size: 18px;
-  color: rgba(9, 19, 28, 0.6);
-  margin-bottom: 32px;
-}
-
-.industry-tabs {
+.industry-scroll-wheel {
   display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 10px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 93, 14, 0.3) rgba(214, 93, 14, 0.1);
+}
+
+.industry-scroll-wheel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.industry-scroll-wheel::-webkit-scrollbar-track {
+  background: rgba(214, 93, 14, 0.1);
+  border-radius: 4px;
+}
+
+.industry-scroll-wheel::-webkit-scrollbar-thumb {
+  background: rgba(214, 93, 14, 0.3);
+  border-radius: 4px;
+}
+
+.industry-scroll-wheel::-webkit-scrollbar-thumb:hover {
+  background: rgba(214, 93, 14, 0.5);
+}
+
+.industry-card-btn {
+  min-width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 12px;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.industry-tab {
-  padding: 10px 20px;
-  background: #ffffff;
-  border: 1px solid rgba(9, 19, 28, 0.1);
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(9, 19, 28, 0.7);
+  padding: 20px 24px;
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
+  border: 2px solid rgba(214, 93, 14, 0.2);
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(15, 98, 112, 0.1);
 }
 
-.industry-tab:hover {
-  border-color: rgba(214, 93, 14, 0.3);
-  background: rgba(214, 93, 14, 0.05);
+.industry-card-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(214, 93, 14, 0.4);
+  box-shadow: 0 8px 20px rgba(15, 98, 112, 0.15);
 }
 
-.industry-tab.active {
+.industry-card-btn.active {
   background: linear-gradient(135deg, #d65d0e, #e78a3d);
-  color: #ffffff;
   border-color: transparent;
+  box-shadow: 0 8px 24px rgba(214, 93, 14, 0.3);
+}
+
+.industry-name {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #09131c;
+  transition: color 0.3s ease;
+  line-height: 1.4;
+}
+
+.industry-card-btn.active .industry-name {
+  color: #ffffff;
+}
+
+.industry-scroll-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 250, 246, 0.95);
+  border: 2px solid rgba(214, 93, 14, 0.3);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: rgba(214, 93, 14, 0.8);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(15, 98, 112, 0.15);
+}
+
+.industry-scroll-arrow:hover {
+  background: rgba(214, 93, 14, 0.1);
+  border-color: rgba(214, 93, 14, 0.5);
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 6px 16px rgba(15, 98, 112, 0.2);
+}
+
+.industry-scroll-left {
+  left: -22px;
+}
+
+.industry-scroll-right {
+  right: -22px;
 }
 
 .industry-content {
@@ -866,35 +1004,69 @@ body {
   </div>
 </section>
 
-<!-- INDUSTRIES SECTION (MOVED UP) -->
-<section id="industries" class="industries">
-  <div class="page-container">
-    <div class="industries-intro">
-      <h2>Trusted across industries</h2>
-      <p>Select your industry to see relevant intelligence</p>
-      
-      <div class="all-industries-link">
-        <a href="#all-industries">View all 12 industries →</a>
-      </div>
-      
-      <div class="industry-tabs">
-        <button class="industry-tab active" data-industry="0">Recruitment & Executive Search</button>
-        <button class="industry-tab" data-industry="1">Private Equity & VC</button>
-        <button class="industry-tab" data-industry="2">Public Sector</button>
-        <button class="industry-tab" data-industry="3">Consulting</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EMAIL SHOWCASE SECTION -->
+<!-- EMAIL SHOWCASE SECTION WITH INDUSTRY SELECTOR -->
 <section id="showcase" class="email-showcase">
   <div class="page-container">
     <div class="showcase-header">
-      <h2>See what lands in your inbox</h2>
-      <p>Real intelligence. Real impact. Delivered on your terms.</p>
+      <h2>Intelligence for your industry</h2>
+      <p>Select an industry to see relevant insights</p>
     </div>
     
+    <!-- Industry Scroll Wheel -->
+    <div class="industry-scroll-container">
+      <button class="industry-scroll-arrow industry-scroll-left" id="scrollLeft">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      
+      <div class="industry-scroll-wheel">
+        <button class="industry-card-btn active" data-industry="0">
+          <span class="industry-name">Recruitment & Executive Search</span>
+        </button>
+        <button class="industry-card-btn" data-industry="1">
+          <span class="industry-name">Private Equity & VC</span>
+        </button>
+        <button class="industry-card-btn" data-industry="2">
+          <span class="industry-name">Public Sector</span>
+        </button>
+        <button class="industry-card-btn" data-industry="3">
+          <span class="industry-name">Consulting</span>
+        </button>
+        <button class="industry-card-btn" data-industry="4">
+          <span class="industry-name">Higher Education</span>
+        </button>
+        <button class="industry-card-btn" data-industry="5">
+          <span class="industry-name">Pharma & Biotech</span>
+        </button>
+        <button class="industry-card-btn" data-industry="6">
+          <span class="industry-name">Infrastructure</span>
+        </button>
+        <button class="industry-card-btn" data-industry="7">
+          <span class="industry-name">Corporate Strategy</span>
+        </button>
+        <button class="industry-card-btn" data-industry="8">
+          <span class="industry-name">Professional Services</span>
+        </button>
+        <button class="industry-card-btn" data-industry="9">
+          <span class="industry-name">Non-Profits</span>
+        </button>
+        <button class="industry-card-btn" data-industry="10">
+          <span class="industry-name">Founders</span>
+        </button>
+        <button class="industry-card-btn" data-industry="11">
+          <span class="industry-name">Journalism</span>
+        </button>
+      </div>
+      
+      <button class="industry-scroll-arrow industry-scroll-right" id="scrollRight">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    
+    <!-- Email Preview -->
     <div class="email-demo-container">
       <div class="email-window">
         <div class="email-body" id="email-content">
@@ -914,6 +1086,14 @@ body {
           <span class="indicator" data-industry="1"></span>
           <span class="indicator" data-industry="2"></span>
           <span class="indicator" data-industry="3"></span>
+          <span class="indicator" data-industry="4"></span>
+          <span class="indicator" data-industry="5"></span>
+          <span class="indicator" data-industry="6"></span>
+          <span class="indicator" data-industry="7"></span>
+          <span class="indicator" data-industry="8"></span>
+          <span class="indicator" data-industry="9"></span>
+          <span class="indicator" data-industry="10"></span>
+          <span class="indicator" data-industry="11"></span>
         </div>
         
         <button class="nav-arrow nav-next" id="nextEmail">
@@ -996,6 +1176,102 @@ const emailExamples = [
     context: "Restructures create immediate demand for org design, strategy alignment, and change management support—typically 3-6 month engagements.",
     action: "You're connected to Tim Ashworth who now leads the new AI & Cyber division.",
     contact: "Congratulate Tim on leading the new division. Offer a brief chat about org design challenges in new divisions—this positions you as the consultant when needs arise."
+  },
+  {
+    industry: "HIGHER EDUCATION",
+    industryColor: "#8b5cf6",
+    title: "Oxford announces new AI Research Institute",
+    details: [
+      "£120M investment over 5 years",
+      "Recruiting founding team (10 senior researchers + Director)"
+    ],
+    context: "New research institutes create demand for senior academic talent and partnership opportunities. Founding teams shape institutional direction for decades.",
+    action: "You're connected to Prof. David Clarke who sits on the advisory board.",
+    contact: "Reach out to David about the institute's hiring priorities. Academic networks move slowly but relationships built early become invaluable."
+  },
+  {
+    industry: "PHARMA & BIOTECH",
+    industryColor: "#ec4899",
+    title: "AstraZeneca Phase III trial shows promising results",
+    details: [
+      "Oncology drug candidate beats primary endpoints",
+      "Regulatory submission expected Q2 2025"
+    ],
+    context: "Successful Phase III trials trigger commercialization planning. Companies need market access teams, regulatory affairs specialists, and launch preparation support.",
+    action: "You're connected to Dr. Rachel Kim (VP Clinical Development) at AstraZeneca.",
+    contact: "Congratulate Rachel on the trial results. Ask about commercialization timeline—your regulatory affairs expertise may be relevant as they prepare for submission."
+  },
+  {
+    industry: "INFRASTRUCTURE",
+    industryColor: "#f59e0b",
+    title: "HS2 announces new delivery partner framework",
+    details: [
+      "£2.5B infrastructure package",
+      "Focus on northern sections and station development"
+    ],
+    context: "Major infrastructure programmes create years of consulting, engineering, and project management opportunities. Early contractor relationships matter.",
+    action: "You're connected to Michael Foster (Programme Director) at HS2.",
+    contact: "Reach out to Michael about the framework. Your civil engineering network includes several firms likely bidding—understanding priorities helps position them effectively."
+  },
+  {
+    industry: "CORPORATE STRATEGY",
+    industryColor: "#3b82f6",
+    title: "Unilever announces portfolio review",
+    details: [
+      "Evaluating 15 brands for potential divestment",
+      "Focus on sustainable living and health & wellbeing"
+    ],
+    context: "Portfolio reviews signal M&A activity and strategic consulting needs. Companies need external perspectives on valuation, market positioning, and buyer identification.",
+    action: "You're connected to Jennifer Walsh (Chief Strategy Officer) at Unilever.",
+    contact: "Reach out to Jennifer about the portfolio review. Offer to share perspectives on market dynamics for the categories under evaluation."
+  },
+  {
+    industry: "PROFESSIONAL SERVICES",
+    industryColor: "#06b6d4",
+    title: "KPMG expands ESG advisory practice",
+    details: [
+      "Hiring 200 sustainability consultants across Europe",
+      "New carbon accounting and reporting capability"
+    ],
+    context: "Professional services firms scaling new practices need senior hires and specialist expertise. Growth creates opportunities for both talent placement and partnership.",
+    action: "You're connected to Andrew Chen (Partner, ESG Advisory) at KPMG.",
+    contact: "Congratulate Andrew on the expansion. Your sustainability network includes several carbon accounting specialists—understanding their hiring criteria helps match the right people."
+  },
+  {
+    industry: "NON-PROFITS",
+    industryColor: "#ef4444",
+    title: "Global Fund announces £3B climate adaptation grants",
+    details: [
+      "Focus on Sub-Saharan Africa and South Asia",
+      "Application deadline March 2025"
+    ],
+    context: "Major grant programmes create funding opportunities for aligned organizations. Early awareness allows time to build consortium partnerships and strengthen applications.",
+    action: "You're connected to Maria Santos (Regional Director, Africa) at Global Fund.",
+    contact: "Reach out to Maria about the grant programme. Ask about priority themes and assessment criteria—this helps your organization or partners craft stronger proposals."
+  },
+  {
+    industry: "FOUNDERS",
+    industryColor: "#10b981",
+    title: "Former Stripe VP launches fintech startup",
+    details: [
+      "£8M seed round from Index and Accel",
+      "Building embedded payments infrastructure"
+    ],
+    context: "Well-funded founder-led startups create opportunities for early employees, advisors, and service providers. Founder networks are tight and move on warm introductions.",
+    action: "You're connected to Tom Richards (Founder/CEO) through 3 mutual connections.",
+    contact: "Send congratulations on the launch and seed funding. Reference your payment infrastructure experience—early-stage founders value operators who've built similar systems."
+  },
+  {
+    industry: "JOURNALISM",
+    industryColor: "#6366f1",
+    title: "Guardian launches investigative climate unit",
+    details: [
+      "5-person team focusing on corporate climate accountability",
+      "Hiring data journalists and investigative reporters"
+    ],
+    context: "New editorial units need sources, data access, and expert networks. Building relationships with journalists creates opportunities to shape coverage and provide context.",
+    action: "You're connected to Sarah Thompson (Environment Editor) at Guardian.",
+    contact: "Reach out to Sarah about the new unit. Offer to connect her team with climate data sources and corporate sustainability experts in your network."
   }
 ];
 
@@ -1041,6 +1317,24 @@ function renderEmail(index) {
           <div class="action-contact">${email.contact}</div>
         </div>
       </div>
+      
+      <div class="feedback-section">
+        <div class="feedback-header">Help us personalise your intelligence</div>
+        <div class="feedback-buttons">
+          <button class="feedback-btn feedback-love">
+            <span class="feedback-icon">❤️</span>
+            <span class="feedback-label">More like this</span>
+          </button>
+          <button class="feedback-btn feedback-useful">
+            <span class="feedback-icon">👍</span>
+            <span class="feedback-label">Useful</span>
+          </button>
+          <button class="feedback-btn feedback-not-useful">
+            <span class="feedback-icon">👎</span>
+            <span class="feedback-label">Not useful</span>
+          </button>
+        </div>
+      </div>
     `;
     
     emailContent.style.opacity = '1';
@@ -1050,9 +1344,9 @@ function renderEmail(index) {
     indicator.classList.toggle('active', i === index);
   });
   
-  // Sync industry tabs with email examples
-  document.querySelectorAll('.industry-tab').forEach((tab, i) => {
-    tab.classList.toggle('active', i === index);
+  // Sync industry scroll wheel with email examples
+  document.querySelectorAll('.industry-card-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', i === index);
   });
 }
 
@@ -1068,11 +1362,19 @@ document.querySelectorAll('.indicator').forEach((indicator, index) => {
   });
 });
 
-// Industry tabs sync with email examples
-document.querySelectorAll('.industry-tab').forEach((tab, index) => {
-  tab.addEventListener('click', () => {
+// Industry scroll wheel buttons sync with email examples
+document.querySelectorAll('.industry-card-btn').forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    // Update active state
+    document.querySelectorAll('.industry-card-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    
+    // Update email
     currentEmailIndex = index;
     renderEmail(currentEmailIndex);
+    
+    // Scroll button into view
+    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
   });
 });
 
@@ -1080,14 +1382,37 @@ document.querySelectorAll('.industry-tab').forEach((tab, index) => {
 document.getElementById('prevEmail').addEventListener('click', () => {
   currentEmailIndex = (currentEmailIndex - 1 + emailExamples.length) % emailExamples.length;
   renderEmail(currentEmailIndex);
+  
+  // Update scroll wheel
+  const btn = document.querySelectorAll('.industry-card-btn')[currentEmailIndex];
+  document.querySelectorAll('.industry-card-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 });
 
 document.getElementById('nextEmail').addEventListener('click', () => {
   currentEmailIndex = (currentEmailIndex + 1) % emailExamples.length;
   renderEmail(currentEmailIndex);
+  
+  // Update scroll wheel
+  const btn = document.querySelectorAll('.industry-card-btn')[currentEmailIndex];
+  document.querySelectorAll('.industry-card-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 });
 
 renderEmail(0);
+
+// Industry scroll wheel arrow buttons
+document.getElementById('scrollLeft').addEventListener('click', () => {
+  const scrollWheel = document.querySelector('.industry-scroll-wheel');
+  scrollWheel.scrollBy({ left: -220, behavior: 'smooth' });
+});
+
+document.getElementById('scrollRight').addEventListener('click', () => {
+  const scrollWheel = document.querySelector('.industry-scroll-wheel');
+  scrollWheel.scrollBy({ left: 220, behavior: 'smooth' });
+});
 </script>
 
 </body>
