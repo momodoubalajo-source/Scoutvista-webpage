@@ -232,22 +232,27 @@ body {
   padding: 0;
 }
 
-.feature-icon {
-  width: 64px;
-  height: 64px;
+.feature-number {
+  width: 72px;
+  height: 72px;
   margin: 0 auto 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(214, 93, 14, 0.1), rgba(231, 138, 61, 0.1));
-  border: 1px solid rgba(214, 93, 14, 0.2);
-  font-size: 32px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(214, 93, 14, 0.08), rgba(231, 138, 61, 0.08));
+  border: 2px solid rgba(214, 93, 14, 0.2);
+  font-size: 28px;
+  font-weight: 700;
+  color: #d65d0e;
   transition: all 0.3s ease;
+  letter-spacing: 0.02em;
 }
 
-.feature-card:hover .feature-icon {
+.feature-card:hover .feature-number {
   transform: translateY(-4px);
+  background: linear-gradient(135deg, rgba(214, 93, 14, 0.15), rgba(231, 138, 61, 0.15));
+  border-color: rgba(214, 93, 14, 0.35);
   box-shadow: 0 8px 24px rgba(214, 93, 14, 0.2);
 }
 
@@ -951,9 +956,7 @@ body {
       <span class="logo-text">ScoutVista</span>
     </a>
     <nav class="nav">
-      <a href="#features">Features</a>
-      <a href="#showcase">See Examples</a>
-      <a href="#industries">Industries</a>
+      <a href="#showcase">Intelligence</a>
       <a href="signup.html" class="nav-cta">Get Started</a>
     </nav>
   </div>
@@ -979,26 +982,26 @@ body {
   <div class="page-container">
     <div class="section-header">
       <h2>How ScoutVista works</h2>
-      <p>Intelligence delivered on your terms</p>
+      <p>Intelligence tailored to your network</p>
     </div>
     
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">🎯</div>
-        <h3>Network-Aware Intelligence</h3>
-        <p>Surfaces opportunities where your relationships matter. Connects market signals with your actual contacts and accounts.</p>
+        <div class="feature-number">01</div>
+        <h3>Define your focus</h3>
+        <p>Tell us your industries and the signals that matter most</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Real-Time Detection</h3>
-        <p>Catch the signals that create opportunities before your competition. Early detection of leadership moves, funding, and strategic shifts.</p>
+        <div class="feature-number">02</div>
+        <h3>Connect your network</h3>
+        <p>Import your network to surface signals where you have relationships</p>
       </div>
 
       <div class="feature-card">
-        <div class="feature-icon">📬</div>
-        <h3>Delivered Your Way</h3>
-        <p>AI-powered analysis on your schedule. Choose daily or weekly digests, delivered when you need them.</p>
+        <div class="feature-number">03</div>
+        <h3>Receive intelligence</h3>
+        <p>Personalised intelligence showing your path to opportunity—delivered on your terms</p>
       </div>
     </div>
   </div>
@@ -1110,7 +1113,7 @@ body {
 <section class="cta-section">
   <div class="page-container">
     <h2>Ready to get started?</h2>
-    <p>Set up your personalized AI scout in under 5 minutes</p>
+    <p>Set up your personalised AI scout in under 5 minutes</p>
     <a href="signup.html" class="btn-secondary">Start 3-Month Free Trial</a>
   </div>
 </section>
@@ -1139,7 +1142,7 @@ const emailExamples = [
     ],
     context: "Post-funding expansion typically means 6-12 month hiring window. Senior roles fill first, creating urgency for executive search partners.",
     action: "You're connected to Emma Hickford (Senior TA Business Partner - R&D) at Novartis.",
-    contact: "Reach out to Emma about the R&D expansion—she'll know which roles are prioritized. Your 17 connections at Novartis can provide additional context on team needs."
+    contact: "Reach out to Emma about the R&D expansion—she'll know which roles are prioritised. Your 17 connections at Novartis can provide additional context on team needs."
   },
   {
     industry: "PRIVATE EQUITY & VC",
@@ -1245,9 +1248,9 @@ const emailExamples = [
       "Focus on Sub-Saharan Africa and South Asia",
       "Application deadline March 2025"
     ],
-    context: "Major grant programmes create funding opportunities for aligned organizations. Early awareness allows time to build consortium partnerships and strengthen applications.",
+    context: "Major grant programmes create funding opportunities for aligned organisations. Early awareness allows time to build consortium partnerships and strengthen applications.",
     action: "You're connected to Maria Santos (Regional Director, Africa) at Global Fund.",
-    contact: "Reach out to Maria about the grant programme. Ask about priority themes and assessment criteria—this helps your organization or partners craft stronger proposals."
+    contact: "Reach out to Maria about the grant programme. Ask about priority themes and assessment criteria—this helps your organisation or partners craft stronger proposals."
   },
   {
     industry: "FOUNDERS",
