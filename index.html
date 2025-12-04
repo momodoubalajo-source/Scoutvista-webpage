@@ -665,6 +665,7 @@ body {
 .email-body {
   min-height: 320px;
   animation: fadeIn 0.6s ease;
+  transition: opacity 0.8s ease;
 }
 
 @keyframes fadeIn {
@@ -970,7 +971,7 @@ body {
   border: 2px solid rgba(214, 93, 14, 0.2);
   border-radius: 12px;
   cursor: pointer;
-  transition: all 1s ease;
+  transition: all 30s ease;
   scroll-snap-align: start;
   box-shadow: 0 4px 12px rgba(15, 98, 112, 0.1);
 }
@@ -992,7 +993,7 @@ body {
   font-weight: 600;
   text-align: center;
   color: #09131c;
-  transition: color 1s ease;
+  transition: color 30s ease;
   line-height: 1.4;
 }
 
@@ -1116,7 +1117,7 @@ body {
   padding: 0 50px;
   opacity: 0;
   transform: translateY(-10px);
-  transition: all 1.2s ease;
+  transition: all 30s ease;
   pointer-events: none;
   max-height: 0;
   overflow: hidden;
@@ -1175,7 +1176,7 @@ body {
   border: 2px solid rgba(214, 93, 14, 0.2);
   border-radius: 12px;
   cursor: pointer;
-  transition: all 1s ease;
+  transition: all 30s ease;
   scroll-snap-align: start;
   box-shadow: 0 4px 12px rgba(15, 98, 112, 0.1);
 }
@@ -1197,7 +1198,7 @@ body {
   font-weight: 600;
   text-align: center;
   color: #09131c;
-  transition: color 1s ease;
+  transition: color 30s ease;
   line-height: 1.3;
 }
 
@@ -1764,52 +1765,52 @@ const industryRoles = {
 
 // Role-specific content variations
 const roleContent = {
-  0: { // Recruitment
-    0: { // Executive Recruiter
-      context: "Series B funding creates immediate board and C-suite hiring needs. Board searches begin 2-3 months post-funding, with 3 Non-Exec Director positions typical. CFO and VP Sales roles follow within 6 months. Early engagement critical—competitors will move fast.",
-      action: "You're connected to Sarah Chen (CEO) at Cloudreach and 2 partners at Index Ventures.",
-      contact: "Reach out to Sarah about board composition strategy. Your Index connections can facilitate warm introductions for Non-Exec Director searches. Position yourself for the CFO and VP Sales searches coming in Q2."
+  0: { // Recruitment - Novartis R&D Expansion
+    0: { // Executive Recruiter - NEW BUSINESS FOCUSED
+      context: "€150M cell therapy investments trigger executive search mandates. Decision makers (Head of R&D, Talent Acquisition Director) typically select search firms in the first 2-4 weeks post-announcement. Early conversations about search strategy and board-level hiring experience determine who wins the VP-level mandates.",
+      action: "You know Michael Foster (Head of Talent Acquisition, Novartis Global) who may be able to provide insight into the search mandate strategy for the Basel expansion.",
+      contact: "As Head of TA, Michael likely has visibility into which leadership roles will require external search support and the selection criteria for search partners. His perspective could inform your approach to securing the executive-level mandates."
     },
-    1: { // Delivery Partner
-      context: "Multiple C-suite searches represent £150K-200K in potential retained fees. Board searches (3 positions) + CFO + VP Sales = 5 concurrent placements over 6-9 months. Package these as exclusive engagement to maximize revenue and reduce competition.",
-      action: "You're connected to Sarah Chen (CEO) and James Wilson (Board Advisor).",
-      contact: "Propose a comprehensive retained search package covering all senior hires. Reference your track record: 2 CFO placements in Series B SaaS last year, 4 board placements in tech. Offer 12-month partnership rather than individual searches."
+    1: { // Delivery Partner - CANDIDATE FOCUSED
+      context: "Cell therapy expertise is concentrated in 4-5 biotech hubs globally. The talent pool for Senior Scientist → VP roles is narrow—perhaps 200-300 qualified professionals worldwide. Passive candidate mapping and biotech network intelligence are essential to identify who might relocate to Basel for the right opportunity.",
+      action: "You know Dr. Lisa Chen (Principal Scientist, Cell Therapy at Novartis) who may be able to provide insight into the technical expertise required and where similar talent can be found.",
+      contact: "As a Principal Scientist in cell therapy, Dr. Chen understands the specific technical capabilities needed and likely knows peers at competitor organizations (Gilead, BMS, Juno). Her perspective on the talent landscape could inform your candidate mapping strategy."
     }
   },
-  1: { // Private Equity
-    0: { // Investment Professional
-      context: "$50M ARR with 120% growth puts this in prime investment range. Key diligence areas: customer concentration (top 10 = 65% ARR is concerning), unit economics (need CAC:LTV >3:1), and enterprise readiness. Competition likely includes Accel, Bessemer, and Insight Partners who all invest in this space.",
-      action: "You're connected to the CFO through a mutual contact at Stripe.",
-      contact: "Move fast—request financial model, customer cohort analysis, and sales pipeline data within 48 hours. Your payments infrastructure thesis is differentiated. Schedule management meeting this week before other funds close in."
+  1: { // Private Equity & VC - Cloudreach Series B
+    0: { // Investment Professional - INVESTMENT EVALUATION FOCUSED
+      context: "Series B at $45M suggests $20-30M ARR range. Critical investment questions: burn multiple (months of runway), magic number (sales efficiency), and next 12-month hiring plan. Index + Balderton co-leading means competitive valuation—understanding if they're capacity constrained or genuinely best-in-class determines investment fit.",
+      action: "You know James Patterson (CFO at Cloudreach) who may be able to provide perspective on the company's capital efficiency and growth trajectory post-funding.",
+      contact: "As CFO, James understands the financial model, burn rate, and how the $45M will be deployed. His insights into the company's path to profitability and next-stage funding requirements could inform your investment thesis evaluation."
     },
-    1: { // Portfolio Support
-      context: "Companies at $50M ARR hit predictable operational challenges: sales org designed for SMB can't close enterprise deals, customer success team underwater, finance systems breaking. This is exactly where portfolio support adds value before problems compound.",
-      action: "You're connected to the CEO and 2 board members.",
-      contact: "Don't wait for board meeting—reach out to CEO directly this week. Offer 2-hour operational assessment call. Share specific playbook from your 3 payments companies that scaled through this stage: enterprise sales motion, CS restructuring, and finance systems upgrade."
+    1: { // Portfolio Support - OPERATIONAL VALUE-ADD FOCUSED
+      context: "Post-Series B SaaS companies need operational infrastructure: sales playbooks for enterprise motion, customer success escalation processes, and financial planning systems. Portfolio support adds value by accelerating operational maturity—typically 6-9 month engagements focusing on 2-3 high-impact areas.",
+      action: "You know Angela Rodriguez (VP Operations at Cloudreach) who may be able to provide insight into operational priorities and resource constraints post-raise.",
+      contact: "As VP Operations, Angela manages day-to-day execution and would understand where operational processes are breaking or need upgrading. Her perspective on bottlenecks could help you identify where portfolio support would be most impactful."
     }
   },
-  2: { // Consulting
-    0: { // Partner
-      context: "Portfolio reviews precede major M&A activity by 12-18 months. Strategic work happens now (portfolio strategy, brand positioning, divestiture readiness), execution later. Partners who engage early win the implementation work. Typical engagement: 3-6 months at £500K-£1M, leads to 12-month transformation at £2M+.",
-      action: "You're connected to Jennifer Walsh (Chief Strategy Officer) and the CHRO.",
-      contact: "Call Jennifer this week—don't wait for RFP. Share perspectives on sustainable living trends in FMCG (reference your work at Danone and Nestle competitors). Offer 2-hour strategy workshop to discuss portfolio optimization. Position for the larger restructuring work ahead."
+  2: { // Consulting - BAE Systems Restructure
+    0: { // Partner - MANDATE WINNING FOCUSED
+      context: "Division formations create consulting opportunities worth £3-8M over 18-24 months: strategy (operating model design), organization (structure, governance), and transformation (implementation support). Early engagement with the division leader before RFPs are issued often determines which firm wins. Decision criteria: defense sector experience and transformation track record.",
+      action: "You know David Morrison (Chief Strategy Officer at BAE Systems) who may be able to provide insight into the strategic rationale for the AI & Cyber division and external consulting needs.",
+      contact: "As CSO, David likely shaped the division strategy and would understand the operating model challenges that require external support. His perspective on BAE's consulting partner selection criteria could inform your positioning approach."
     },
-    1: { // Consultant
-      context: "15-brand portfolio review means detailed workstream execution: financial analysis, market positioning, capability assessment, and synergy identification. Consultant-level work is analytical and intensive—3 months, £150K-£250K in fees. This creates leverage for Partners while building your expertise in FMCG.",
-      action: "You're connected to the CHRO and 2 brand presidents through your project network.",
-      contact: "Reach out to brand presidents for context on team capabilities and challenges. Understand which brands are underperforming and why. Build relationships now—when restructure starts, you'll be positioned as the person who knows the organization."
+    1: { // Consultant - DELIVERY FOCUSED
+      context: "Division stand-ups require detailed analytical work: capability assessment (which teams/assets move into new division), process mapping (workflows, decision rights, interfaces), and operating model design (P&L structure, resource allocation). These workstreams produce the blueprints that guide implementation—typically 4-6 months of intensive analysis.",
+      action: "You know Rebecca Walsh (Strategy Manager, Digital Intelligence at BAE Systems) who may be able to provide insight into the analytical priorities and current workstream structure.",
+      contact: "Rebecca is likely involved in the operational detail of the restructure and would understand what analytical work is being done internally versus what gaps exist. Her perspective could help you identify where external consulting support might be needed."
     }
   },
-  3: { // Pharma
-    0: { // Business Development
-      context: "Phase III success opens 6-month window for regional licensing deals before regulatory approval. APAC and LatAm territories typically available (US/EU usually retained). Partner companies move fast—MoU signed within 3 months of data, final deal within 6 months. Oncology drugs command $50M-$200M upfront plus royalties.",
-      action: "You're connected to Dr. Sarah Williams (VP Business Development) at AstraZeneca.",
-      contact: "Reach out to Sarah within 48 hours—congratulate on trial results, mention your APAC distribution infrastructure. Request call to discuss APAC partnership potential. Your established distribution network makes you attractive vs. competitors who need to build."
+  3: { // Pharma - AstraZeneca Phase III
+    0: { // Business Development - DEAL OPPORTUNITY FOCUSED
+      context: "Phase III success opens partnership discussions with regional pharma companies seeking access to promising assets. Deal structures vary: licensing (upfront + milestones + royalties), co-development (shared investment + profit split), or commercialization partnerships (territory rights). Understanding AstraZeneca's commercial strategy determines partnership viability.",
+      action: "You know Thomas Hartley (Senior Director, Business Development at AstraZeneca) who may be able to provide perspective on AstraZeneca's partnership approach for the oncology pipeline.",
+      contact: "Thomas leads BD deal execution and would understand AstraZeneca's appetite for regional partnerships versus in-house commercialization. His insights into their partnership criteria and timeline could inform whether an opportunity exists."
     },
-    1: { // Medical Affairs
-      context: "Trial data creates immediate need for KOL engagement and medical strategy. Next 3 months critical: congress abstracts, publication planning, advisory boards. KOLs engaged early become launch advocates. Medical affairs work is 6-12 month engagement leading up to approval and launch.",
-      action: "You're connected to 12 oncology KOLs across major cancer centres in Europe and US.",
-      contact: "Prepare clinical data summary and reach out to your KOL network this week. Position as early access to practice-changing data. Offer to facilitate advisory board discussion with AstraZeneca team. Your KOL relationships are valuable now—before commercial team is in market."
+    1: { // Medical Affairs - CLINICAL/MEDICAL FOCUSED
+      context: "Phase III data creates immediate medical education needs: KOL briefings on trial design and results, conference presentation planning (ASCO, ESMO abstracts due in 6-8 weeks), and peer-review manuscript development. Medical affairs teams need clinical experts who can translate data into compelling medical narratives for healthcare professionals.",
+      action: "You know Dr. Sarah Mitchell (Medical Director, Oncology at AstraZeneca) who may be able to provide perspective on the trial results' clinical significance and medical communication priorities.",
+      contact: "As Medical Director, Dr. Mitchell understands the clinical data and would be shaping the medical education strategy. Her perspective on the data's impact on treatment paradigms could inform how medical affairs support should be positioned."
     }
   }
 };
@@ -1893,7 +1894,7 @@ function renderEmail(index, roleIndex = 0) {
     `;
     
     emailContent.style.opacity = '1';
-  }, 900);
+  }, 800);
   
   document.querySelectorAll('.indicator').forEach((indicator, i) => {
     indicator.classList.toggle('active', i === index);
@@ -1939,10 +1940,11 @@ function updateRoleSelector(industryIndex, selectedRoleIndex = 0) {
   }
 }
 
-setInterval(() => {
-  currentEmailIndex = (currentEmailIndex + 1) % emailExamples.length;
-  renderEmail(currentEmailIndex, 0); // Reset to first role on auto-advance
-}, 20000);
+// Auto-rotation disabled - transitions only happen when user clicks
+// setInterval(() => {
+//   currentEmailIndex = (currentEmailIndex + 1) % emailExamples.length;
+//   renderEmail(currentEmailIndex, 0);
+// }, 20000);
 
 document.querySelectorAll('.indicator').forEach((indicator, index) => {
   indicator.addEventListener('click', () => {
