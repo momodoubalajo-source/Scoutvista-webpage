@@ -270,6 +270,294 @@ body {
 }
 
 /* ===========================
+   ROLE-BASED SHOWCASE
+=========================== */
+.role-showcase {
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
+  padding: 100px 0;
+  position: relative;
+}
+
+.role-showcase-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.role-showcase-header h2 {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  color: #09131c;
+}
+
+.role-showcase-header p {
+  font-size: 18px;
+  color: rgba(9, 19, 28, 0.6);
+}
+
+/* Industry Selector */
+.industry-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.industry-selector-btn {
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 2px solid rgba(214, 93, 14, 0.25);
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #09131c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.industry-selector-btn:hover {
+  background: rgba(214, 93, 14, 0.1);
+  border-color: rgba(214, 93, 14, 0.4);
+  transform: translateY(-2px);
+}
+
+.industry-selector-btn.active {
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 16px rgba(214, 93, 14, 0.3);
+}
+
+/* Industry Content Wrapper */
+.industry-content-wrapper {
+  position: relative;
+}
+
+.industry-content {
+  display: none;
+  animation: fadeSlideIn 0.5s ease;
+}
+
+.industry-content.active {
+  display: block;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Signal Source */
+.signal-source {
+  max-width: 750px;
+  margin: 0 auto 40px;
+  text-align: center;
+  padding: 24px 32px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(214, 93, 14, 0.2);
+}
+
+.signal-source-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.signal-source h3 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #09131c;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.signal-source p {
+  font-size: 15px;
+  color: rgba(9, 19, 28, 0.6);
+}
+
+/* Role Selector Buttons */
+.role-selector {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.role-selector-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(214, 93, 14, 0.2);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #09131c;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.role-selector-btn:hover {
+  background: rgba(214, 93, 14, 0.08);
+  border-color: rgba(214, 93, 14, 0.35);
+  transform: translateY(-1px);
+}
+
+.role-selector-btn.active {
+  background: rgba(214, 93, 14, 0.15);
+  border-color: rgba(214, 93, 14, 0.5);
+  box-shadow: 0 2px 8px rgba(214, 93, 14, 0.2);
+}
+
+.role-icon-small {
+  font-size: 18px;
+  line-height: 1;
+}
+
+/* Role Content Container */
+.role-content-single {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.role-single-card {
+  display: none;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  border: 2px solid rgba(214, 93, 14, 0.2);
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(15, 98, 112, 0.12);
+  animation: fadeSlideIn 0.4s ease;
+}
+
+.role-single-card.active {
+  display: block;
+}
+
+/* Role Card Header Large */
+.role-card-header-large {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(214, 93, 14, 0.15);
+}
+
+.role-card-icon-large {
+  font-size: 40px;
+  line-height: 1;
+}
+
+.role-card-header-large h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #09131c;
+}
+
+/* Role Insights List */
+.role-insight-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(9, 19, 28, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.role-insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.insight-item-large {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: #09131c;
+  line-height: 1.6;
+  padding: 12px 16px;
+  background: rgba(96, 165, 250, 0.08);
+  border-radius: 10px;
+  border-left: 3px solid rgba(96, 165, 250, 0.5);
+}
+
+.insight-bullet {
+  color: rgba(96, 165, 250, 0.8);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* Role Action Large */
+.role-action-large {
+  padding: 20px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 12px;
+}
+
+.action-header-large {
+  font-size: 11px;
+  font-weight: 600;
+  color: #059669;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.action-main-large {
+  font-size: 16px;
+  font-weight: 600;
+  color: #09131c;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.action-advantage-large {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(16, 185, 129, 0.12);
+  border-radius: 8px;
+}
+
+.advantage-check {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.action-advantage-large span:last-child {
+  font-size: 14px;
+  color: #09131c;
+  line-height: 1.6;
+}
+
+/* ===========================
    EMAIL SHOWCASE SECTION
 =========================== */
 .email-showcase {
@@ -682,7 +970,7 @@ body {
   border: 2px solid rgba(214, 93, 14, 0.2);
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 1s ease;
   scroll-snap-align: start;
   box-shadow: 0 4px 12px rgba(15, 98, 112, 0.1);
 }
@@ -704,7 +992,7 @@ body {
   font-weight: 600;
   text-align: center;
   color: #09131c;
-  transition: color 0.3s ease;
+  transition: color 1s ease;
   line-height: 1.4;
 }
 
@@ -725,7 +1013,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.6s ease;
   color: rgba(214, 93, 14, 0.8);
   z-index: 10;
   box-shadow: 0 4px 12px rgba(15, 98, 112, 0.15);
@@ -821,6 +1109,102 @@ body {
   box-shadow: 0 4px 12px rgba(214, 93, 14, 0.2);
 }
 
+/* Role Selector in Showcase */
+.showcase-role-selector {
+  margin: 30px 0 40px;
+  position: relative;
+  padding: 0 50px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 1.2s ease;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.showcase-role-selector.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  max-height: 200px;
+}
+
+.role-selector-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.showcase-role-buttons {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(214, 93, 14, 0.3) rgba(214, 93, 14, 0.1);
+  padding: 10px;
+}
+
+.showcase-role-buttons::-webkit-scrollbar {
+  height: 8px;
+}
+
+.showcase-role-buttons::-webkit-scrollbar-track {
+  background: rgba(214, 93, 14, 0.1);
+  border-radius: 4px;
+}
+
+.showcase-role-buttons::-webkit-scrollbar-thumb {
+  background: rgba(214, 93, 14, 0.3);
+  border-radius: 4px;
+}
+
+.showcase-role-btn {
+  min-width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: linear-gradient(145deg, #fffaf6 0%, #f4ece4 100%);
+  border: 2px solid rgba(214, 93, 14, 0.2);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 1s ease;
+  scroll-snap-align: start;
+  box-shadow: 0 4px 12px rgba(15, 98, 112, 0.1);
+}
+
+.showcase-role-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(214, 93, 14, 0.4);
+  box-shadow: 0 8px 20px rgba(15, 98, 112, 0.15);
+}
+
+.showcase-role-btn.active {
+  background: linear-gradient(135deg, #d65d0e, #e78a3d);
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(214, 93, 14, 0.3);
+}
+
+.showcase-role-name {
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  color: #09131c;
+  transition: color 1s ease;
+  line-height: 1.3;
+}
+
+.showcase-role-btn.active .showcase-role-name {
+  color: #ffffff;
+}
+
 /* ===========================
    CTA SECTION
 =========================== */
@@ -909,6 +1293,20 @@ body {
   .industry-features {
     grid-template-columns: 1fr;
   }
+  
+  .industry-selector-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+  
+  .role-selector-btn {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+  
+  .role-single-card {
+    padding: 24px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -931,7 +1329,8 @@ body {
   .section-header h2,
   .showcase-header h2,
   .industries-intro h2,
-  .cta-section h2 {
+  .cta-section h2,
+  .role-showcase-header h2 {
     font-size: 32px;
   }
   
@@ -943,6 +1342,62 @@ body {
     flex-direction: column;
     gap: 24px;
     text-align: center;
+  }
+  
+  .signal-source {
+    padding: 20px 24px;
+  }
+  
+  .signal-source h3 {
+    font-size: 18px;
+  }
+  
+  .industry-selector {
+    gap: 8px;
+  }
+  
+  .industry-selector-btn {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+  
+  .role-selector {
+    gap: 8px;
+  }
+  
+  .role-selector-btn {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+  
+  .showcase-role-btn {
+    font-size: 13px;
+    padding: 12px 20px;
+    min-width: 160px;
+  }
+  
+  .role-selector-label {
+    font-size: 12px;
+  }
+  
+  .role-icon-small {
+    font-size: 16px;
+  }
+  
+  .role-single-card {
+    padding: 20px;
+  }
+  
+  .role-card-header-large {
+    gap: 12px;
+  }
+  
+  .role-card-icon-large {
+    font-size: 32px;
+  }
+  
+  .role-card-header-large h4 {
+    font-size: 20px;
   }
 }
 </style>
@@ -1031,16 +1486,16 @@ body {
           <span class="industry-name">Private Equity & VC</span>
         </button>
         <button class="industry-card-btn" data-industry="2">
-          <span class="industry-name">Public Sector</span>
-        </button>
-        <button class="industry-card-btn" data-industry="3">
           <span class="industry-name">Consulting</span>
         </button>
+        <button class="industry-card-btn" data-industry="3">
+          <span class="industry-name">Pharma & Biotech</span>
+        </button>
         <button class="industry-card-btn" data-industry="4">
-          <span class="industry-name">Higher Education</span>
+          <span class="industry-name">Public Sector</span>
         </button>
         <button class="industry-card-btn" data-industry="5">
-          <span class="industry-name">Pharma & Biotech</span>
+          <span class="industry-name">Higher Education</span>
         </button>
         <button class="industry-card-btn" data-industry="6">
           <span class="industry-name">Infrastructure</span>
@@ -1067,6 +1522,14 @@ body {
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
       </button>
+    </div>
+    
+    <!-- Role Selector -->
+    <div class="showcase-role-selector" id="roleSelector">
+      <div class="role-selector-label">Select your role:</div>
+      <div class="showcase-role-buttons" id="roleButtons">
+        <!-- Role buttons injected by JavaScript based on industry -->
+      </div>
     </div>
     
     <!-- Email Preview -->
@@ -1157,18 +1620,6 @@ const emailExamples = [
     contact: "Send congratulations on the raise and offer to share insights from similar B2B SaaS companies at this stage. Board positions often come through direct founder relationships."
   },
   {
-    industry: "PUBLIC SECTOR",
-    industryColor: "#60a5fa",
-    title: "NHS Digital announces new procurement framework",
-    details: [
-      "£200M digital transformation programme",
-      "RFP expected Q1 2025 (cybersecurity focus)"
-    ],
-    context: "New CTOs often reshape supplier relationships in their first 90 days. Early engagement positions you ahead of formal tender process.",
-    action: "You're connected to James Patterson (CTO) who recently joined from HMRC.",
-    contact: "Congratulate James on the new role and ask about his cybersecurity priorities. Understanding his vision now helps shape your tender response later."
-  },
-  {
     industry: "CONSULTING",
     industryColor: "#34d399",
     title: "BAE Systems announces restructure of Digital Intelligence",
@@ -1181,18 +1632,6 @@ const emailExamples = [
     contact: "Congratulate Tim on leading the new division. Offer a brief chat about org design challenges in new divisions—this positions you as the consultant when needs arise."
   },
   {
-    industry: "HIGHER EDUCATION",
-    industryColor: "#8b5cf6",
-    title: "Oxford announces new AI Research Institute",
-    details: [
-      "£120M investment over 5 years",
-      "Recruiting founding team (10 senior researchers + Director)"
-    ],
-    context: "New research institutes create demand for senior academic talent and partnership opportunities. Founding teams shape institutional direction for decades.",
-    action: "You're connected to Prof. David Clarke who sits on the advisory board.",
-    contact: "Reach out to David about the institute's hiring priorities. Academic networks move slowly but relationships built early become invaluable."
-  },
-  {
     industry: "PHARMA & BIOTECH",
     industryColor: "#ec4899",
     title: "AstraZeneca Phase III trial shows promising results",
@@ -1203,6 +1642,30 @@ const emailExamples = [
     context: "Successful Phase III trials trigger commercialization planning. Companies need market access teams, regulatory affairs specialists, and launch preparation support.",
     action: "You're connected to Dr. Rachel Kim (VP Clinical Development) at AstraZeneca.",
     contact: "Congratulate Rachel on the trial results. Ask about commercialization timeline—your regulatory affairs expertise may be relevant as they prepare for submission."
+  },
+  {
+    industry: "PUBLIC SECTOR",
+    industryColor: "#60a5fa",
+    title: "NHS Digital announces new procurement framework",
+    details: [
+      "£200M digital transformation programme",
+      "RFP expected Q1 2025 (cybersecurity focus)"
+    ],
+    context: "New CTOs often reshape supplier relationships in their first 90 days. Early engagement positions you ahead of formal tender process.",
+    action: "You're connected to James Patterson (CTO) who recently joined from HMRC.",
+    contact: "Congratulate James on the new role and ask about his cybersecurity priorities. Understanding his vision now helps shape your tender response later."
+  },
+  {
+    industry: "HIGHER EDUCATION",
+    industryColor: "#8b5cf6",
+    title: "Oxford announces new AI Research Institute",
+    details: [
+      "£120M investment over 5 years",
+      "Recruiting founding team (10 senior researchers + Director)"
+    ],
+    context: "New research institutes create demand for senior academic talent and partnership opportunities. Founding teams shape institutional direction for decades.",
+    action: "You're connected to Prof. David Clarke who sits on the advisory board.",
+    contact: "Reach out to David about the institute's hiring priorities. Academic networks move slowly but relationships built early become invaluable."
   },
   {
     industry: "INFRASTRUCTURE",
@@ -1278,11 +1741,100 @@ const emailExamples = [
   }
 ];
 
+// ROLE INTEGRATION
+// Define roles for industries that have them (indices: 0=Recruitment, 1=PE/VC, 2=Consulting, 3=Pharma)
+const industryRoles = {
+  0: [ // Recruitment & Executive Search
+    { name: 'Executive Recruiter' },
+    { name: 'Delivery Partner' }
+  ],
+  1: [ // Private Equity & VC
+    { name: 'Investment Professional' },
+    { name: 'Portfolio Support' }
+  ],
+  2: [ // Consulting
+    { name: 'Partner' },
+    { name: 'Consultant' }
+  ],
+  3: [ // Pharma & Biotech
+    { name: 'Business Development' },
+    { name: 'Medical Affairs' }
+  ]
+};
+
+// Role-specific content variations
+const roleContent = {
+  0: { // Recruitment
+    0: { // Executive Recruiter
+      context: "Series B funding creates immediate board and C-suite hiring needs. Board searches begin 2-3 months post-funding, with 3 Non-Exec Director positions typical. CFO and VP Sales roles follow within 6 months. Early engagement critical—competitors will move fast.",
+      action: "You're connected to Sarah Chen (CEO) at Cloudreach and 2 partners at Index Ventures.",
+      contact: "Reach out to Sarah about board composition strategy. Your Index connections can facilitate warm introductions for Non-Exec Director searches. Position yourself for the CFO and VP Sales searches coming in Q2."
+    },
+    1: { // Delivery Partner
+      context: "Multiple C-suite searches represent £150K-200K in potential retained fees. Board searches (3 positions) + CFO + VP Sales = 5 concurrent placements over 6-9 months. Package these as exclusive engagement to maximize revenue and reduce competition.",
+      action: "You're connected to Sarah Chen (CEO) and James Wilson (Board Advisor).",
+      contact: "Propose a comprehensive retained search package covering all senior hires. Reference your track record: 2 CFO placements in Series B SaaS last year, 4 board placements in tech. Offer 12-month partnership rather than individual searches."
+    }
+  },
+  1: { // Private Equity
+    0: { // Investment Professional
+      context: "$50M ARR with 120% growth puts this in prime investment range. Key diligence areas: customer concentration (top 10 = 65% ARR is concerning), unit economics (need CAC:LTV >3:1), and enterprise readiness. Competition likely includes Accel, Bessemer, and Insight Partners who all invest in this space.",
+      action: "You're connected to the CFO through a mutual contact at Stripe.",
+      contact: "Move fast—request financial model, customer cohort analysis, and sales pipeline data within 48 hours. Your payments infrastructure thesis is differentiated. Schedule management meeting this week before other funds close in."
+    },
+    1: { // Portfolio Support
+      context: "Companies at $50M ARR hit predictable operational challenges: sales org designed for SMB can't close enterprise deals, customer success team underwater, finance systems breaking. This is exactly where portfolio support adds value before problems compound.",
+      action: "You're connected to the CEO and 2 board members.",
+      contact: "Don't wait for board meeting—reach out to CEO directly this week. Offer 2-hour operational assessment call. Share specific playbook from your 3 payments companies that scaled through this stage: enterprise sales motion, CS restructuring, and finance systems upgrade."
+    }
+  },
+  2: { // Consulting
+    0: { // Partner
+      context: "Portfolio reviews precede major M&A activity by 12-18 months. Strategic work happens now (portfolio strategy, brand positioning, divestiture readiness), execution later. Partners who engage early win the implementation work. Typical engagement: 3-6 months at £500K-£1M, leads to 12-month transformation at £2M+.",
+      action: "You're connected to Jennifer Walsh (Chief Strategy Officer) and the CHRO.",
+      contact: "Call Jennifer this week—don't wait for RFP. Share perspectives on sustainable living trends in FMCG (reference your work at Danone and Nestle competitors). Offer 2-hour strategy workshop to discuss portfolio optimization. Position for the larger restructuring work ahead."
+    },
+    1: { // Consultant
+      context: "15-brand portfolio review means detailed workstream execution: financial analysis, market positioning, capability assessment, and synergy identification. Consultant-level work is analytical and intensive—3 months, £150K-£250K in fees. This creates leverage for Partners while building your expertise in FMCG.",
+      action: "You're connected to the CHRO and 2 brand presidents through your project network.",
+      contact: "Reach out to brand presidents for context on team capabilities and challenges. Understand which brands are underperforming and why. Build relationships now—when restructure starts, you'll be positioned as the person who knows the organization."
+    }
+  },
+  3: { // Pharma
+    0: { // Business Development
+      context: "Phase III success opens 6-month window for regional licensing deals before regulatory approval. APAC and LatAm territories typically available (US/EU usually retained). Partner companies move fast—MoU signed within 3 months of data, final deal within 6 months. Oncology drugs command $50M-$200M upfront plus royalties.",
+      action: "You're connected to Dr. Sarah Williams (VP Business Development) at AstraZeneca.",
+      contact: "Reach out to Sarah within 48 hours—congratulate on trial results, mention your APAC distribution infrastructure. Request call to discuss APAC partnership potential. Your established distribution network makes you attractive vs. competitors who need to build."
+    },
+    1: { // Medical Affairs
+      context: "Trial data creates immediate need for KOL engagement and medical strategy. Next 3 months critical: congress abstracts, publication planning, advisory boards. KOLs engaged early become launch advocates. Medical affairs work is 6-12 month engagement leading up to approval and launch.",
+      action: "You're connected to 12 oncology KOLs across major cancer centres in Europe and US.",
+      contact: "Prepare clinical data summary and reach out to your KOL network this week. Position as early access to practice-changing data. Offer to facilitate advisory board discussion with AstraZeneca team. Your KOL relationships are valuable now—before commercial team is in market."
+    }
+  }
+};
+
 let currentEmailIndex = 0;
 
-function renderEmail(index) {
+let currentRoleIndex = 0;
+
+function renderEmail(index, roleIndex = 0) {
   const email = emailExamples[index];
   const emailContent = document.getElementById('email-content');
+  
+  // Update role selector
+  updateRoleSelector(index, roleIndex);
+  
+  // Get role-specific content if available
+  let context = email.context;
+  let action = email.action;
+  let contact = email.contact;
+  
+  if (roleContent[index] && roleContent[index][roleIndex]) {
+    context = roleContent[index][roleIndex].context;
+    action = roleContent[index][roleIndex].action;
+    contact = roleContent[index][roleIndex].contact;
+  }
   
   emailContent.style.opacity = '0';
   
@@ -1306,7 +1858,7 @@ function renderEmail(index) {
           <span>WHY THIS MATTERS</span>
         </div>
         <div class="context-content">
-          ${email.context}
+          ${context}
         </div>
       </div>
       
@@ -1316,8 +1868,8 @@ function renderEmail(index) {
           <span>SUGGESTED ACTIONS</span>
         </div>
         <div class="action-content">
-          ${email.action}
-          <div class="action-contact">${email.contact}</div>
+          ${action}
+          <div class="action-contact">${contact}</div>
         </div>
       </div>
       
@@ -1341,7 +1893,7 @@ function renderEmail(index) {
     `;
     
     emailContent.style.opacity = '1';
-  }, 300);
+  }, 900);
   
   document.querySelectorAll('.indicator').forEach((indicator, i) => {
     indicator.classList.toggle('active', i === index);
@@ -1351,17 +1903,51 @@ function renderEmail(index) {
   document.querySelectorAll('.industry-card-btn').forEach((btn, i) => {
     btn.classList.toggle('active', i === index);
   });
+  
+  currentEmailIndex = index;
+  currentRoleIndex = roleIndex;
+}
+
+// Update role selector based on industry
+function updateRoleSelector(industryIndex, selectedRoleIndex = 0) {
+  const roleSelector = document.getElementById('roleSelector');
+  const roleButtons = document.getElementById('roleButtons');
+  
+  // Check if this industry has roles
+  if (industryRoles[industryIndex]) {
+    // Show role selector
+    roleSelector.classList.add('visible');
+    
+    // Generate role buttons
+    const roles = industryRoles[industryIndex];
+    roleButtons.innerHTML = roles.map((role, index) => `
+      <button class="showcase-role-btn ${index === selectedRoleIndex ? 'active' : ''}" data-role="${index}">
+        <span class="showcase-role-name">${role.name}</span>
+      </button>
+    `).join('');
+    
+    // Add click handlers to role buttons
+    roleButtons.querySelectorAll('.showcase-role-btn').forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        renderEmail(industryIndex, index);
+      });
+    });
+  } else {
+    // Hide role selector for industries without roles
+    roleSelector.classList.remove('visible');
+    roleButtons.innerHTML = '';
+  }
 }
 
 setInterval(() => {
   currentEmailIndex = (currentEmailIndex + 1) % emailExamples.length;
-  renderEmail(currentEmailIndex);
+  renderEmail(currentEmailIndex, 0); // Reset to first role on auto-advance
 }, 20000);
 
 document.querySelectorAll('.indicator').forEach((indicator, index) => {
   indicator.addEventListener('click', () => {
     currentEmailIndex = index;
-    renderEmail(currentEmailIndex);
+    renderEmail(currentEmailIndex, 0); // Reset to first role
   });
 });
 
@@ -1372,9 +1958,9 @@ document.querySelectorAll('.industry-card-btn').forEach((btn, index) => {
     document.querySelectorAll('.industry-card-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     
-    // Update email
+    // Update email with first role
     currentEmailIndex = index;
-    renderEmail(currentEmailIndex);
+    renderEmail(currentEmailIndex, 0);
     
     // Scroll button into view
     btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -1384,7 +1970,7 @@ document.querySelectorAll('.industry-card-btn').forEach((btn, index) => {
 // Navigation arrow buttons
 document.getElementById('prevEmail').addEventListener('click', () => {
   currentEmailIndex = (currentEmailIndex - 1 + emailExamples.length) % emailExamples.length;
-  renderEmail(currentEmailIndex);
+  renderEmail(currentEmailIndex, 0);
   
   // Update scroll wheel
   const btn = document.querySelectorAll('.industry-card-btn')[currentEmailIndex];
@@ -1395,7 +1981,7 @@ document.getElementById('prevEmail').addEventListener('click', () => {
 
 document.getElementById('nextEmail').addEventListener('click', () => {
   currentEmailIndex = (currentEmailIndex + 1) % emailExamples.length;
-  renderEmail(currentEmailIndex);
+  renderEmail(currentEmailIndex, 0);
   
   // Update scroll wheel
   const btn = document.querySelectorAll('.industry-card-btn')[currentEmailIndex];
@@ -1404,7 +1990,7 @@ document.getElementById('nextEmail').addEventListener('click', () => {
   btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
 });
 
-renderEmail(0);
+renderEmail(0, 0);
 
 // Industry scroll wheel arrow buttons
 document.getElementById('scrollLeft').addEventListener('click', () => {
